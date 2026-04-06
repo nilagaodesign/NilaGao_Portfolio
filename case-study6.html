@@ -190,6 +190,11 @@
       align-items: start;
     }
 
+    #solution .solution-grid {
+      grid-template-columns: 1fr;
+      margin-top: 1.5rem;
+    }
+
     .solution-block ul {
       margin-bottom: 0;
     }
@@ -229,15 +234,6 @@
       display: block;
     }
 
-    .figure-box.figure-box--fit-screen img {
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      max-height: 78vh;
-      object-fit: contain;
-      margin: 0 auto;
-    }
-
     .figure-box.figure-box--fill-box {
       padding: 0;
     }
@@ -250,6 +246,62 @@
       background: transparent;
     }
 
+    .design-thinking-figure-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      margin-top: 0;
+      margin-bottom: 1.75rem;
+    }
+    .design-thinking-figure-stack .design-thinking-figure-item {
+      margin: 0;
+    }
+    .design-thinking-figure-stack .figure-box {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .design-thinking-caption {
+      margin: 0 0 0.65rem 0;
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    #solution .solution-profile-figure {
+      margin: 1.25rem 0 0;
+    }
+    #solution .solution-profile-figure .figure-box {
+      margin-top: 0;
+    }
+
+    #solution .solution-lead-text {
+      margin: 0 0 0.65rem 0;
+      font-size: inherit;
+      color: inherit;
+      line-height: 1.6;
+    }
+    #solution .solution-block .solution-lead-text + .solution-image-box {
+      margin-top: 0;
+    }
+
+    /* Match .container width so image aligns with User Testing copy */
+    .user-testing-image-align {
+      max-width: 960px;
+      margin: 1.25rem auto 0;
+      padding: 0 1.25rem;
+      box-sizing: border-box;
+    }
+    .user-testing-image-align img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container.user-testing-follow {
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+    }
+
     /* Impact metric highlight */
     .impact-metrics {
       display: grid;
@@ -258,11 +310,14 @@
       margin: 0.75rem 0 1rem;
     }
 
-    .impact-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+    #impact .impact-panel--unified {
       margin-top: 1.5rem;
+    }
+
+    #impact .impact-panel-row--follow {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     #impact .impact-metrics {
@@ -380,7 +435,7 @@
 
     .nav-left {
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       color: #1a1a1a;
     }
     .nav-left a {
@@ -397,7 +452,7 @@
     }
 
     .nav-right a {
-      font-size: 0.85rem;
+      font-size: 1rem;
       color: #555;
       text-decoration: none;
     }
@@ -425,7 +480,7 @@
   <a href="#background">Background</a>
   <a href="#design-goal">Design Thinking</a>
   <a href="#experiment">User Testing</a>
-  <a href="#final">Outcome</a>
+  <a href="#solution">Solution</a>
   <a href="#impact">Impact</a>
 </div>
 
@@ -465,27 +520,90 @@
 
   <section class="container" id="design-goal">
     <h2>Design Thinking</h2>
-    <p style="margin-bottom: 1.25rem;">
+    <p style="margin-top: 0.5rem; color: #555; font-size: 0.95rem; line-height: 1.65;">
       Channel Affinity reframed channel selection from a manual choice to a predictive routing decision. The system surfaces ranked engagement predictions so marketers can act without needing to understand the model internals.
     </p>
+    <p style="margin-top: 1rem; margin-bottom: 0.35rem; color: #555; font-size: 0.95rem; line-height: 1.65;">
+      Such that:
+    </p>
+    <ul style="margin-top: 0; margin-bottom: 1.25rem; color: #555; font-size: 0.95rem; line-height: 1.65;">
+      <li>A customer with high SMS engagement receives the offer first via text. If they don’t respond—and email is second—they get a follow-up email.</li>
+      <li>Another customer with strong push engagement gets notified through a mobile alert.</li>
+      <li>A VIP active across channels receives coordinated messages across SMS, email, and push—without overlap or fatigue.</li>
+    </ul>
 
-    <div class="figure-box figure-box--fit-screen">
-      <img src="Images/Channel affinity/Channel affinity current fustrations.png" alt="Channel Affinity current frustrations" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder" style="display:none; height:380px;">Channel Affinity current frustrations</div>
+    <div class="design-thinking-figure-stack">
+      <figure class="design-thinking-figure-item">
+        <figcaption class="design-thinking-caption"><strong>Before Channel Affinity:</strong> marketers manually configure which channel each customer gets.</figcaption>
+        <div class="figure-box figure-box--fill-box">
+          <img src="Images/Channel affinity/Channel affinity current fustrations.png" alt="Channel Affinity current frustrations" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="placeholder" style="display:none; height:380px;">Channel Affinity current frustrations</div>
+        </div>
+      </figure>
+      <figure class="design-thinking-figure-item">
+        <figcaption class="design-thinking-caption"><strong>With Channel Affinity:</strong> automated prediction of the best channel to reach each customer.</figcaption>
+        <div class="figure-box figure-box--fill-box">
+          <img src="Images/Channel affinity/Channel affinity Future visioning.png" alt="Channel Affinity future visioning" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="placeholder" style="display:none; height:380px;">Channel Affinity future visioning</div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="experiment">
+    <div class="container">
+      <h2>User Testing</h2>
+
+      <p>
+        We conducted 1:1 interviews with <strong>11 customers</strong> (SMB → Mid-Market) to learn whether they understood Channel Affinity’s mental model—and how it fits into their everyday Klaviyo workflow across segments, flows, and campaigns.
+      </p>
     </div>
 
-    <h3>Solution</h3>
+    <div class="user-testing-image-align">
+      <img src="Images/Channel affinity/Channel affinity User information.png" alt="Channel Affinity user information" onerror="this.style.display='none';">
+    </div>
+
+    <div class="container user-testing-follow">
+      <div class="testing-grid">
+        <div class="key-interactions-box">
+          <h3>Key Findings</h3>
+          <ul>
+            <li>Low conceptual understanding: Customers didn’t grasp that Channel Affinity was a prediction of engagement, not a stored preference.</li>
+            <li>Terminology confusion: “Preference” and “predicted channel” were misinterpreted as manual fields, not model outputs.</li>
+            <li>Lack of trust in the model: Users wanted more transparency into how rankings were decided.</li>
+            <li>Unclear ranking system: Labels like “top engaged” or “rank 1” felt ambiguous.</li>
+          </ul>
+        </div>
+
+        <div class="key-interactions-box">
+          <h3>Design tradeoffs</h3>
+          <ul>
+            <li>Simplicity vs. control: Beginners wanted automation (“just pick the right channel”), while advanced users wanted more control (rank + engagement logic).</li>
+            <li>Where to introduce it: Launched in Segment Builder first, aligning with existing mental models (flows added later).</li>
+            <li>Naming direction: Shifted from “preference” → “engagement” to better reflect predictive behavior.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="solution">
+    <h2>Solution</h2>
     <p>
-      Instead of manually guessing channels, marketers can route messages based on predicted engagement. The output is an <strong>Engagement Preference</strong> profile property (First / Second / Third), which marketers use in:
+      Instead of manually guessing which channel to use, Channel Affinity uses each customer’s profile to enable smarter segmentation and dynamic orchestration from ranked engagement predictions—without forcing marketers to manually manage channel routing for every customer. The output is an <strong>Engagement Preference</strong> profile property (First / Second / Third), which marketers use in:
     </p>
+
+    <figure class="solution-profile-figure">
+      <p class="solution-lead-text">Understanding profile engagement data.</p>
+      <div class="figure-box figure-box--fill-box">
+        <img src="Images/Channel affinity/Channel affinity - indivisual profile page.png" alt="Channel Affinity individual profile page" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder" style="display:none; height:380px;">Channel Affinity individual profile page</div>
+      </div>
+    </figure>
 
     <div class="solution-grid">
       <div class="solution-block">
-        <h3>Segments</h3>
-        <ul>
-          <li>Build audiences like <strong>“SMS First”</strong></li>
-          <li>Target users based on predicted channel engagement</li>
-        </ul>
+        <p class="solution-lead-text">Segmenting specific audiences based on engagement such as SMS first.</p>
         <div class="solution-image-box">
           <img src="Images/Channel affinity/Channel affinity Segment builder.png" alt="Channel Affinity Segment Builder" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="placeholder" style="display:none; height:260px;">Channel Affinity Segment Builder</div>
@@ -493,61 +611,12 @@
       </div>
 
       <div class="solution-block">
-        <h3>Flows</h3>
-        <ul>
-          <li>Route messages to the next-best channel when the first doesn’t convert</li>
-        </ul>
+        <p class="solution-lead-text">Routing flows messages to the next-best channel when the first doesn’t convert</p>
         <div class="solution-image-box">
           <img src="Images/Channel affinity/Channel affinity flows.png" alt="Channel Affinity flows" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="placeholder" style="display:none; height:260px;">Channel Affinity flows</div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="container" id="experiment">
-    <h2>User Testing</h2>
-
-    <div class="figure-box figure-box--fill-box">
-      <img src="Images/Channel affinity/Channel affinity User information.png" alt="Channel Affinity user information" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder" style="display:none; height:380px;">Channel Affinity user information</div>
-    </div>
-
-    <p>
-      We conducted 1:1 interviews with <strong>11 customers</strong> (SMB → Mid-Market) to understand how to deliver Channel Affinity in a usable way.
-    </p>
-
-    <div class="testing-grid">
-      <div class="key-interactions-box">
-        <h3>Key Findings</h3>
-        <ul>
-          <li>Low conceptual understanding: Customers didn’t grasp that Channel Affinity was a prediction of engagement, not a stored preference.</li>
-          <li>Terminology confusion: “Preference” and “predicted channel” were misinterpreted as manual fields, not model outputs.</li>
-          <li>Lack of trust in the model: Users wanted more transparency into how rankings were decided.</li>
-          <li>Unclear ranking system: Labels like “top engaged” or “rank 1” felt ambiguous.</li>
-        </ul>
-      </div>
-
-      <div class="key-interactions-box">
-        <h3>Design tradeoffs</h3>
-        <ul>
-          <li>Simplicity vs. control: Beginners wanted automation (“just pick the right channel”), while advanced users wanted more control (rank + engagement logic).</li>
-          <li>Where to introduce it: Launched in Segment Builder first, aligning with existing mental models (flows added later).</li>
-          <li>Naming direction: Shifted from “preference” → “engagement” to better reflect predictive behavior.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="container" id="final">
-    <h2>Outcome</h2>
-    <p>
-      Channel Affinity understands customer profile to enabled smarter segmentation and dynamic orchestration based on ranked engagement predictions—without forcing marketers to manually manage channel routing for every customer.
-    </p>
-
-    <div class="figure-box figure-box--fill-box">
-      <img src="Images/Channel affinity/Channel affinity - indivisual profile page.png" alt="Channel Affinity individual profile page" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder" style="display:none; height:380px;">Channel Affinity individual profile page</div>
     </div>
 
     <div class="key-interactions-box">
@@ -560,27 +629,13 @@
         <li><strong>True omnichannel orchestration:</strong> journeys adapt based on channel engagement—not rigid rules</li>
       </ul>
     </div>
-
-    <div style="margin-top: 1.5rem;">
-      <h3>Use cases</h3>
-      <ul>
-        <li>A customer with high SMS engagement receives the offer first via text. If they don’t respond—and email is second—they get a follow-up email.</li>
-        <li>Another customer with strong push engagement gets notified through a mobile alert.</li>
-        <li>A VIP active across channels receives coordinated messages across SMS, email, and push—without overlap or fatigue.</li>
-      </ul>
-
-      <div class="figure-box figure-box--fill-box" style="margin-top: 1.25rem;">
-        <img src="Images/Channel affinity/Channel affinity Future visioning.png" alt="Channel Affinity future visioning" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="placeholder" style="display:none; height:380px;">Channel Affinity future visioning</div>
-      </div>
-    </div>
   </section>
 
   <section class="container" id="impact">
     <h2>Impact</h2>
 
-    <div class="impact-stack">
-      <div class="final-col impact-panel">
+    <div class="impact-panel impact-panel--unified">
+      <div class="impact-panel-row">
         <h3>Engagement lift</h3>
         <div class="impact-metrics">
           <div class="impact-metric">
@@ -602,7 +657,7 @@
         </div>
       </div>
 
-      <div class="final-col impact-panel">
+      <div class="impact-panel-row impact-panel-row--follow">
         <h3>Adoption (Feb 2026)</h3>
         <div class="impact-metrics">
           <div class="impact-metric">

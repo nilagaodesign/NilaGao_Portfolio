@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nila Gao, Experience Designer</title>
+  <title>Nila Gao, AI Designer @ Klaviyo</title>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,11 +38,11 @@
       justify-content: space-between;
       align-items: center;
     }
-    .nav-left { font-weight: 600; font-size: 0.95rem; color: #1a1a1a; }
+    .nav-left { font-weight: 600; font-size: 1.1rem; color: #1a1a1a; }
     .nav-left a { color: inherit; text-decoration: none; }
     .nav-left a:hover { opacity: 0.7; }
     .nav-right { display: flex; gap: 1.25rem; }
-    .nav-right a { font-size: 0.85rem; color: #555; text-decoration: none; }
+    .nav-right a { font-size: 1rem; color: #555; text-decoration: none; }
     .nav-right a:hover { color: #1a1a1a; }
 
     .hero { padding: 5rem 1.25rem 3rem; text-align: center; }
@@ -92,6 +92,11 @@
       background: #ffffff;
     }
 
+    /* PST cover: anchor crop to the right so the right side stays visible */
+    img.project-image.project-image--focus-right {
+      object-position: right center;
+    }
+
     .project-link:hover .project-image {
       transform: scale(1.02);
     }
@@ -100,7 +105,7 @@
       font-size: 1.25rem;
       font-weight: 600;
       line-height: 1.3;
-      margin: 0;
+      margin: 0.5rem 0 0 0;
       color: #1a1a1a;
       letter-spacing: -0.01em;
     }
@@ -114,6 +119,7 @@
     }
 
     .project-link {
+      display: block;
       text-decoration: none;
       color: inherit;
       transition: opacity 0.2s ease;
@@ -174,8 +180,8 @@
 
 <main style="padding-top: 64px;">
   <section class="hero">
-    <h1>Nila Gao, Experience Designer @ Klaviyo</h1>
-    <p>Multidisciplinary designer who combines business strategy with creative problem-solving to create enjoyable digital experiences.</p>
+    <h1>Nila Gao, AI Designer @ Klaviyo</h1>
+    <p>Designing AI systems that drive adoption through intuitive, data-informed experiences</p>
   </section>
 
   <section class="projects-section">
@@ -183,8 +189,8 @@
       <div class="projects-grid">
         <div class="project-item fade-in">
           <a href="case-study8.html" class="project-link">
-            <img src="Images/Homepage/PersonalizedSendTimecover.png" alt="Personalized send time" class="project-image project-image--contain project-image--white-bg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="project-image project-image--contain project-image--white-bg" style="display:none; align-items:center; justify-content:center; color:#aaa; font-size:0.9rem;">Personalized send time Preview</div>
+            <img src="Images/Homepage/PST_cover.png" alt="Personalized send time" class="project-image project-image--white-bg project-image--focus-right" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="project-image project-image--white-bg" style="display:none; align-items:center; justify-content:center; color:#aaa; font-size:0.9rem;">Personalized send time Preview</div>
           </a>
           <h4><a href="case-study8.html" class="project-link">Personalized send time</a></h4>
           <h6><a href="case-study8.html" class="project-link">Product Design, AI Personalization</a></h6>
@@ -215,15 +221,6 @@
           </a>
           <h4><a href="case-study1.html" class="project-link">Subject Line Assist</a></h4>
           <h6><a href="case-study1.html" class="project-link">Product Design, UI/UX, AI</a></h6>
-        </div>
-
-        <div class="project-item fade-in">
-          <a href="case-study2.html" class="project-link">
-            <img src="Images/Homepage/BrandvoiceCover.png" alt="Brand Voice" class="project-image project-image--white-bg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="project-image project-image--white-bg" style="display:none; align-items:center; justify-content:center; color:#aaa; font-size:0.9rem;">Brand Voice Preview</div>
-          </a>
-          <h4><a href="case-study2.html" class="project-link">Brand Voice</a></h4>
-          <h6><a href="case-study2.html" class="project-link">Product Design, UI/UX, AI, System Design</a></h6>
         </div>
 
         <div class="project-item fade-in">

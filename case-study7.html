@@ -36,10 +36,10 @@
       justify-content: space-between;
       align-items: center;
     }
-    .nav-left { font-weight: 600; font-size: 0.95rem; color: #1a1a1a; }
+    .nav-left { font-weight: 600; font-size: 1.1rem; color: #1a1a1a; }
     .nav-left a:hover { opacity: 0.7; }
     .nav-right { display: flex; gap: 1.25rem; }
-    .nav-right a { font-size: 0.85rem; color: #555; }
+    .nav-right a { font-size: 1rem; color: #555; }
     .nav-right a:hover { color: #1a1a1a; }
 
     /* Floating right nav */
@@ -375,8 +375,11 @@
 <div class="floating-nav">
   <a href="#overview">Overview</a>
   <a href="#background">Background</a>
-  <a href="#design-thinking">Design Thinking</a>
   <a href="#solution">Solution</a>
+  <a href="#design-thinking">Design Thinking</a>
+  <a href="#what-changed" title="What changed — Making optimization tangible through visual context">What changed</a>
+  <a href="#who-was-removed" title="Who was removed (Preserving user control over automation)">Who was removed</a>
+  <a href="#how-it-changed" title="How it changed — Building trust through explainability">How it changed</a>
   <a href="#impact">Impact</a>
 </div>
 
@@ -409,6 +412,16 @@
     <p>The direct user problem: "When multiple campaigns or flows could reach the same recipient, I have no way to ensure the most valuable message gets through."</p>
   </section>
 
+  <section class="container" id="solution">
+    <h2>Solution</h2>
+    <p>Audience Optimization is projected to drive $640M+ in impact, making it one of the two anchor features of the Marketing Analytics SKU alongside Personalized Send Time.</p>
+    <p>In the near term, its value shows up clearly—removing recipients likely to unsubscribe, protecting list health, and improving engagement across the remaining audience. Over time, its impact expands: identifying high-intent recipients to add back in, unlocking incremental revenue and completing the full optimization loop.</p>
+    <div class="figure-box figure-box--fill-box">
+      <video src="Images/AO/AODemoSetup.mov" controls autoplay muted loop playsinline style="width:100%; display:block; border-radius:14px; background:#000;"></video>
+      <div class="placeholder" style="display:none; height:360px;">AO Setup video</div>
+    </div>
+  </section>
+
   <section class="container" id="design-thinking">
     <h2>Design Thinking</h2>
 
@@ -422,10 +435,13 @@
         <li>What changed → Who was removed → How it changed</li>
       </ul>
     </div>
+  </section>
 
-    <div class="key-interactions-box key-interactions-box--plain">
-      <h3>1. What changed — Making optimization tangible through visual context</h3>
-      <p style="margin-top: 0.5rem; color: #555; font-size: 0.95rem; line-height: 1.65;">
+  <section class="container" id="what-changed">
+    <h2>1. What changed — Making optimization tangible through visual context</h2>
+
+    <div class="key-interactions-box key-interactions-box--plain" style="margin-top: 0.5rem;">
+      <p style="margin-top: 0; color: #555; font-size: 0.95rem; line-height: 1.65;">
         Audience Optimization is configured at the audience level but applied per message—and related controls also appear on the message and in setup, so it’s easy to lose track of what’s actually live.
       </p>
       <p style="margin-top: 0.85rem; color: #555; font-size: 0.95rem; line-height: 1.65;">
@@ -440,10 +456,13 @@
         <div class="placeholder" style="display:none; height:260px;">AO applied indicator</div>
       </div>
     </div>
+  </section>
 
-    <div class="key-interactions-box key-interactions-box--plain">
-      <h3>2. Who was removed (Preserving user control over automation)</h3>
-      <p style="margin-top: 0.5rem; color: #555; font-size: 0.95rem; line-height: 1.65;">
+  <section class="container" id="who-was-removed">
+    <h2>2. Who was removed (Preserving user control over automation)</h2>
+
+    <div class="key-interactions-box key-interactions-box--plain" style="margin-top: 0.5rem;">
+      <p style="margin-top: 0; color: #555; font-size: 0.95rem; line-height: 1.65;">
         The model does not yet understand campaign intent, so not all campaigns should be optimized the same way. Some require strict control, while others benefit from optimization.
       </p>
       <p style="margin-top: 1rem; color: #555; font-size: 0.95rem; line-height: 1.65;">
@@ -507,24 +526,17 @@
         The third option was chosen to keep customers intentional about enabling optimization today, while leaving room to transition to a default experience once the model is mature and trusted to run automatically.
       </p>
     </div>
+  </section>
 
-    <div class="key-interactions-box key-interactions-box--plain explainability-block" style="margin-top: 1.5rem;">
-      <h3>3. How it changed — Building trust through explainability</h3>
-      <p>Customers need to quickly understand if the feature is working. I partnered with <strong>Data Science</strong> to tie Audience Optimization to <strong>measurable impact</strong>—connecting model decisions to clear outcomes like profiles removed, unsubscribe rate improvement, and aggregate campaign performance—surfaced directly in the campaign view, with meaningful results (e.g., &gt;1% lift) highlighted proactively.</p>
+  <section class="container" id="how-it-changed">
+    <h2>3. How it changed — Building trust through explainability</h2>
+
+    <div class="key-interactions-box key-interactions-box--plain explainability-block" style="margin-top: 0.5rem;">
+      <p style="margin-top: 0; color: #555; font-size: 0.95rem; line-height: 1.65;">Customers need to quickly understand if the feature is working. I partnered with <strong>Data Science</strong> to tie Audience Optimization to <strong>measurable impact</strong>—connecting model decisions to clear outcomes like profiles removed, unsubscribe rate improvement, and aggregate campaign performance—surfaced directly in the campaign view, with meaningful results (e.g., &gt;1% lift) highlighted proactively.</p>
       <div class="figure-box figure-box--fill-box">
         <img src="Images/AO/AO_profiles removed_Reporting.png" alt="AO post-send reporting: profiles removed and aggregate impact" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
         <div class="placeholder" style="display:none; height:360px;">AO reporting</div>
       </div>
-    </div>
-  </section>
-
-  <section class="container" id="solution">
-    <h2>Solution</h2>
-    <p>Audience Optimization is projected to drive $640M+ in impact, making it one of the two anchor features of the Marketing Analytics SKU alongside Personalized Send Time.</p>
-    <p>In the near term, its value shows up clearly—removing recipients likely to unsubscribe, protecting list health, and improving engagement across the remaining audience. Over time, its impact expands: identifying high-intent recipients to add back in, unlocking incremental revenue and completing the full optimization loop.</p>
-    <div class="figure-box figure-box--fill-box">
-      <video src="Images/AO/AODemoSetup.mov" controls autoplay muted loop playsinline style="width:100%; display:block; border-radius:14px; background:#000;"></video>
-      <div class="placeholder" style="display:none; height:360px;">AO Setup video</div>
     </div>
   </section>
 
