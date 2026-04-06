@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>People's Vertex – Case Study</title>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.6;
+      background: #ffffff;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 960px; margin: 0 auto; padding: 1.5rem 1.25rem; }
+
+    /* Top navigation */
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(6px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .top-nav.hidden {
+      transform: translateY(-100%);
+    }
+
+    .top-nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-left { font-weight: 600; font-size: 0.95rem; color: #1a1a1a; }
+    .nav-left a { color: inherit; text-decoration: none; }
+    .nav-left a:hover { opacity: 0.7; }
+    .nav-right { display: flex; gap: 1.25rem; }
+    .nav-right a { font-size: 0.85rem; color: #555; text-decoration: none; }
+    .nav-right a:hover { color: #111; }
+
+    /* Floating right nav */
+    .floating-nav {
+      position: fixed;
+      right: 32px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 20;
+    }
+    .floating-nav a {
+      font-size: 0.85rem;
+      color: #777;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.04);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .floating-nav a:hover { background: rgba(0,0,0,0.08); color: #111; }
+
+    .hero { padding: 5rem 1.25rem 3rem; text-align: center; }
+    .hero h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+    .hero p { font-size: 1.1rem; color: #555; max-width: 720px; margin: 0 auto; }
+
+    section { padding: 2rem 0; border-top: 1px solid #f0f0f0; }
+    section#background {
+      background: #fafafa;
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      margin: 2.5rem auto;
+    }
+
+    h2 { font-size: 1.6rem; margin-bottom: 0.8rem; font-weight: 600; letter-spacing: -0.01em; }
+    h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+
+    /* Spacing for Background subsections */
+    #background h3 {
+      margin-top: 1.75rem;
+    }
+
+    .concept-heading { margin-top: 2rem; }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .placeholder {
+      background: #f4f4f4;
+      border-radius: 12px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem;
+      border: 1px solid #eee;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 1.25rem 0;
+    }
+
+    ul { margin-left: 1rem; margin-top: 0.8rem; }
+
+    #impact > .final-columns > div > ul li {
+      margin: 0.35rem 0;
+    }
+    li { margin: 0.35rem 0; }
+    .metric { font-weight: 600; }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .key-insight {
+      margin-top: 0.75rem;
+      padding: 1.5rem 1.75rem;
+      background: #f7f7f7;
+      border-left: 3px solid #ddd;
+      border-radius: 12px;
+    }
+
+    .final-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .impact-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 0.75rem 0 1rem;
+    }
+
+    .impact-metric {
+      padding: 1rem 1.25rem;
+      border: 1px solid #e5e5e5;
+      border-radius: 14px;
+      background: #fafafa;
+    }
+
+    .impact-value {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .impact-label { font-size: 0.85rem; color: #555; }
+
+    #impact .closing-columns h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    #impact .closing-columns ul li,
+    #impact .closing-columns p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    footer {
+      border-top: 1px solid #e5e5e5;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    @media (max-width: 900px) {
+      .floating-nav, .nav-right { display: none; }
+      .final-columns, .impact-metrics, .process { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <div class="nav-left"><a href="index.html">Nila Gao</a></div>
+    <nav class="nav-right">
+      <a href="index.html">Projects</a>
+      <a href="playground.html">Playground</a>
+      <a href="about.html">About Me</a>
+      <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit?usp=sharing&ouid=105507303957903473500&rtpof=true&sd=true" target="_blank">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<div class="floating-nav">
+  <a href="#overview">Overview</a>
+  <a href="#background">Challenge</a>
+  <a href="#design-goal">Research</a>
+  <a href="#final">Final Design</a>
+  <a href="#impact">Reflections</a>
+</div>
+
+<section class="hero" id="overview">
+  <h1>People's Vertex</h1>
+</section>
+
+<section class="container">
+  <img src="Images/Peoplesvertex/headingimage.avif" alt="People's Vertex Cover" style="width: 100%; border-radius: 12px; margin: 1.25rem 0;" onerror="this.style.display='none';">
+</section>
+
+<section class="container" id="intro">
+  <p>
+    This semester, the team worked on a project for New Sun Rising (NSR), a Pittsburgh nonprofit that creates equitable and vibrant communities through funding, capacity building, and data usage. In response to NSR's challenge, the team designed an 'experiential future'—an interactive installation simulating a scenario where small nonprofits operate underground in the face of government and institutional opposition. The result was Peoples' Vertex, a secret hub where these groups support each other and foster solidarity.
+  </p>
+
+  <div class="meta">
+    <div><strong>Role</strong><br />Product Designer & Manager</div>
+    <div><strong>Organization</strong><br />CMU Futurist Club Sponsored by New Sun Rising</div>
+    <div><strong>Timeline</strong><br />18 weeks | 2023</div>
+  </div>
+</section>
+
+
+
+<section class="container" id="background">
+  <h2>Challenge</h2>
+  <p>
+    How might we communicate the need to empower small community organizations and nonprofits to collaborate and thrive despite facing significant challenges from government and institutional oppression?
+  </p>
+</section>
+
+<section class="container" id="design-goal">
+  <h2>Identify Signals and Drivers</h2>
+  <p>
+    Interviews with nonprofit leaders revealed NSR's community aspirations and concerns about Pittsburgh's future. Current signals include local initiatives, elderly engagement, technological shifts, and funding constraints, which informed reflective questions for post-experience discussions.
+  </p>
+  <img src="Images/Peoplesvertex/PeopleVertex_Mindmap.avif" alt="Signals and Drivers Research" style="width: 100%; border-radius: 12px; margin: 1.25rem 0;" onerror="this.style.display='none';">
+
+  <h3 class="concept-heading">Building the Future World</h3>
+  <p>
+    The team focused on a single future scenario where nonprofits struggle against systemic resistance, creating clandestine spaces like Peoples' Vertex—speakeasy-like hubs where community members work against societal constraints. The scenario includes details like tech acronym shifts (MAMAA to DADAA) and increased climate migration to enhance immersion.
+  </p>
+  <img src="Images/Peoplesvertex/Screenshot 2026-01-07 at 10.29.53 PM.png" alt="Building the Future World" style="width: 100%; border-radius: 12px; margin: 1.25rem 0;" onerror="this.style.display='none';">
+</section>
+
+<section class="container" id="final">
+  <h2>Creating the experience</h2>
+  
+  <h3 class="concept-heading">ID KEYCHAINS</h3>
+  <p>
+    Participants received IDs inspired by government-issued EBT cards, integrated onto a single card representing six sectors: health, education, technology, arts and entertainment, culture, environment, and social work. Users selected identifications based on their interests.
+  </p>
+  <img src="Images/Peoplesvertex/IDKeychain.avif" alt="ID Keychains" style="width: 100%; border-radius: 12px; margin: 1.25rem 0;" onerror="this.style.display='none';">
+
+  <h3 class="concept-heading">POLICE TRACKER</h3>
+  <p>
+    A security alert system notifying users of nearby hostile police and governmental entities. It also functioned as a futuristic smart home system, monitoring climate-related temperatures and warning when police proximity threatened the venue.
+  </p>
+  <img src="Images/Peoplesvertex/Policetracker1.avif" alt="Police Tracker UI" style="width: 100%; border-radius: 12px; margin: 1.25rem 0;" onerror="this.style.display='none';">
+
+  <h3 class="concept-heading">MENU OF SERVICES</h3>
+  <p>
+    Digital and physical menus enhanced the speakeasy storytelling. Tablets displayed a Figma prototype interface, allowing visitors to interact using their ID keychains. Services were personalized—guests scanned IDs to prompt reflections on contributing vibrancy to their communities.
+  </p>
+  <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; margin: 1.25rem 0; align-items: stretch;">
+    <div style="display: flex; align-items: center; justify-content: center; overflow: hidden;">
+      <img src="Images/Peoplesvertex/menuofservice.avif" alt="Menu of Services" style="width: 100%; height: 100%; object-fit: contain; border-radius: 12px;" onerror="this.style.display='none';">
+    </div>
+    <div style="display: flex; align-items: center; justify-content: center; overflow: hidden;">
+      <img src="Images/Peoplesvertex/menuofservice2.avif" alt="Menu of Services 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" onerror="this.style.display='none';">
+    </div>
+  </div>
+
+  <h3 class="concept-heading">POSTERS</h3>
+  <p>
+    Posters created an immersive futuristic atmosphere. Outdoor posters offered warnings in somber tones and multiple languages, advising visitors to disable location tracking. Indoor posters showcased optimistic future services like 3D food printing, robotic child care, and lab-grown superfoods. Both sets were displayed eclectically to enhance authenticity.
+  </p>
+  <img src="Images/Peoplesvertex/posters.avif" alt="Posters" style="width: 100%; border-radius: 12px; margin: 1.25rem 0;" onerror="this.style.display='none';">
+
+  <h3 class="concept-heading">PHOTOBOOTH</h3>
+  <p>
+    A futuristic job search service reimagining how NGOs help people prepare for interviews. We offered an underground option where people could get "corporate" headshots.
+  </p>
+  <img src="Images/Peoplesvertex/photobooth.avif" alt="Photobooth" style="width: 100%; border-radius: 12px; margin: 1.25rem 0;" onerror="this.style.display='none';">
+
+  <h3 class="concept-heading">BRANDING</h3>
+  <p>
+    Branding conveyed themes from repression to hope. The logo used a grayscale, minimalist approach with playful elements. Bold, blocky typography and a vibrant palette of deep aqua blue, lime green, and neon pink reflected the speakeasy's diversity.
+  </p>
+  <img src="Images/Peoplesvertex/branding.avif" alt="Branding" style="width: 100%; border-radius: 12px; margin: 1.25rem 0;" onerror="this.style.display='none';">
+
+  <h3 class="concept-heading">The Physical Space</h3>
+  <p>
+    To create the physical space for Peoples' Vertex, the team transformed an original gym into a speakeasy-like atmosphere. String lights and a large sign were used to evoke the speakeasy feel, while spray-painted boards divided the room into Peoples' Vertex and the reflection room. Electro swing music played in the background, adding a futuristic touch. Role play was essential to immerse participants in the future, with team members assuming roles like bartender, bouncer, and photo booth operator.
+  </p>
+  <img src="Images/Peoplesvertex/physicalspace.avif" alt="Physical Space" style="width: 100%; border-radius: 12px; margin: 1.25rem 0;" onerror="this.style.display='none';">
+</section>
+
+<section class="container" id="impact">
+  <h2>Reflections</h2>
+  <p>
+    Two reflection stations guided participants after the experience. The first used pink and blue stars to gauge reactions, showing a majority found the future dark with local-scale work around institutions. The second involved double-sided cards for sharing hopes, fears, and expectations, contributing to NSR's research on the Pittsburgh community.
+  </p>
+  <img src="Images/Peoplesvertex/reflections.avif" alt="Reflections" style="width: 100%; border-radius: 12px; margin: 1.25rem 0;" onerror="this.style.display='none';">
+  <img src="Images/Peoplesvertex/reflections2.avif" alt="Reflections 2" style="width: 100%; border-radius: 12px; margin: 1.25rem 0;" onerror="this.style.display='none';">
+  <p style="margin-top: 1.5rem;">
+    Our biggest takeaway: stretching creative thinking through frameworks and constraints. By narrowing focus and generating specific, unexpected ideas, we sparked meaningful discussions about potential futures. Our intention was not to predict the future, but to pose thought-provoking questions about its existence and implications.
+  </p>
+</section>
+
+<footer>
+  © 2025 — Designed & built by Nila Gao
+</footer>
+
+<script>
+  let lastScroll = 0;
+  const nav = document.querySelector('.top-nav');
+  let ticking = false;
+
+  function updateNav() {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (currentScroll <= 0) {
+      nav.classList.remove('hidden');
+    } else if (currentScroll > lastScroll && currentScroll > 100) {
+      // Scrolling down
+      nav.classList.add('hidden');
+    } else {
+      // Scrolling up
+      nav.classList.remove('hidden');
+    }
+    
+    lastScroll = currentScroll;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateNav);
+      ticking = true;
+    }
+  });
+</script>
+
+</body>
+</html>

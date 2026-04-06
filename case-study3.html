@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data XRay – Case Study</title>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.6;
+      background: #ffffff;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 960px; margin: 0 auto; padding: 1.5rem 1.25rem; }
+
+    /* Top navigation */
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(6px);
+      transition: transform 0.3s ease-in-out;
+    }
+    .top-nav.hidden { transform: translateY(-100%); }
+    .top-nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-left { font-weight: 600; font-size: 0.95rem; color: #1a1a1a; }
+    .nav-left a:hover { opacity: 0.7; }
+    .nav-right { display: flex; gap: 1.25rem; }
+    .nav-right a { font-size: 0.85rem; color: #555; }
+    .nav-right a:hover { color: #1a1a1a; }
+
+    /* Floating right nav */
+    .floating-nav {
+      position: fixed;
+      right: 32px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 20;
+    }
+    .floating-nav a {
+      font-size: 0.85rem;
+      color: #777;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.04);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .floating-nav a:hover {
+      background: rgba(0,0,0,0.08);
+      color: #111;
+    }
+
+    .hero { padding: 5rem 1.25rem 3rem; text-align: center; }
+    .hero h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+    .hero .kicker { font-size: 0.95rem; color: #555; margin-top: 0.25rem; }
+    .hero p { font-size: 1.1rem; color: #555; max-width: 760px; margin: 0.75rem auto 0; }
+
+    section { padding: 2rem 0; border-top: 1px solid #f0f0f0; }
+    h2 { font-size: 1.6rem; margin-bottom: 0.8rem; font-weight: 600; letter-spacing: -0.01em; }
+    h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+    h4 { font-size: 1rem; margin-bottom: 0.3rem; font-weight: 600; }
+    ul { margin-left: 1rem; margin-top: 0.8rem; }
+    li { margin: 0.35rem 0; color: #555; }
+    p { color: #555; }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .title-image-box {
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+      border: 1px solid #e5e5e5;
+      border-radius: 16px;
+      background: #fafafa;
+    }
+
+    .figure-box {
+      padding: 1rem;
+      border: 1px solid #e5e5e5;
+      border-radius: 14px;
+      background: #fafafa;
+      margin-top: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .figure-box.figure-box--fill-box { padding: 0; }
+    .figure-box img, .figure-box video {
+      width: 100%;
+      border-radius: 10px;
+      background: #f4f4f5;
+      display: block;
+    }
+    .figure-box.figure-box--fill-box img,
+    .figure-box.figure-box--fill-box video {
+      border-radius: 14px;
+      height: auto;
+      background: transparent;
+    }
+
+    section#background {
+      background: #fafafa;
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      margin: 2.5rem auto;
+      border-top: none;
+    }
+    #background p { margin-top: 0.75rem; }
+    #background p + p { margin-top: 1.25rem; }
+    #background h3 { margin-top: 1.75rem; }
+    #background h3:first-of-type { margin-top: 0; }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .concept-card {
+      border-radius: 14px;
+      border: 1px solid #e5e5e5;
+      background: #fafafa;
+      padding: 1rem;
+    }
+    .concept-card-title { font-size: 0.95rem; font-weight: 600; color: #111; }
+    .concept-card-text { font-size: 0.9rem; margin-top: 0.25rem; color: #555; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .key-insight {
+      margin-top: 1.25rem;
+      padding: 1.5rem 1.75rem;
+      background: #f7f7f7;
+      border-left: 3px solid #ddd;
+      border-radius: 12px;
+    }
+    .key-insight p { color: #555; margin-top: 0.5rem; }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .metrics-panel {
+      border: 1px solid #e5e5e5;
+      border-radius: 14px;
+      background: #fafafa;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1rem;
+    }
+    .metric-card {
+      border: none;
+      background: transparent;
+      padding: 0;
+    }
+    .metric-value { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: #111; }
+    .metric-label { margin-top: 0.25rem; font-size: 0.875rem; color: #555; }
+
+    footer { border-top: 1px solid #e5e5e5; padding: 1.5rem 1.25rem; text-align: center; font-size: 0.85rem; color: #666; }
+
+    @media (max-width: 900px) {
+      .floating-nav { display: none; }
+      .nav-right { display: none; }
+      .two-col { grid-template-columns: 1fr; }
+      .metrics-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <div class="nav-left"><a href="index.html">Nila Gao</a></div>
+    <nav class="nav-right">
+      <a href="index.html">Projects</a>
+      <a href="playground.html">Playground</a>
+      <a href="about.html">About Me</a>
+      <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit?usp=sharing&ouid=105507303957903473500&rtpof=true&sd=true" target="_blank">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<div class="floating-nav">
+  <a href="#overview">Overview</a>
+  <a href="#role">Role</a>
+  <a href="#background">Background</a>
+  <a href="#design-thinking">Design Thinking</a>
+  <a href="#final">Final</a>
+</div>
+
+<main style="padding-top: 64px;">
+  <section class="hero" id="overview">
+    <h1>Data XRay — AI Data Analyst</h1>
+    <div class="kicker">Simplifying analytics for non-technical business teams</div>
+  </section>
+
+  <section class="container" id="role" style="border-top:none; padding-top: 0;">
+    <div class="title-image-box">
+      <img src="Images/AthenicAi/fc15c1_daf756bef187452ab5f633c5d06977d7f000.avif" alt="Data XRay cover" style="width: 100%; border-radius: 12px; height: 360px; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="figure-box" style="display:none;">Data XRay cover</div>
+    </div>
+
+    <p style="margin-top: 1rem; color: #555; font-size: 1.05rem; width: 100%;">
+      I led the end-to-end design of Data XRay, an AI-enabled analytics product that allows non-technical business teams to upload data and ask questions in natural language to generate actionable insights. The work focused on reducing activation friction, improving comprehension of AI capabilities, and increasing engagement through a more intuitive, conversational experience.
+    </p>
+
+    <div class="meta">
+      <div><strong>Role</strong><br />Lead Product Designer</div>
+      <div><strong>Company</strong><br />Athenic AI</div>
+      <div><strong>Timeline</strong><br />Sep 2023 – Mar 2024</div>
+    </div>
+  </section>
+
+  <section class="container" id="background">
+    <h2>Background</h2>
+    <p>Business teams increasingly rely on data to drive growth, but analytics tools remain complex—requiring technical setup, SQL knowledge, and precise querying. As a result, many users struggled to activate and retain value from Athenic AI despite strong underlying capabilities.</p>
+
+    <h3>Business Problems</h3>
+    <ul>
+      <li>Low product activation and retention due to complex analytics workflows</li>
+      <li>Difficulty communicating product value to non-technical users</li>
+      <li>Missed opportunity to expand into e-commerce and sales teams unfamiliar with data tools</li>
+    </ul>
+
+    <h3>User Problems</h3>
+    <ul>
+      <li>Users didn't know how to ask effective questions</li>
+      <li>AI responses felt disconnected from visible product value</li>
+      <li>Features were fragmented across dashboards and search flows</li>
+      <li>Users rarely asked follow-up questions or reused insights</li>
+    </ul>
+
+    <h3>Constraints</h3>
+    <ul>
+      <li>User data varied widely in structure and quality</li>
+      <li>Setup needed to remain lightweight while still enabling insight generation</li>
+      <li>Designs had to be feasible to implement quickly in a startup environment</li>
+    </ul>
+  </section>
+
+  <section class="container" id="design-thinking">
+    <h2>Design Thinking</h2>
+    <p>My goal was to simplify the analytics experience while clearly communicating product value. Rather than adding more features, I focused on instructional design, discoverability, and conversational interaction.</p>
+
+    <div style="margin-top: 1.75rem;">
+      <h3>Define &amp; Discover</h3>
+
+      <div style="margin-top: 1.25rem;">
+        <h4>Research — The Pain Points</h4>
+        <p>I started by understanding user tasks involved in adding a graph to a dashboard. Using Highlight to record user interactions and reviewing qualitative customer feedback, I found the existing product flow to be overly complicated and fragmented.</p>
+
+        <div class="figure-box figure-box--fill-box">
+          <img src="Images/AthenicAi/AthenicAI_understandingpainpoint.avif" alt="Understanding Customer Workflow With Product" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="figure-box" style="display:none;">Understanding Customer Workflow With Product</div>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-card-title">Unclear Question Asking</div>
+            <div class="concept-card-text">Users submitted vague or unrelated queries, unsure how to phrase effective questions.</div>
+          </div>
+          <div class="concept-card">
+            <div class="concept-card-title">Hidden Product Value</div>
+            <div class="concept-card-text">Users couldn't experience enough features to understand the product's full value.</div>
+          </div>
+          <div class="concept-card">
+            <div class="concept-card-title">No Continuity</div>
+            <div class="concept-card-text">Follow-up questions and insight reuse were rare due to disconnected dashboards.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <h4>Decision Making — Engineering &amp; Design</h4>
+        <p>I led a whiteboard session with the engineering team to map essential capabilities, evaluate feasibility, and prioritize experiences that balanced user value with speed of implementation in a startup environment.</p>
+
+        <div class="figure-box figure-box--fill-box">
+          <img src="Images/AthenicAi/AthenicAI_whiteboarding.avif" alt="Whiteboard session / feature prioritization" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="figure-box" style="display:none;">Whiteboard session / feature prioritization</div>
+        </div>
+
+        <div class="concept-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+          <div class="concept-card">
+            <div class="concept-card-title">Asking a Question</div>
+            <div class="concept-card-text">Primary entry point for insight generation through natural language.</div>
+          </div>
+          <div class="concept-card">
+            <div class="concept-card-title">Question History &amp; Follow‑ups</div>
+            <div class="concept-card-text">Enables continuity, iteration, and exploration without starting over.</div>
+          </div>
+          <div class="concept-card">
+            <div class="concept-card-title">Visualizing Graphs</div>
+            <div class="concept-card-text">Transforms answers into charts that make insights tangible.</div>
+          </div>
+          <div class="concept-card">
+            <div class="concept-card-title">Predictive Analysis</div>
+            <div class="concept-card-text">Extends insights beyond the present to support forward‑looking decisions.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <h4>Defining Criteria</h4>
+        <p>I conducted usability studies to define constraints that guided design decisions.</p>
+
+        <h4 style="margin-top: 1rem;">Defining Criteria</h4>
+        <ul>
+          <li>Instructional design: Built-in guidance for data setup and question asking.</li>
+          <li>Intuitive features: Reduce confusion and impatience.</li>
+          <li>Engagement: Encourage follow-up questions and reuse of insights.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <h4>Concept Exploration</h4>
+        <p>I took the essential UI components and began exploring end-to-end experiences through concept generation. The primary challenge was using white space effectively—especially along the side panels—while ensuring the product adapted gracefully across multiple screen sizes.</p>
+
+        <div class="figure-box figure-box--fill-box">
+          <img src="Images/AthenicAi/AthenicAi_conceptgeneration.avif" alt="Concept exploration / layout studies" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="figure-box" style="display:none;">Concept exploration / layout studies</div>
+        </div>
+
+        <div class="concept-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+          <div class="concept-card">
+            <div class="concept-card-title">Separate Search + Dashboard</div>
+            <div class="concept-card-text">Separate Search + Dashboard</div>
+          </div>
+          <div class="concept-card">
+            <div class="concept-card-title">Instruction-Heavy Flows</div>
+            <div class="concept-card-text">Instruction-Heavy Flows</div>
+          </div>
+          <div class="concept-card">
+            <div class="concept-card-title">Merged Workbook Experience (Chosen)</div>
+            <div class="concept-card-text">Merged Workbook Experience (Chosen)</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <h4>Interaction Design &amp; Iteration</h4>
+        <p>Iteration. Iteration. Iteration.</p>
+        <p style="margin-top: 0.75rem;">Over 12 rounds of user testing, I continuously redesigned the experience to reduce friction, improve clarity, and drive sustained engagement. Each iteration focused on simplifying how users asked questions, explored results, and transitioned between insights.</p>
+
+        <div class="figure-box figure-box--fill-box">
+          <img src="Images/AthenicAi/AthenicAi_Iteration.avif" alt="Iteration studies" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="figure-box" style="display:none;">Iteration studies</div>
+        </div>
+
+        <div class="two-col">
+          <div class="concept-card">
+            <div class="concept-card-title">Search Bar Experience</div>
+            <div class="concept-card-text">Search bar — asking AI questions for tables &amp; graphs</div>
+            <div class="figure-box figure-box--fill-box" style="margin-top: 0.9rem; margin-bottom: 0;">
+              <img src="Images/AthenicAi/AthenicAi_productpivot_searchbar.avif" alt="Search bar experience" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="figure-box" style="display:none;">Search bar</div>
+            </div>
+          </div>
+          <div class="concept-card">
+            <div class="concept-card-title">Chat Experience</div>
+            <div class="concept-card-text">Transition from Search AI to Chat AI</div>
+            <div class="figure-box figure-box--fill-box" style="margin-top: 0.9rem; margin-bottom: 0;">
+              <img src="Images/AthenicAi/AthenicAi_productpivot_chat.avif" alt="Chat experience" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="figure-box" style="display:none;">Chat</div>
+            </div>
+          </div>
+          <div class="concept-card">
+            <div class="concept-card-title">Tabs Experience</div>
+            <div class="concept-card-text">Reducing clutter through merged yet separated tabs</div>
+            <div class="figure-box figure-box--fill-box" style="margin-top: 0.9rem; margin-bottom: 0;">
+              <img src="Images/AthenicAi/AthenicAi_productpivot_tabs.avif" alt="Tabs experience" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="figure-box" style="display:none;">Tabs</div>
+            </div>
+          </div>
+          <div class="concept-card">
+            <div class="concept-card-title">Workbook Experience</div>
+            <div class="concept-card-text">Merging search bar and dashboard</div>
+            <div class="figure-box figure-box--fill-box" style="margin-top: 0.9rem; margin-bottom: 0;">
+              <img src="Images/AthenicAi/AthenicAi_productpivot_workbook.avif" alt="Workbook experience" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="figure-box" style="display:none;">Workbook</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="key-insight">
+          <h4>Key Insight</h4>
+          <p>Users didn't need more analytical power—they needed clarity, guidance, and continuity.</p>
+          <p>Guiding principle: Make insights feel discoverable, conversational, and reusable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="final">
+    <h2>Final Design, Impact &amp; Takeaways</h2>
+
+    <div style="margin-top: 1.5rem;">
+      <h3>Final Design — Data XRay</h3>
+      <ul>
+        <li>Unified workbook combining chat, charts, and saved insights</li>
+        <li>Transparent AI feedback showing how data is processed</li>
+        <li>Reusable insights instead of one-off answers</li>
+      </ul>
+
+      <div style="margin-top: 2rem;">
+        <h4>Dashboard &amp; Chat Integrated Experience</h4>
+        <p>Merging chat and dashboard features to create a more immersive product workbook experience, allowing users to ask questions and generate insights without context switching.</p>
+        <div class="figure-box figure-box--fill-box">
+          <video src="Images/AthenicAi/New Dashboard Asking Experience (1).mp4" controls style="border-radius:14px; background:#000;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+          <div class="figure-box" style="display:none;">Dashboard &amp; Chat Integrated Experience</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <h4>Question Asking Experience — Design for Wait Time</h4>
+        <p>Transparency through animation shows what's happening on the backend. The system pulls tables first, then graphs, explaining where data is sourced from to build trust while users wait.</p>
+        <div class="figure-box figure-box--fill-box">
+          <video src="Images/AthenicAi/Questionaskingexperience.mp4" controls style="border-radius:14px; background:#000;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+          <div class="figure-box" style="display:none;">Questionaskingexperience</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <h4>Adding Graphs to Dashboard</h4>
+        <p>Powerful graph visualizations can be personalized through configuration and then easily saved to dashboards as reusable insights.</p>
+        <div class="figure-box figure-box--fill-box">
+          <video src="Images/AthenicAi/New Dashboard Asking Experience (1).mp4" controls style="border-radius:14px; background:#000;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+          <div class="figure-box" style="display:none;">Adding graphs to dashboard</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <h4>Question History</h4>
+        <p>Users can access previously asked questions within the current query and across past sessions, supporting continuity and deeper exploration.</p>
+        <div class="figure-box figure-box--fill-box">
+          <video src="Images/AthenicAi/Question History Experience (1).mp4" controls style="border-radius:14px; background:#000;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+          <div class="figure-box" style="display:none;">Question history</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2.5rem;">
+        <h3>Impact</h3>
+        <div class="metrics-panel">
+          <div class="metrics-grid" style="margin-top: 0;">
+            <div class="metric-card">
+              <div class="metric-value">18%</div>
+              <div class="metric-label">Increase in activation</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">15 installs</div>
+              <div class="metric-label">First-week adoption</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">BMW as customer</div>
+              <div class="metric-label">Enterprise momentum</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem; padding-bottom: 2.5rem;">
+        <h4>Reflection</h4>
+        <p>Powerful AI is only valuable when users understand and trust it. By reframing analytics as a conversational, insight-driven experience, Data XRay helped non-technical teams engage with data confidently.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 — Designed & built by Nila Gao
+  </footer>
+</main>
+
+<script>
+  let lastScroll = 0;
+  const nav = document.querySelector('.top-nav');
+  let ticking = false;
+
+  function updateNav() {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll <= 0) {
+      nav.classList.remove('hidden');
+    } else if (currentScroll > lastScroll && currentScroll > 100) {
+      nav.classList.add('hidden');
+    } else {
+      nav.classList.remove('hidden');
+    }
+
+    lastScroll = currentScroll;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateNav);
+      ticking = true;
+    }
+  });
+</script>
+</body>
+</html>
+
