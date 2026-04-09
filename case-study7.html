@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Audience Optimization – Case Study</title>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/scroll-reveal.css">
+  <noscript>
+    <style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -292,7 +296,7 @@
       background: #000;
     }
 
-    /* Impact metric highlight */
+    /* Impact (aligned with Personalized send time) */
     .impact-stack {
       display: flex;
       flex-direction: column;
@@ -306,6 +310,7 @@
       padding: 1.25rem 1.5rem;
     }
     .impact-panel h3 {
+      font-size: 1rem;
       font-weight: 400;
       margin-bottom: 0.75rem;
     }
@@ -323,6 +328,39 @@
       margin-bottom: 0.25rem;
     }
     .impact-label { font-size: 0.85rem; color: #555; }
+
+    .impact-panel hr.impact-divider {
+      border: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      margin: 1.5rem 0 1.25rem;
+    }
+
+    .impact-panel h4.impact-contributions-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.01em;
+      line-height: 1.55;
+      font-family: inherit;
+    }
+
+    .impact-panel ul.impact-contributions-list {
+      margin: 0;
+      padding-left: 1.25rem;
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      font-family: inherit;
+    }
+
+    .impact-panel ul.impact-contributions-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    .impact-panel ul.impact-contributions-list li:last-child {
+      margin-bottom: 0;
+    }
     .impact-metrics.impact-metrics--three {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -350,12 +388,10 @@
       .design-grid { grid-template-columns: 1fr; }
       .ao-design-options-grid { grid-template-columns: 1fr; }
       .impact-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .impact-metrics.impact-metrics--three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 520px) {
       .impact-metrics { grid-template-columns: 1fr; }
-      .impact-metrics.impact-metrics--three { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -545,62 +581,43 @@
 
     <div class="impact-stack">
       <div class="impact-panel">
-        <div class="impact-metrics impact-metrics--three">
+        <h3>Feature impact</h3>
+        <div class="impact-metrics">
           <div class="impact-metric">
-            <div class="impact-value">480+</div>
-            <div class="impact-label">Companies using it daily</div>
+            <div class="impact-value">~5%</div>
+            <div class="impact-label">KAV lift</div>
           </div>
           <div class="impact-metric">
-            <div class="impact-value">~50–60%</div>
-            <div class="impact-label">Adoption rate among eligible campaigns</div>
+            <div class="impact-value">~5%</div>
+            <div class="impact-label">Unsubscribe reduction in beta</div>
           </div>
           <div class="impact-metric">
-            <div class="impact-value">Hundreds of millions</div>
-            <div class="impact-label">Recipients evaluated</div>
+            <div class="impact-value">−1.4%</div>
+            <div class="impact-label">Unsubscribe rate (statistically significant)</div>
+          </div>
+          <div class="impact-metric">
+            <div class="impact-value">Neutral</div>
+            <div class="impact-label">Conversion</div>
           </div>
         </div>
-      </div>
 
-      <div class="impact-measured">
-        <h3>Measured outcomes (live GA data, March 26 – April 4, 2026)</h3>
-        <div class="option-table-wrap">
-          <table class="ao-option-table ao-solution-metrics">
-            <thead>
-              <tr>
-                <th scope="col">Metric</th>
-                <th scope="col">Result</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Recipients removed per campaign</td>
-                <td>~0.1–0.3% of audience</td>
-              </tr>
-              <tr>
-                <td>Unsubscribe rate lift</td>
-                <td>+1–6% relative reduction (consistent, working as intended)</td>
-              </tr>
-              <tr>
-                <td>Open rate lift</td>
-                <td>Small positive (~0.1–0.6% relative)</td>
-              </tr>
-              <tr>
-                <td>Click rate lift</td>
-                <td>Small positive (~0.1–3% relative)</td>
-              </tr>
-              <tr>
-                <td>Revenue / placed order lift</td>
-                <td>Negative (~-1% relative) — recipients excluded tend to include some who would have converted</td>
-              </tr>
-            </tbody>
-          </table>
+        <hr class="impact-divider" aria-hidden="true">
+
+        <div class="impact-contributions">
+          <h4 class="impact-contributions-title">My key design contribution:</h4>
+          <ul class="impact-contributions-list">
+            <li>Defined focused KPI set (unsubscribe rate, profiles removed) to reduce noise</li>
+            <li>Designed Removed Recipients view, making model decisions transparent</li>
+            <li>Drove metric framing (“rate change” vs. “lift”) to improve interpretability</li>
+            <li>Introduced AI badges, surfacing optimization directly in campaign workflows</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    © 2025 — Designed & built by Nila Gao
+    © 2026 — Designed & built by Nila Gao
   </footer>
 </main>
 
@@ -631,6 +648,7 @@
     }
   });
 </script>
+<script src="js/scroll-reveal.js" defer></script>
 </body>
 </html>
 

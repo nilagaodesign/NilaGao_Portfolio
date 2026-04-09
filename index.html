@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nila Gao, AI Designer @ Klaviyo</title>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/scroll-reveal.css">
+  <noscript>
+    <style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -92,9 +96,11 @@
       background: #ffffff;
     }
 
-    /* PST cover: anchor crop to the right so the right side stays visible */
-    img.project-image.project-image--focus-right {
-      object-position: right center;
+    .project-image--audience-bg {
+      background-image: url('Images/Homepage/Purple_background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .project-link:hover .project-image {
@@ -189,7 +195,7 @@
       <div class="projects-grid">
         <div class="project-item fade-in">
           <a href="case-study8.html" class="project-link">
-            <img src="Images/Homepage/PST_cover.png" alt="Personalized send time" class="project-image project-image--white-bg project-image--focus-right" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="Images/Homepage/PST_cover.png" alt="Personalized send time" class="project-image project-image--white-bg project-image--contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="project-image project-image--white-bg" style="display:none; align-items:center; justify-content:center; color:#aaa; font-size:0.9rem;">Personalized send time Preview</div>
           </a>
           <h4><a href="case-study8.html" class="project-link">Personalized send time</a></h4>
@@ -198,8 +204,8 @@
 
         <div class="project-item fade-in">
           <a href="case-study7.html" class="project-link">
-            <img src="Images/Homepage/Audienceoptimizationcover.png" alt="Audience Optimization" class="project-image project-image--white-bg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="project-image project-image--white-bg" style="display:none; align-items:center; justify-content:center; color:#aaa; font-size:0.9rem;">Audience Optimization Preview</div>
+            <img src="Images/Homepage/Audienceoptimizationcover.png" alt="Audience Optimization" class="project-image project-image--audience-bg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="project-image project-image--audience-bg" style="display:none; align-items:center; justify-content:center; color:#aaa; font-size:0.9rem;">Audience Optimization Preview</div>
           </a>
           <h4><a href="case-study7.html" class="project-link">Audience Optimization</a></h4>
           <h6><a href="case-study7.html" class="project-link">Product Design, ML Decisioning</a></h6>
@@ -247,7 +253,7 @@
 </main>
 
 <footer>
-  © 2025 — Designed & built by Nila Gao
+  © 2026 — Designed & built by Nila Gao
 </footer>
 
 <script>
@@ -298,6 +304,7 @@
     observer.observe(el);
   });
 </script>
+<script src="js/scroll-reveal.js" defer></script>
 
 </body>
 </html>

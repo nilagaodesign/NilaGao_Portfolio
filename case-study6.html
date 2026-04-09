@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Channel Affinity – Case Study</title>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/scroll-reveal.css">
+  <noscript>
+    <style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -302,86 +306,72 @@
       padding-top: 0.5rem;
     }
 
-    /* Impact metric highlight */
-    .impact-metrics {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin: 0.75rem 0 1rem;
-    }
-
-    #impact .impact-panel--unified {
+    /* Impact (aligned with Personalized send time / AO case studies) */
+    .impact-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
       margin-top: 1.5rem;
     }
-
-    #impact .impact-panel-row--follow {
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
-    }
-
-    #impact .impact-metrics {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .impact-metric {
-      padding: 1rem 1.25rem;
-      border: 1px solid #e5e5e5;
-      border-radius: 14px;
-      background: #fafafa;
-    }
-
-    #impact .impact-metric {
-      padding: 0;
-      border: none;
-      border-radius: 0;
-      background: transparent;
-    }
-
-    #impact .impact-metrics {
-      gap: 1.5rem;
-      margin: 1rem 0 0;
-    }
-
-    #impact .impact-panel {
+    .impact-panel {
       border: 1px solid #e5e5e5;
       border-radius: 12px;
       background: #fafafa;
       padding: 1.25rem 1.5rem;
     }
-
-    #impact .impact-panel h3 {
+    .impact-panel h3 {
+      font-size: 1rem;
       font-weight: 400;
       margin-bottom: 0.75rem;
     }
-
-    #impact .impact-panel .impact-metrics {
-      margin-top: 0.75rem;
+    .impact-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin: 0.75rem 0 0;
     }
-
+    .impact-metric { padding: 0; border: none; background: transparent; }
     .impact-value {
       font-size: 1.4rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 0.25rem;
     }
-
-    .impact-label {
-      font-size: 0.85rem;
+    .impact-label { font-size: 0.85rem; color: #555; }
+    .impact-panel hr.impact-divider {
+      border: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      margin: 1.5rem 0 1.25rem;
+    }
+    .impact-contributions-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    .impact-contributions-list {
+      margin: 0;
+      padding-left: 1.25rem;
       color: #555;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    .impact-contributions-list li {
+      margin-bottom: 0.45rem;
+    }
+    .impact-contributions-list li:last-child {
+      margin-bottom: 0;
     }
 
     @media (max-width: 900px) {
       .floating-nav { display: none; }
       .nav-right { display: none; }
+      .impact-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 800px) {
       .final-columns {
-        grid-template-columns: 1fr;
-      }
-
-      .impact-metrics {
         grid-template-columns: 1fr;
       }
 
@@ -394,16 +384,8 @@
       }
     }
 
-    @media (max-width: 900px) {
-      #impact .impact-metrics {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
     @media (max-width: 520px) {
-      #impact .impact-metrics {
-        grid-template-columns: 1fr;
-      }
+      .impact-metrics { grid-template-columns: 1fr; }
     }
   </style>
 
@@ -634,55 +616,44 @@
   <section class="container" id="impact">
     <h2>Impact</h2>
 
-    <div class="impact-panel impact-panel--unified">
-      <div class="impact-panel-row">
-        <h3>Engagement lift</h3>
+    <div class="impact-stack">
+      <div class="impact-panel">
+        <h3>Feature impact</h3>
         <div class="impact-metrics">
           <div class="impact-metric">
-            <div class="impact-value">+7.8%</div>
-            <div class="impact-label">Email</div>
+            <div class="impact-value">+5–10%</div>
+            <div class="impact-label">Engagement lift in concierge experiments</div>
           </div>
           <div class="impact-metric">
-            <div class="impact-value">+42%</div>
-            <div class="impact-label">SMS</div>
+            <div class="impact-value">+7.8% · +42%</div>
+            <div class="impact-label">Flow experiments: Email · SMS (directional)</div>
           </div>
           <div class="impact-metric">
-            <div class="impact-value">~+10%</div>
-            <div class="impact-label">Overall (experiment)</div>
+            <div class="impact-value">At aggregate</div>
+            <div class="impact-label">Not statistically significant</div>
           </div>
           <div class="impact-metric">
-            <div class="impact-value">Positive</div>
-            <div class="impact-label">Conversion (not significant)</div>
+            <div class="impact-value">Inconclusive</div>
+            <div class="impact-label">Results inconclusive vs. simpler heuristics</div>
           </div>
         </div>
-      </div>
 
-      <div class="impact-panel-row impact-panel-row--follow">
-        <h3>Adoption (Feb 2026)</h3>
-        <div class="impact-metrics">
-          <div class="impact-metric">
-            <div class="impact-value">~510</div>
-            <div class="impact-label">Active accounts</div>
-          </div>
-          <div class="impact-metric">
-            <div class="impact-value">~3.2%</div>
-            <div class="impact-label">Of ~15.7K eligible</div>
-          </div>
-          <div class="impact-metric">
-            <div class="impact-value">&lt; 10%</div>
-            <div class="impact-label">Target</div>
-          </div>
-          <div class="impact-metric">
-            <div class="impact-value">Gap</div>
-            <div class="impact-label">Below target adoption</div>
-          </div>
+        <hr class="impact-divider" aria-hidden="true">
+
+        <div class="impact-contributions">
+          <h4 class="impact-contributions-title">My key design contribution:</h4>
+          <ul class="impact-contributions-list">
+            <li>Tied the knots between Channel affinity in segments and flows with profiles reporting</li>
+            <li>Updated product strategy + PRD, shaping future direction</li>
+            <li>Identified gaps in adoption, clarity, and ROI communication, informing next-gen optimization work</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    © 2025 — Designed & built by Nila Gao
+    © 2026 — Designed & built by Nila Gao
   </footer>
 </main>
 
@@ -715,6 +686,7 @@
     }
   });
 </script>
+<script src="js/scroll-reveal.js" defer></script>
 
 </body>
 </html>

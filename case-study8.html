@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Personalized send time – Case Study</title>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/scroll-reveal.css">
+  <noscript>
+    <style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -209,14 +213,38 @@
       margin-bottom: 0.25rem;
     }
     .impact-label { font-size: 0.85rem; color: #555; }
-    .impact-panel .impact-prose {
+
+    .impact-panel hr.impact-divider {
+      border: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      margin: 1.5rem 0 1.25rem;
+    }
+
+    .impact-panel h4.impact-contributions-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.01em;
+      line-height: 1.55;
+      font-family: inherit;
+    }
+
+    .impact-panel ul.impact-contributions-list {
+      margin: 0;
+      padding-left: 1.25rem;
       color: #555;
       font-size: 0.95rem;
-      line-height: 1.65;
-      margin-top: 1.25rem;
+      line-height: 1.55;
+      font-family: inherit;
     }
-    .impact-panel .impact-prose:first-of-type {
-      margin-top: 1.5rem;
+
+    .impact-panel ul.impact-contributions-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    .impact-panel ul.impact-contributions-list li:last-child {
+      margin-bottom: 0;
     }
 
     footer { border-top: 1px solid #e5e5e5; padding: 1.5rem 1.25rem; text-align: center; font-size: 0.85rem; color: #666; }
@@ -410,7 +438,7 @@
     <p>I made the experiment visible at the moment of scheduling, surfacing the control baseline and introducing simple, bounded controls (a global default with optional overrides). At the same time, I preserved analytics integrity by segmenting results by baseline and locking decisions at send time.</p>
 
     <div class="figure-box figure-box--fill-box">
-      <video src="Images/PST/PST%20Manual%20controls.mov" controls playsinline style="width:100%; display:block; border-radius:14px; background:#000;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+      <video src="Images/PST/PST%20Manual%20controls.mov" controls playsinline autoplay muted style="width:100%; display:block; border-radius:14px; background:#000;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
       <div class="placeholder" style="display:none; height:360px;">PST Manual controls video</div>
     </div>
 
@@ -440,36 +468,45 @@
 
     <div class="impact-stack">
       <div class="impact-panel">
-        <h3>Impact</h3>
+        <h3>Feature impact</h3>
         <div class="impact-metrics">
           <div class="impact-metric">
-            <div class="impact-value">27%</div>
-            <div class="impact-label">Adoption across eligible accounts</div>
+            <div class="impact-value">+6%</div>
+            <div class="impact-label">KAV lift per campaign; top campaigns +35% click lift vs. control</div>
           </div>
           <div class="impact-metric">
-            <div class="impact-value">250M+</div>
-            <div class="impact-label">Recipients reached</div>
+            <div class="impact-value">~0.7%</div>
+            <div class="impact-label">Estimated sitewide KAV lift at scale (50% adoption across 40% of campaigns)</div>
           </div>
           <div class="impact-metric">
-            <div class="impact-value">Up to 35%</div>
-            <div class="impact-label">Click lift (top campaigns)</div>
+            <div class="impact-value">27% · 250M+</div>
+            <div class="impact-label">Adoption within 2 weeks of GA · recipients reached</div>
           </div>
           <div class="impact-metric">
-            <div class="impact-value">90 sec</div>
-            <div class="impact-label">Campaign setup (vs. 29 minutes)</div>
+            <div class="impact-value">~29 min → ~90 sec</div>
+            <div class="impact-label">Reduced campaign setup time</div>
           </div>
         </div>
 
-        <p class="impact-prose">Two weeks after launch, Personalized Send Time saw strong traction—27% adoption across eligible accounts, reaching over 250 million recipients. Top campaigns saw up to 35% click lift, while setup time dropped from 29 minutes to 90 seconds.</p>
-        <p class="impact-prose">At scale, email engagement showed consistent gains (~3% click lift), though conversion and revenue impact remained more nuanced.</p>
+        <hr class="impact-divider" aria-hidden="true">
+
+        <div class="impact-contributions">
+          <h4 class="impact-contributions-title">My key design contribution:</h4>
+          <ul class="impact-contributions-list">
+            <li>Simplified analytics → removed confusing metrics, improving clarity and trust</li>
+            <li>Introduced manual control baseline, enabling measurable lift attribution</li>
+            <li>Clarified open/click definitions (human vs. machine) to improve data accuracy</li>
+            <li>Led post-GA research to drive adoption, trust, and repeat usage</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
-
-  <footer>
-    © 2025 — Designed & built by Nila Gao
-  </footer>
 </main>
+
+<footer>
+  © 2026 — Designed & built by Nila Gao
+</footer>
 
 <script>
   let lastScroll = 0;
@@ -498,6 +535,7 @@
     }
   });
 </script>
+<script src="js/scroll-reveal.js" defer></script>
 </body>
 </html>
 
