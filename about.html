@@ -19,7 +19,6 @@ body {
 
 a { text-decoration: none; color: inherit; }
 
-/* ── Nav ── */
 .top-nav {
   position: sticky;
   top: 0;
@@ -55,14 +54,12 @@ a { text-decoration: none; color: inherit; }
 .nav-right a:hover { color: #F2EDE6; }
 .nav-right a.active { color: rgba(242,237,230,0.7); }
 
-/* ── Body ── */
 .about-body {
   max-width: 620px;
   margin: 0 auto;
   padding: 2.5rem 1.5rem 4rem;
 }
 
-/* Photo */
 .about-photo {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -80,7 +77,6 @@ a { text-decoration: none; color: inherit; }
   display: block;
 }
 
-/* Headline */
 .about-h1 {
   font-family: 'DM Serif Display', serif;
   font-size: 2.4rem;
@@ -89,12 +85,7 @@ a { text-decoration: none; color: inherit; }
   color: #F2EDE6;
   margin: 0 0 1.75rem;
 }
-.about-h1 em {
-  font-style: italic;
-  color: #B8A98E;
-}
 
-/* Sections */
 .about-section {
   padding: 1.35rem 0;
   border-top: 0.5px solid rgba(242,237,230,0.06);
@@ -113,32 +104,9 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 0.75rem;
 }
 .about-p:last-of-type { margin-bottom: 0; }
-.about-p strong {
-  color: rgba(242,237,230,0.78);
-  font-weight: 500;
-}
-.about-p em {
-  font-style: italic;
-  color: #B8A98E;
-}
+.about-p strong { color: rgba(242,237,230,0.78); font-weight: 500; }
+.about-p em { font-style: italic; color: #B8A98E; }
 
-/* Pills */
-.about-pills {
-  display: flex;
-  gap: 0.4rem;
-  flex-wrap: wrap;
-  margin-top: 0.875rem;
-}
-.about-pill {
-  font-size: 0.68rem;
-  letter-spacing: 0.04em;
-  padding: 4px 12px;
-  border-radius: 99px;
-  border: 0.5px solid rgba(184,169,142,0.25);
-  color: rgba(184,169,142,0.65);
-}
-
-/* Contact links */
 .about-contact {
   display: flex;
   gap: 0.75rem;
@@ -159,7 +127,6 @@ a { text-decoration: none; color: inherit; }
   color: #B8A98E;
 }
 
-/* ── Footer ── */
 footer {
   border-top: 0.5px solid rgba(242,237,230,0.07);
   padding: 1.5rem 1.5rem;
@@ -167,15 +134,10 @@ footer {
   font-size: 0.78rem;
   color: rgba(242,237,230,0.25);
 }
-.footer-links { display: flex; gap: 1.25rem; }
-.footer-links a { color: rgba(242,237,230,0.25); transition: color 0.15s; }
-.footer-links a:hover { color: rgba(242,237,230,0.6); }
 
-/* ── Responsive ── */
 @media (max-width: 700px) {
   .nav-right { display: none; }
   .about-h1 { font-size: 2rem; }
-  footer { flex-direction: column; gap: 0.75rem; text-align: center; }
 }
 </style>
 </head>
@@ -204,10 +166,8 @@ footer {
     <h1 class="about-h1">Hey, I'm Nila</h1>
 
     <div class="about-section">
-
       <p class="about-p">AI designer at <strong>Klaviyo</strong>, making machine learning feel like it was built for humans. I grew up in my family's <strong>Chinese restaurant in New York</strong> — where I learned that <em>small details shape how people feel.</em> I still design that way.</p>
       <p class="about-p">When I'm not in Figma, I'm dancing, illustrating, or filling another journal.</p>
-
     </div>
 
     <div class="about-section">
