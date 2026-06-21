@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Nila Gao, AI Designer @ Klaviyo</title>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/scroll-reveal.css">
 <noscript><style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }</style></noscript>
 <style>
@@ -19,6 +19,7 @@ body {
 
 a { text-decoration: none; color: inherit; }
 
+/* ── Nav ── */
 .top-nav {
   position: sticky;
   top: 0;
@@ -38,88 +39,63 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
 }
 .nav-left {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(242,237,230,0.45);
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(242,237,230,0.85);
+  letter-spacing: -0.01em;
 }
 .nav-left a { color: inherit; }
 .nav-left a:hover { color: #F2EDE6; }
 .nav-right { display: flex; gap: 1.75rem; }
 .nav-right a {
-  font-size: 0.78rem;
-  color: rgba(242,237,230,0.28);
-  letter-spacing: 0.02em;
+  font-size: 0.82rem;
+  color: rgba(242,237,230,0.35);
   transition: color 0.15s;
 }
 .nav-right a:hover { color: #F2EDE6; }
 
+/* ── Hero ── */
 .hero {
   max-width: 960px;
   margin: 0 auto;
-  padding: 3.5rem 1.5rem 3rem;
+  padding: 4rem 1.5rem 3rem;
+  text-align: center;
 }
-.hero-big {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(3rem, 7vw, 5rem);
-  font-weight: 700;
-  line-height: 0.93;
-  letter-spacing: -0.04em;
-  color: #F2EDE6;
-  margin: 0 0 1.75rem;
-}
-.hero-big .dim { color: rgba(242,237,230,0.15); }
-.hero-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-.hero-left { display: flex; flex-direction: column; gap: 1rem; }
-.hero-sub {
-  font-size: 0.88rem;
-  color: rgba(242,237,230,0.38);
-  line-height: 1.65;
-  max-width: 360px;
-}
-.hero-chips { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-.hero-chip {
-  font-size: 0.68rem;
-  letter-spacing: 0.05em;
-  padding: 3px 11px;
-  border-radius: 99px;
-  border: 0.5px solid rgba(184,169,142,0.28);
-  color: rgba(184,169,142,0.65);
-}
-.hero-cta {
-  font-family: 'Space Grotesk', sans-serif;
+.hero-eyebrow {
   font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #0A0A09;
-  background: #B8A98E;
-  padding: 0.6rem 1.35rem;
-  border-radius: 99px;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: opacity 0.15s;
+  color: #B8A98E;
+  margin-bottom: 1rem;
 }
-.hero-cta:hover { opacity: 0.85; }
+.hero-h1 {
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-weight: 700;
+  color: #F2EDE6;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 0.875rem;
+}
+.hero-sub {
+  font-size: 0.9rem;
+  color: rgba(242,237,230,0.4);
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
 
+/* ── Divider ── */
 .divider {
   height: 0.5px;
   background: rgba(242,237,230,0.07);
-  margin: 0 1.5rem;
+  margin: 2.5rem 1.5rem 0;
 }
 
+/* ── Projects ── */
 .projects-section {
   max-width: 960px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 4rem;
+  padding: 2rem 1.5rem 4rem;
 }
 .section-label {
   font-size: 0.68rem;
@@ -129,6 +105,7 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 1.75rem;
 }
 
+/* Top 2 featured */
 .grid-top {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -155,6 +132,7 @@ a { text-decoration: none; color: inherit; }
 }
 .card-top-img--contain { object-fit: contain; background: #1a1816; }
 
+/* Bottom 4 */
 .grid-bot {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -208,6 +186,7 @@ a { text-decoration: none; color: inherit; }
 }
 .card-bot .card-tag { font-size: 0.6rem; }
 
+/* ── Fade-in ── */
 .fade-in {
   opacity: 0;
   transform: translateY(16px);
@@ -215,28 +194,21 @@ a { text-decoration: none; color: inherit; }
 }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+/* ── Footer ── */
 footer {
   border-top: 0.5px solid rgba(242,237,230,0.07);
   padding: 1.5rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 960px;
-  margin: 0 auto;
+  text-align: center;
   font-size: 0.78rem;
   color: rgba(242,237,230,0.25);
 }
-.footer-links { display: flex; gap: 1.25rem; }
-.footer-links a { color: rgba(242,237,230,0.25); transition: color 0.15s; }
-.footer-links a:hover { color: rgba(242,237,230,0.6); }
 
+/* ── Responsive ── */
 @media (max-width: 700px) {
   .nav-right { display: none; }
-  .hero-big { font-size: 2.6rem; }
-  .hero-cta { width: 100%; text-align: center; }
+  .hero-h1 { font-size: 2rem; }
   .grid-top { grid-template-columns: 1fr; }
   .grid-bot { grid-template-columns: repeat(2, 1fr); }
-  footer { flex-direction: column; gap: 0.75rem; text-align: center; }
 }
 @media (min-width: 701px) and (max-width: 900px) {
   .grid-bot { grid-template-columns: repeat(2, 1fr); }
@@ -259,19 +231,9 @@ footer {
 
 <main>
   <section class="hero">
-    <h1 class="hero-big">AI<br><span class="dim">DESIGNER</span><br>@ KLAVIYO</h1>
-    <div class="hero-bottom">
-      <div class="hero-left">
-        <p class="hero-sub">Designing the machine-learning features that make email marketing feel less like guesswork.</p>
-        <div class="hero-chips">
-          <span class="hero-chip">AI Personalization</span>
-          <span class="hero-chip">ML Decisioning</span>
-          <span class="hero-chip">B2B SaaS</span>
-          <span class="hero-chip">Product Design</span>
-        </div>
-      </div>
-      <a href="#projects" class="hero-cta">View work ↓</a>
-    </div>
+    <p class="hero-eyebrow">AI Designer · Klaviyo</p>
+    <h1 class="hero-h1">Hey, I'm Nila</h1>
+    <p class="hero-sub">I design AI tools people actually understand — and tell the stories that make them trust it.</p>
   </section>
 
   <div class="divider"></div>
@@ -351,13 +313,7 @@ footer {
   </section>
 </main>
 
-<footer>
-  <span>© 2026 Nila Gao</span>
-  <div class="footer-links">
-    <a href="https://linkedin.com" target="_blank">LinkedIn ↗</a>
-    <a href="mailto:nila@nilagao.com">Email ↗</a>
-  </div>
-</footer>
+<footer>© Nila Gao 2026</footer>
 
 <script>
 const nav = document.getElementById('top-nav');
