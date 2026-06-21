@@ -59,7 +59,7 @@ a { text-decoration: none; color: inherit; }
 .cs-img-caption { font-size: 0.72rem; color: rgba(242,237,230,0.28); margin-bottom: 0.5rem; letter-spacing: 0.02em; }
 .cs-concepts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.25rem 0; }
 .cs-concept-card { background: #141412; border-radius: 10px; border: 0.5px solid rgba(242,237,230,0.07); overflow: hidden; }
-.cs-concept-img { width: 100%; height: 110px; object-fit: contain; background: #1C1B19; display: block; }
+.cs-concept-img { width: 100%; height: 180px; object-fit: contain; background: #1C1B19; display: block; padding: 0.5rem; }
 .cs-concept-body { padding: 0.75rem 0.875rem 0.875rem; }
 .cs-concept-title { font-size: 0.75rem; font-weight: 500; color: rgba(242,237,230,0.65); margin-bottom: 0.3rem; }
 .cs-concept-text { font-size: 0.7rem; color: rgba(242,237,230,0.35); line-height: 1.5; }
@@ -101,11 +101,6 @@ footer a:hover { color: rgba(242,237,230,0.6); }
 <main>
   <div class="cs-hero">
     <a href="index.html" class="cs-back">← Back to projects</a>
-    <div class="cs-tags">
-      <span class="cs-tag">AI</span>
-      <span class="cs-tag">Interaction Design</span>
-      <span class="cs-tag">Klaviyo</span>
-    </div>
     <h1 class="cs-h1">Subject Line Assist</h1>
     <p class="cs-subtitle">Increasing AI adoption 8× by redesigning a reactive modal into proactive inline autocomplete.</p>
       </div>
@@ -144,21 +139,21 @@ footer a:hover { color: rgba(242,237,230,0.6); }
       <p class="cs-p">My goal was to redesign Subject Line Assist to reduce cognitive load, improve relevance, and increase adoption toward a ~5% target. I explored three concept directions before converging.</p>
       <div class="cs-concepts-grid">
         <div class="cs-concept-card">
-          <img src="Images/Subjectlineassist/Subject line assist_conceptexploration_ adding keywords.png" alt="Keyword-Based Prompting" class="cs-concept-img" onerror="this.style.display='none';">
+          <img src="Images/Subjectlineassist/Subject line assist_conceptexploration_ adding keywords.png" alt="Keyword-Based Prompting" class="cs-concept-img" onerror="this.style.opacity='0.2';">
           <div class="cs-concept-body">
             <div class="cs-concept-title">Keyword-Based Prompting</div>
             <div class="cs-concept-text">Allowed users to guide AI with keywords, but created uncertainty around intent and accuracy.</div>
           </div>
         </div>
         <div class="cs-concept-card">
-          <img src="Images/Subjectlineassist/Conceptexploration_toolbarbased.png" alt="Toolbar-Based AI" class="cs-concept-img" onerror="this.style.display='none';">
+          <img src="Images/Subjectlineassist/Conceptexploration_toolbarbased.png" alt="Toolbar-Based AI" class="cs-concept-img" onerror="this.style.opacity='0.2';">
           <div class="cs-concept-body">
             <div class="cs-concept-title">Toolbar-Based Controls</div>
             <div class="cs-concept-text">More efficient but still required explicit activation and added UI complexity.</div>
           </div>
         </div>
         <div class="cs-concept-card">
-          <img src="Images/Subjectlineassist/Conceptexploration_performancebased.png" alt="Performance-Informed" class="cs-concept-img" onerror="this.style.display='none';">
+          <img src="Images/Subjectlineassist/Conceptexploration_performancebased.png" alt="Performance-Informed" class="cs-concept-img" onerror="this.style.opacity='0.2';">
           <div class="cs-concept-body">
             <div class="cs-concept-title">Performance-Informed</div>
             <div class="cs-concept-text">Surfaced past subject lines with open rates, increasing trust but raising data clarity concerns.</div>
@@ -204,13 +199,29 @@ footer a:hover { color: rgba(242,237,230,0.6); }
         <img src="Images/Subjectlineassist/Finaldesign.png" alt="Final Design" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
         <div class="cs-img-placeholder" style="display:none;">Final Design</div>
       </div>
-      <ul class="cs-list">
-        <li>AI suggestions appear inline when the field is focused</li>
-        <li>Suggestions refresh after ~3 words and a short pause</li>
-        <li>Clear loading and cancel states preserve user control</li>
-        <li>Regenerate enables exploration without restarting</li>
-        <li>Graceful fallback when brand data is unavailable</li>
-      </ul>
+      <p class="cs-section-label" style="margin-top:1.5rem;">Key product & design decisions</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-top:0.75rem;">
+        <div style="background:#141412; border:0.5px solid rgba(242,237,230,0.07); border-radius:10px; padding:1rem 1.1rem;">
+          <p style="font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:#B8A98E; margin-bottom:0.4rem;">Discoverability</p>
+          <p style="font-size:0.82rem; color:rgba(242,237,230,0.6); line-height:1.55;">AI suggestions appear inline when the field is focused — no button, no modal, no extra step.</p>
+        </div>
+        <div style="background:#141412; border:0.5px solid rgba(242,237,230,0.07); border-radius:10px; padding:1rem 1.1rem;">
+          <p style="font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:#B8A98E; margin-bottom:0.4rem;">Timing</p>
+          <p style="font-size:0.82rem; color:rgba(242,237,230,0.6); line-height:1.55;">Suggestions refresh after ~3 words and a short pause — responsive without being distracting.</p>
+        </div>
+        <div style="background:#141412; border:0.5px solid rgba(242,237,230,0.07); border-radius:10px; padding:1rem 1.1rem;">
+          <p style="font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:#B8A98E; margin-bottom:0.4rem;">Control</p>
+          <p style="font-size:0.82rem; color:rgba(242,237,230,0.6); line-height:1.55;">Clear loading and cancel states let users pause or dismiss at any moment — AI supports, never blocks.</p>
+        </div>
+        <div style="background:#141412; border:0.5px solid rgba(242,237,230,0.07); border-radius:10px; padding:1rem 1.1rem;">
+          <p style="font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:#B8A98E; margin-bottom:0.4rem;">Exploration</p>
+          <p style="font-size:0.82rem; color:rgba(242,237,230,0.6); line-height:1.55;">Regenerate enables trying different directions without starting over — encouraging iteration, not commitment.</p>
+        </div>
+        <div style="background:#141412; border:0.5px solid rgba(242,237,230,0.07); border-radius:10px; padding:1rem 1.1rem; grid-column:1/-1;">
+          <p style="font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:#B8A98E; margin-bottom:0.4rem;">Graceful fallback</p>
+          <p style="font-size:0.82rem; color:rgba(242,237,230,0.6); line-height:1.55;">When brand data is unavailable, the system falls back gracefully — no broken states, no dead ends.</p>
+        </div>
+      </div>
     </div>
 
     <div class="cs-section">
