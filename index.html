@@ -58,7 +58,7 @@ a { text-decoration: none; color: inherit; }
 .hero {
   max-width: 960px;
   margin: 0 auto;
-  padding: 4rem 1.5rem 3rem;
+  padding: 3rem 1.5rem 2rem;
   text-align: center;
 }
 .hero-eyebrow {
@@ -88,14 +88,14 @@ a { text-decoration: none; color: inherit; }
 .divider {
   height: 0.5px;
   background: rgba(242,237,230,0.07);
-  margin: 2.5rem 1.5rem 0;
+  margin: 1.5rem 1.5rem 0;
 }
 
 /* ── Projects ── */
 .projects-section {
   max-width: 960px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
+  padding: 1.5rem 1.5rem 4rem;
 }
 .section-label {
   font-size: 0.68rem;
@@ -105,14 +105,12 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 1.75rem;
 }
 
-/* Top 2 featured */
-.grid-top {
+.projects-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
-  margin-bottom: 1.25rem;
 }
-.card-top {
+.project-card {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -121,49 +119,22 @@ a { text-decoration: none; color: inherit; }
   border: 0.5px solid rgba(242,237,230,0.07);
   transition: border-color 0.2s;
 }
-.card-top:hover { border-color: rgba(184,169,142,0.25); }
-.card-top:hover .card-title { color: #B8A98E; }
-.card-top-img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  background: #22201e;
-  display: block;
-}
-.card-top-img--contain { object-fit: contain; background: #1a1816; }
-
-/* Bottom 4 */
-.grid-bot {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
-}
-.card-bot {
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #141412;
-  border: 0.5px solid rgba(242,237,230,0.07);
-  transition: border-color 0.2s;
-}
-.card-bot:hover { border-color: rgba(184,169,142,0.25); }
-.card-bot:hover .card-title { color: #B8A98E; }
-.card-bot-img {
+.project-card:hover { border-color: rgba(184,169,142,0.25); }
+.project-card:hover .card-title { color: #B8A98E; }
+.project-card-img {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
   background: #1e1c1a;
   display: block;
 }
-.card-bot-img--audience {
+.project-card-img--contain { object-fit: contain; background: #1a1816; }
+.project-card-img--audience {
   background-image: url('Images/Homepage/Purple_background.png');
   background-size: cover;
   background-position: center;
 }
-
-.card-top .card-body { padding: 0.875rem 1rem 1rem; }
-.card-bot .card-body { padding: 0.6rem 0.75rem 0.75rem; }
+.project-card .card-body { padding: 0.875rem 1rem 1rem; }
 
 .card-title {
   font-weight: 500;
@@ -207,11 +178,10 @@ footer {
 @media (max-width: 700px) {
   .nav-right { display: none; }
   .hero-h1 { font-size: 2rem; }
-  .grid-top { grid-template-columns: 1fr; }
-  .grid-bot { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: 1fr; }
 }
 @media (min-width: 701px) and (max-width: 900px) {
-  .grid-bot { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
 </head>
@@ -233,80 +203,66 @@ footer {
   <section class="hero">
     <p class="hero-eyebrow">AI Designer · Klaviyo</p>
     <h1 class="hero-h1">Hey, I'm Nila</h1>
-    <p class="hero-sub">I design AI tools people actually understand — and tell the stories that make them trust it.</p>
+    <p class="hero-sub">I tell stories with data — making complex systems feel intuitive, human, and a little bit fun.</p>
   </section>
 
   <div class="divider"></div>
 
   <section class="projects-section" id="projects">
-    <p class="section-label">Selected work</p>
 
-    <div class="grid-top">
-      <a href="case-study8.html" class="card-top fade-in">
+
+    <div class="projects-grid">
+      <a href="case-study8.html" class="project-card fade-in">
         <img src="Images/Homepage/PST_cover.png" alt="Personalized Send Time"
-          class="card-top-img card-top-img--contain"
+          class="project-card-img project-card-img--contain"
           onerror="this.style.background='#22201e'; this.removeAttribute('src');">
         <div class="card-body">
           <div class="card-title">Personalized Send Time</div>
-          <div class="card-tags">
-            <span class="card-tag">AI Personalization</span>
-            <span class="card-tag">Product Design</span>
-          </div>
         </div>
       </a>
 
-      <a href="case-study1.html" class="card-top fade-in">
+      <a href="case-study1.html" class="project-card fade-in">
         <img src="Images/Subjectlineassist/Subjectlineassist_cover.png" alt="Subject Line Assist"
-          class="card-top-img"
+          class="project-card-img"
           onerror="this.style.background='#22201e'; this.removeAttribute('src');">
         <div class="card-body">
           <div class="card-title">Subject Line Assist</div>
-          <div class="card-tags">
-            <span class="card-tag">AI</span>
-            <span class="card-tag">UI/UX</span>
-          </div>
         </div>
       </a>
-    </div>
 
-    <div class="grid-bot">
-      <a href="case-study7.html" class="card-bot fade-in">
+      <a href="case-study7.html" class="project-card fade-in">
         <img src="Images/Homepage/Audienceoptimizationcover.png" alt="Audience Optimization"
-          class="card-bot-img card-bot-img--audience"
+          class="project-card-img project-card-img--audience"
           onerror="this.removeAttribute('src');">
         <div class="card-body">
           <div class="card-title">Audience Optimization</div>
-          <div class="card-tags"><span class="card-tag">ML Decisioning</span></div>
         </div>
       </a>
 
-      <a href="case-study6.html" class="card-bot fade-in">
+      <a href="case-study6.html" class="project-card fade-in">
         <img src="Images/Homepage/ChannelAffinitycover.png" alt="Channel Affinity"
-          class="card-bot-img"
+          class="project-card-img"
           onerror="this.style.background='#1e1c1a'; this.removeAttribute('src');">
         <div class="card-body">
           <div class="card-title">Channel Affinity</div>
-          <div class="card-tags"><span class="card-tag">ML Personalization</span></div>
         </div>
       </a>
 
-      <a href="case-study4.html" class="card-bot fade-in">
+      <a href="case-study4.html" class="project-card fade-in">
         <img src="Images/Homepage/Sitematch.png" alt="SiteMatch"
-          class="card-bot-img"
+          class="project-card-img"
           onerror="this.style.background='#1e1c1a'; this.removeAttribute('src');">
         <div class="card-body">
           <div class="card-title">SiteMatch</div>
-          <div class="card-tags"><span class="card-tag">B2B · UI/UX</span></div>
         </div>
       </a>
 
-      <a href="case-study3.html" class="card-bot fade-in">
+      <a href="case-study3.html" class="project-card fade-in">
         <img src="Images/Homepage/AthenicAI.png" alt="Data XRay"
-          class="card-bot-img"
+          class="project-card-img"
           onerror="this.style.background='#1e1c1a'; this.removeAttribute('src');">
         <div class="card-body">
           <div class="card-title">Data XRay</div>
-          <div class="card-tags"><span class="card-tag">Analytics · AI</span></div>
         </div>
       </a>
     </div>
