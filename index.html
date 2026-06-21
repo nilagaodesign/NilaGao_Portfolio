@@ -19,7 +19,6 @@ body {
 
 a { text-decoration: none; color: inherit; }
 
-/* ── Nav ── */
 .top-nav {
   position: sticky;
   top: 0;
@@ -57,7 +56,6 @@ a { text-decoration: none; color: inherit; }
 }
 .nav-right a:hover { color: #F2EDE6; }
 
-/* ── Hero ── */
 .hero {
   max-width: 960px;
   margin: 0 auto;
@@ -112,14 +110,12 @@ a { text-decoration: none; color: inherit; }
 }
 .hero-cta:hover { opacity: 0.85; }
 
-/* ── Divider ── */
 .divider {
   height: 0.5px;
   background: rgba(242,237,230,0.07);
   margin: 0 1.5rem;
 }
 
-/* ── Projects ── */
 .projects-section {
   max-width: 960px;
   margin: 0 auto;
@@ -281,3 +277,110 @@ footer {
   <div class="divider"></div>
 
   <section class="projects-section" id="projects">
+    <p class="section-label">Selected work</p>
+
+    <div class="grid-top">
+      <a href="case-study8.html" class="card-top fade-in">
+        <img src="Images/Homepage/PST_cover.png" alt="Personalized Send Time"
+          class="card-top-img card-top-img--contain"
+          onerror="this.style.background='#22201e'; this.removeAttribute('src');">
+        <div class="card-body">
+          <div class="card-title">Personalized Send Time</div>
+          <div class="card-tags">
+            <span class="card-tag">AI Personalization</span>
+            <span class="card-tag">Product Design</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="case-study1.html" class="card-top fade-in">
+        <img src="Images/Subjectlineassist/Subjectlineassist_cover.png" alt="Subject Line Assist"
+          class="card-top-img"
+          onerror="this.style.background='#22201e'; this.removeAttribute('src');">
+        <div class="card-body">
+          <div class="card-title">Subject Line Assist</div>
+          <div class="card-tags">
+            <span class="card-tag">AI</span>
+            <span class="card-tag">UI/UX</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="grid-bot">
+      <a href="case-study7.html" class="card-bot fade-in">
+        <img src="Images/Homepage/Audienceoptimizationcover.png" alt="Audience Optimization"
+          class="card-bot-img card-bot-img--audience"
+          onerror="this.removeAttribute('src');">
+        <div class="card-body">
+          <div class="card-title">Audience Optimization</div>
+          <div class="card-tags"><span class="card-tag">ML Decisioning</span></div>
+        </div>
+      </a>
+
+      <a href="case-study6.html" class="card-bot fade-in">
+        <img src="Images/Homepage/ChannelAffinitycover.png" alt="Channel Affinity"
+          class="card-bot-img"
+          onerror="this.style.background='#1e1c1a'; this.removeAttribute('src');">
+        <div class="card-body">
+          <div class="card-title">Channel Affinity</div>
+          <div class="card-tags"><span class="card-tag">ML Personalization</span></div>
+        </div>
+      </a>
+
+      <a href="case-study4.html" class="card-bot fade-in">
+        <img src="Images/Homepage/Sitematch.png" alt="SiteMatch"
+          class="card-bot-img"
+          onerror="this.style.background='#1e1c1a'; this.removeAttribute('src');">
+        <div class="card-body">
+          <div class="card-title">SiteMatch</div>
+          <div class="card-tags"><span class="card-tag">B2B · UI/UX</span></div>
+        </div>
+      </a>
+
+      <a href="case-study3.html" class="card-bot fade-in">
+        <img src="Images/Homepage/AthenicAI.png" alt="Data XRay"
+          class="card-bot-img"
+          onerror="this.style.background='#1e1c1a'; this.removeAttribute('src');">
+        <div class="card-body">
+          <div class="card-title">Data XRay</div>
+          <div class="card-tags"><span class="card-tag">Analytics · AI</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 Nila Gao</span>
+  <div class="footer-links">
+    <a href="https://linkedin.com" target="_blank">LinkedIn ↗</a>
+    <a href="mailto:nila@nilagao.com">Email ↗</a>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('top-nav');
+let lastScroll = 0, ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const cur = window.pageYOffset;
+      if (cur <= 0) nav.classList.remove('hidden');
+      else if (cur > lastScroll && cur > 80) nav.classList.add('hidden');
+      else nav.classList.remove('hidden');
+      lastScroll = cur;
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+<script src="js/scroll-reveal.js" defer></script>
+</body>
+</html>
