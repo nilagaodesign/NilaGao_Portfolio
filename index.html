@@ -5,105 +5,66 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Nila Gao, AI Designer @ Klaviyo</title>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/scroll-reveal.css">
-<noscript><style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }</style></noscript>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: #0A0A09;
-  color: #F2EDE6;
+  font-family: 'Figtree', sans-serif;
+  background: #FAFAF9;
+  color: #1A1916;
   line-height: 1.6;
 }
 
 a { text-decoration: none; color: inherit; }
 
-/* ── Nav ── */
+/* Nav */
 .top-nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(10,10,9,0.92);
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250,250,249,0.92);
   backdrop-filter: blur(8px);
-  border-bottom: 0.5px solid rgba(242,237,230,0.06);
+  border-bottom: 0.5px solid rgba(26,25,22,0.08);
   transition: transform 0.3s ease-in-out;
 }
 .top-nav.hidden { transform: translateY(-100%); }
 .top-nav-inner {
-  max-width: 960px;
-  margin: 0 auto;
+  max-width: 960px; margin: 0 auto;
   padding: 1.1rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; justify-content: space-between; align-items: center;
 }
-.nav-left {
-  font-size: 1rem;
-  font-weight: 600;
-  color: rgba(242,237,230,0.85);
-  letter-spacing: -0.01em;
-}
+.nav-left { font-size: 1rem; font-weight: 600; color: #1A1916; letter-spacing: -0.01em; }
 .nav-left a { color: inherit; }
-.nav-left a:hover { color: #F2EDE6; }
 .nav-right { display: flex; gap: 1.75rem; }
-.nav-right a {
-  font-size: 0.82rem;
-  color: rgba(242,237,230,0.35);
-  transition: color 0.15s;
-}
-.nav-right a:hover { color: #F2EDE6; }
+.nav-right a { font-size: 0.82rem; color: rgba(26,25,22,0.4); transition: color 0.15s; }
+.nav-right a:hover { color: #1A1916; }
 
-/* ── Hero ── */
+/* Hero */
 .hero {
-  max-width: 960px;
-  margin: 0 auto;
+  max-width: 960px; margin: 0 auto;
   padding: 3rem 1.5rem 2rem;
   text-align: center;
 }
 .hero-eyebrow {
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  font-size: 0.72rem; letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #B8A98E;
+  color: #9A8A72;
   margin-bottom: 1rem;
 }
 .hero-h1 {
   font-size: clamp(2rem, 5vw, 2.6rem);
-  font-weight: 700;
-  color: #F2EDE6;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-weight: 700; color: #1A1916;
+  letter-spacing: -0.02em; line-height: 1.15;
   margin: 0 0 0.875rem;
 }
 .hero-sub {
-  font-size: 0.9rem;
-  color: rgba(242,237,230,0.4);
-  max-width: 420px;
-  margin: 0 auto;
-  line-height: 1.7;
+  font-size: 0.9rem; color: rgba(26,25,22,0.45);
+  max-width: 420px; margin: 0 auto; line-height: 1.7;
 }
 
-/* ── Divider ── */
-.divider {
-  height: 0.5px;
-  background: rgba(242,237,230,0.07);
-  margin: 1.5rem 1.5rem 0;
-}
+/* Divider */
+.divider { height: 0.5px; background: rgba(26,25,22,0.08); margin: 1.5rem 1.5rem 0; }
 
-/* ── Projects ── */
-.projects-section {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 1.5rem 1.5rem 4rem;
-}
-.section-label {
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(242,237,230,0.25);
-  margin-bottom: 1.75rem;
-}
+/* Projects */
+.projects-section { max-width: 960px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
 
 .projects-grid {
   display: grid;
@@ -111,70 +72,46 @@ a { text-decoration: none; color: inherit; }
   gap: 1.25rem;
 }
 .project-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #141412;
-  border: 0.5px solid rgba(242,237,230,0.07);
-  transition: border-color 0.2s;
+  display: flex; flex-direction: column;
+  border-radius: 10px; overflow: hidden;
+  background: #F0EDE8;
+  border: 0.5px solid rgba(26,25,22,0.08);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-.project-card:hover { border-color: rgba(184,169,142,0.25); }
-.project-card:hover .card-title { color: #B8A98E; }
+.project-card:hover { border-color: rgba(26,25,22,0.18); box-shadow: 0 4px 24px rgba(26,25,22,0.06); }
+.project-card:hover .card-title { color: #9A8A72; }
 .project-card-img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  background: #1e1c1a;
-  display: block;
+  width: 100%; aspect-ratio: 16/10;
+  object-fit: cover; background: #E4E0DB; display: block;
 }
-.project-card-img--contain { object-fit: contain; background: #1a1816; }
+.project-card-img--contain { object-fit: contain; background: #EDEAE5; }
 .project-card-img--audience {
   background-image: url('Images/Homepage/Purple_background.png');
-  background-size: cover;
-  background-position: center;
+  background-size: cover; background-position: center;
 }
 .project-card .card-body { padding: 0.875rem 1rem 1rem; }
-
 .card-title {
-  font-weight: 500;
-  color: #F2EDE6;
-  margin: 0 0 0.35rem;
-  line-height: 1.3;
+  font-weight: 500; color: #1A1916;
+  margin: 0 0 0.3rem; line-height: 1.3;
+  font-size: 0.9rem;
   transition: color 0.15s;
 }
-.card-top .card-title { font-size: 0.9rem; }
-.card-bot .card-title { font-size: 0.75rem; }
-
-.card-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; }
-.card-tag {
-  font-size: 0.63rem;
-  letter-spacing: 0.04em;
-  padding: 2px 8px;
-  border-radius: 99px;
-  border: 0.5px solid rgba(184,169,142,0.22);
-  color: rgba(184,169,142,0.55);
+.card-desc {
+  font-size: 0.75rem;
+  color: rgba(26,25,22,0.4);
+  line-height: 1.5;
 }
-.card-bot .card-tag { font-size: 0.6rem; }
 
-/* ── Fade-in ── */
-.fade-in {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
-}
+/* Fade-in */
+.fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease-out, transform 0.55s ease-out; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-/* ── Footer ── */
 footer {
-  border-top: 0.5px solid rgba(242,237,230,0.07);
-  padding: 1.5rem 1.5rem;
-  text-align: center;
-  font-size: 0.78rem;
-  color: rgba(242,237,230,0.25);
+  border-top: 0.5px solid rgba(26,25,22,0.08);
+  padding: 1.5rem; text-align: center;
+  font-size: 0.75rem; color: rgba(26,25,22,0.3);
 }
 
-/* ── Responsive ── */
 @media (max-width: 700px) {
   .nav-right { display: none; }
   .hero-h1 { font-size: 2rem; }
@@ -194,7 +131,7 @@ footer {
       <a href="index.html">Projects</a>
       <a href="playground.html">Playground</a>
       <a href="about.html">About</a>
-      <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit?usp=sharing&ouid=105507303957903473500&rtpof=true&sd=true" target="_blank">Resume ↗</a>
+      <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit" target="_blank">Resume ↗</a>
     </nav>
   </div>
 </header>
@@ -208,25 +145,26 @@ footer {
 
   <div class="divider"></div>
 
-  <section class="projects-section" id="projects">
-
-
+  <section class="projects-section">
     <div class="projects-grid">
+
       <a href="case-study8.html" class="project-card fade-in">
         <img src="Images/Homepage/PST_cover.png" alt="Personalized Send Time"
           class="project-card-img project-card-img--contain"
-          onerror="this.style.background='#22201e'; this.removeAttribute('src');">
+          onerror="this.style.background='#E4E0DB'; this.removeAttribute('src');">
         <div class="card-body">
           <div class="card-title">Personalized Send Time</div>
+          <div class="card-desc">Sends each message at the moment each person is most likely to open it.</div>
         </div>
       </a>
 
       <a href="case-study1.html" class="project-card fade-in">
         <img src="Images/Subjectlineassist/Subjectlineassist_cover.png" alt="Subject Line Assist"
           class="project-card-img"
-          onerror="this.style.background='#22201e'; this.removeAttribute('src');">
+          onerror="this.style.background='#E4E0DB'; this.removeAttribute('src');">
         <div class="card-body">
           <div class="card-title">Subject Line Assist</div>
+          <div class="card-desc">Redesigned a buried AI tool into inline autocomplete — 8× adoption.</div>
         </div>
       </a>
 
@@ -236,35 +174,40 @@ footer {
           onerror="this.removeAttribute('src');">
         <div class="card-body">
           <div class="card-title">Audience Optimization</div>
+          <div class="card-desc">Automatically removes recipients likely to unsubscribe before campaigns send.</div>
         </div>
       </a>
 
       <a href="case-study6.html" class="project-card fade-in">
         <img src="Images/Homepage/ChannelAffinitycover.png" alt="Channel Affinity"
           class="project-card-img"
-          onerror="this.style.background='#1e1c1a'; this.removeAttribute('src');">
+          onerror="this.style.background='#E4E0DB'; this.removeAttribute('src');">
         <div class="card-body">
           <div class="card-title">Channel Affinity</div>
+          <div class="card-desc">Predicts which channel — email, SMS, push — each customer is most likely to engage with.</div>
         </div>
       </a>
 
       <a href="case-study4.html" class="project-card fade-in">
         <img src="Images/Homepage/Sitematch.png" alt="SiteMatch"
           class="project-card-img"
-          onerror="this.style.background='#1e1c1a'; this.removeAttribute('src');">
+          onerror="this.style.background='#E4E0DB'; this.removeAttribute('src');">
         <div class="card-body">
           <div class="card-title">SiteMatch</div>
+          <div class="card-desc">Helps affordable housing developers find the sites most likely to secure funding.</div>
         </div>
       </a>
 
       <a href="case-study3.html" class="project-card fade-in">
         <img src="Images/Homepage/AthenicAI.png" alt="Data XRay"
           class="project-card-img"
-          onerror="this.style.background='#1e1c1a'; this.removeAttribute('src');">
+          onerror="this.style.background='#E4E0DB'; this.removeAttribute('src');">
         <div class="card-body">
           <div class="card-title">Data XRay</div>
+          <div class="card-desc">Ask a question, get a chart. An AI analytics workbook for non-technical users.</div>
         </div>
       </a>
+
     </div>
   </section>
 </main>
@@ -293,6 +236,5 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
-<script src="js/scroll-reveal.js" defer></script>
 </body>
 </html>
