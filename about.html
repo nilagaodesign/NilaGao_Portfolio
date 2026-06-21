@@ -19,6 +19,7 @@ body {
 
 a { text-decoration: none; color: inherit; }
 
+/* ── Nav ── */
 .top-nav {
   position: sticky;
   top: 0;
@@ -38,31 +39,30 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
 }
 .nav-left {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(242,237,230,0.45);
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(242,237,230,0.85);
+  letter-spacing: -0.01em;
 }
 .nav-left a { color: inherit; }
 .nav-left a:hover { color: #F2EDE6; }
 .nav-right { display: flex; gap: 1.75rem; }
 .nav-right a {
-  font-size: 0.78rem;
-  color: rgba(242,237,230,0.28);
-  letter-spacing: 0.02em;
+  font-size: 0.82rem;
+  color: rgba(242,237,230,0.35);
   transition: color 0.15s;
 }
 .nav-right a:hover { color: #F2EDE6; }
 .nav-right a.active { color: rgba(242,237,230,0.7); }
 
+/* ── Body ── */
 .about-body {
   max-width: 620px;
   margin: 0 auto;
   padding: 2.5rem 1.5rem 4rem;
 }
 
+/* Photo */
 .about-photo {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -80,6 +80,7 @@ a { text-decoration: none; color: inherit; }
   display: block;
 }
 
+/* Headline */
 .about-h1 {
   font-family: 'DM Serif Display', serif;
   font-size: 2.4rem;
@@ -93,6 +94,7 @@ a { text-decoration: none; color: inherit; }
   color: #B8A98E;
 }
 
+/* Sections */
 .about-section {
   padding: 1.35rem 0;
   border-top: 0.5px solid rgba(242,237,230,0.06);
@@ -120,6 +122,7 @@ a { text-decoration: none; color: inherit; }
   color: #B8A98E;
 }
 
+/* Pills */
 .about-pills {
   display: flex;
   gap: 0.4rem;
@@ -135,6 +138,7 @@ a { text-decoration: none; color: inherit; }
   color: rgba(184,169,142,0.65);
 }
 
+/* Contact links */
 .about-contact {
   display: flex;
   gap: 0.75rem;
@@ -155,14 +159,11 @@ a { text-decoration: none; color: inherit; }
   color: #B8A98E;
 }
 
+/* ── Footer ── */
 footer {
   border-top: 0.5px solid rgba(242,237,230,0.07);
   padding: 1.5rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 960px;
-  margin: 0 auto;
+  text-align: center;
   font-size: 0.78rem;
   color: rgba(242,237,230,0.25);
 }
@@ -170,6 +171,7 @@ footer {
 .footer-links a { color: rgba(242,237,230,0.25); transition: color 0.15s; }
 .footer-links a:hover { color: rgba(242,237,230,0.6); }
 
+/* ── Responsive ── */
 @media (max-width: 700px) {
   .nav-right { display: none; }
   .about-h1 { font-size: 2rem; }
@@ -186,7 +188,7 @@ footer {
       <a href="index.html">Projects</a>
       <a href="playground.html">Playground</a>
       <a href="about.html" class="active">About</a>
-      <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit?usp=sharing&ouid=105507303957903473500&rtpof=true&sd=true" target="_blank">Resume ↗</a>
+      <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit" target="_blank">Resume ↗</a>
     </nav>
   </div>
 </header>
@@ -199,4 +201,46 @@ footer {
         onerror="this.style.display='none';">
     </div>
 
-    <h1
+    <h1 class="about-h1">Hey, I'm Nila</h1>
+
+    <div class="about-section">
+
+      <p class="about-p">AI designer at <strong>Klaviyo</strong>, making machine learning feel like it was built for humans. I grew up in my family's <strong>Chinese restaurant in New York</strong> — where I learned that <em>small details shape how people feel.</em> I still design that way.</p>
+      <p class="about-p">When I'm not in Figma, I'm dancing, illustrating, or filling another journal.</p>
+
+    </div>
+
+    <div class="about-section">
+      <p class="about-label">Say hi</p>
+      <div class="about-contact">
+        <a href="https://www.linkedin.com/in/nila-gao/" target="_blank">LinkedIn ↗</a>
+        <a href="mailto:nilagao16@gmail.com">Email ↗</a>
+        <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit" target="_blank">Resume ↗</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>© Nila Gao 2026</footer>
+
+<script>
+const nav = document.getElementById('top-nav');
+let lastScroll = 0, ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const cur = window.pageYOffset;
+      if (cur <= 0) nav.classList.remove('hidden');
+      else if (cur > lastScroll && cur > 80) nav.classList.add('hidden');
+      else nav.classList.remove('hidden');
+      lastScroll = cur;
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+</script>
+<script src="js/scroll-reveal.js" defer></script>
+</body>
+</html>
