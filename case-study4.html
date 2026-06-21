@@ -1,519 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SiteMatch – Case Study</title>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/scroll-reveal.css">
-  <noscript>
-    <style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }</style>
-  </noscript>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #1a1a1a;
-      line-height: 1.6;
-      background: #ffffff;
-    }
-    a { text-decoration: none; color: inherit; }
-    .container { max-width: 960px; margin: 0 auto; padding: 1.5rem 1.25rem; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SiteMatch – Nila Gao</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/scroll-reveal.css">
+<noscript><style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }</style></noscript>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Figtree', sans-serif; background: #0A0A09; color: #F2EDE6; line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+.top-nav { position: sticky; top: 0; z-index: 50; background: rgba(10,10,9,0.92); backdrop-filter: blur(8px); border-bottom: 0.5px solid rgba(242,237,230,0.08); transition: transform 0.3s ease-in-out; }
+.top-nav.hidden { transform: translateY(-100%); }
+.top-nav-inner { max-width: 960px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+.nav-left { font-size: 0.95rem; font-weight: 600; color: #F2EDE6; }
+.nav-left a { color: inherit; }
+.nav-left a:hover { opacity: 0.7; }
+.nav-right { display: flex; gap: 1.5rem; }
+.nav-right a { font-size: 0.8rem; color: rgba(242,237,230,0.45); transition: color 0.15s; }
+.nav-right a:hover { color: #F2EDE6; }
+.wrap { max-width: 960px; margin: 0 auto; }
 
-    /* Top navigation */
-    .top-nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 50;
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(6px);
-      transition: transform 0.3s ease-in-out;
-    }
+.cs-hero { padding: 4rem 1.5rem 3rem; border-bottom: 0.5px solid rgba(242,237,230,0.08); }
+.cs-back { font-size: 0.8rem; color: rgba(242,237,230,0.4); margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.15s; }
+.cs-back:hover { color: rgba(242,237,230,0.7); }
+.cs-eyebrow { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: #B8A98E; margin-bottom: 1rem; }
+.cs-h1 { font-size: clamp(2.5rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; color: #F2EDE6; margin-bottom: 1rem; max-width: 600px; }
+.cs-subtitle { font-size: 0.88rem; color: rgba(242,237,230,0.55); max-width: 100%; line-height: 1.75; }
 
-    .top-nav.hidden {
-      transform: translateY(-100%);
-    }
+.cs-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(242,237,230,0.08); border-top: 0.5px solid rgba(242,237,230,0.08); border-bottom: 0.5px solid rgba(242,237,230,0.08); }
+.cs-meta-item { background: #0A0A09; padding: 1.25rem 1.5rem; }
+.cs-meta-label { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(242,237,230,0.35); margin-bottom: 0.4rem; }
+.cs-meta-val { font-size: 0.85rem; color: rgba(242,237,230,0.75); font-weight: 500; }
 
-    .top-nav-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0.75rem 1.25rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .nav-left { font-weight: 600; font-size: 1.1rem; color: #1a1a1a; }
-    .nav-left a { color: inherit; text-decoration: none; }
-    .nav-left a:hover { opacity: 0.7; }
-    .nav-right { display: flex; gap: 1.25rem; }
-    .nav-right a { font-size: 1rem; color: #555; text-decoration: none; }
-    .nav-right a:hover { color: #111; }
+.cs-section { padding: 2.5rem 1.5rem; border-bottom: 0.5px solid rgba(242,237,230,0.08); }
+.cs-overline { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(242,237,230,0.35); margin-bottom: 0.6rem; }
+.cs-h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: #F2EDE6; margin-bottom: 0.75rem; line-height: 1.2; }
+.cs-p { font-size: 0.85rem; color: rgba(242,237,230,0.6); line-height: 1.75; margin-bottom: 0.75rem; }
+.cs-p:last-child { margin-bottom: 0; }
+.cs-p strong { color: rgba(242,237,230,0.8); font-weight: 600; }
 
-    /* Floating right nav */
-    .floating-nav {
-      position: fixed;
-      right: 32px;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 20;
-    }
-    .floating-nav a {
-      font-size: 0.85rem;
-      color: #777;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.04);
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-    .floating-nav a:hover { background: rgba(0,0,0,0.08); color: #111; }
+.cs-img-wrap { width: 100%; background: #131311; border: 0.5px solid rgba(242,237,230,0.1); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-img-wrap img { width: 100%; height: auto; display: block; object-fit: contain; background: #131311; }
+.cs-img-placeholder { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; font-size: 0.68rem; color: rgba(242,237,230,0.2); }
+.cs-img-caption { font-size: 0.7rem; color: rgba(242,237,230,0.3); margin-bottom: 0.4rem; letter-spacing: 0.02em; }
 
-    .hero { padding: 5rem 1.25rem 3rem; text-align: center; }
-    .hero h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
-    .hero p { font-size: 1.1rem; color: #555; max-width: 720px; margin: 0 auto; }
+.cs-img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.25rem 0; }
+.cs-img-grid .cs-img-wrap { margin: 0; }
 
-    section { padding: 2rem 0; border-top: 1px solid #f0f0f0; }
-    section#background {
-      background: #fafafa;
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      margin: 2.5rem auto;
-    }
+.cs-pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin: 1.25rem 0; }
+.cs-pain { background: #131311; border: 0.5px solid rgba(242,237,230,0.1); border-radius: 10px; overflow: hidden; }
+.cs-pain-img { width: 100%; height: 130px; object-fit: cover; background: #1c1b18; display: block; }
+.cs-pain-body { padding: 0.75rem 0.875rem 0.875rem; }
+.cs-pain-title { font-size: 0.78rem; font-weight: 600; color: rgba(242,237,230,0.8); margin-bottom: 0.3rem; }
+.cs-pain-text { font-size: 0.7rem; color: rgba(242,237,230,0.45); line-height: 1.55; }
 
-    h2 { font-size: 1.6rem; margin-bottom: 0.8rem; font-weight: 600; letter-spacing: -0.01em; }
-    h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+.cs-concept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 1.25rem 0; }
+.cs-concept-card { background: transparent; border: none; }
+.cs-concept-img { width: 100%; height: auto; object-fit: contain; background: #1c1b18; border-radius: 8px; border: 0.5px solid rgba(242,237,230,0.08); display: block; }
+.cs-concept-body { padding: 0.6rem 0 0; }
+.cs-concept-title { font-size: 0.75rem; font-weight: 600; color: rgba(242,237,230,0.6); margin-bottom: 0.2rem; }
+.cs-concept-text { font-size: 0.68rem; color: rgba(242,237,230,0.35); line-height: 1.5; }
 
-    /* Spacing for Background subsections */
-    #background h3 {
-      margin-top: 1.75rem;
-    }
+.cs-features { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.25rem; }
+.cs-feature { background: #131311; border: 0.5px solid rgba(242,237,230,0.1); border-radius: 10px; padding: 1rem 1.1rem; }
+.cs-feature-title { font-size: 0.78rem; font-weight: 600; color: rgba(242,237,230,0.75); margin-bottom: 0.3rem; }
+.cs-feature-text { font-size: 0.72rem; color: rgba(242,237,230,0.4); line-height: 1.55; }
 
-    .concept-heading { margin-top: 2rem; }
+.cs-insight { background: rgba(184,169,142,0.07); border: 0.5px solid rgba(184,169,142,0.25); border-radius: 10px; padding: 1.1rem 1.25rem; margin-top: 1.25rem; }
+.cs-insight-label { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: #B8A98E; margin-bottom: 0.4rem; }
+.cs-insight-text { font-size: 0.82rem; color: rgba(242,237,230,0.65); line-height: 1.65; }
 
-    .meta {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-      color: #555;
-      font-size: 0.95rem;
-    }
+.cs-back-top { text-align: center; padding: 2.5rem 0 1rem; }
+.cs-back-top a { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(242,237,230,0.25); padding: 0.5rem 1.25rem; border: 0.5px solid rgba(242,237,230,0.12); border-radius: 99px; transition: color 0.15s, border-color 0.15s; }
+.cs-back-top a:hover { color: rgba(242,237,230,0.6); border-color: rgba(242,237,230,0.3); }
+footer { border-top: 0.5px solid rgba(242,237,230,0.08); padding: 1.5rem 1.5rem; text-align: center; font-size: 0.75rem; color: rgba(242,237,230,0.25); }
 
-    .placeholder {
-      background: #f4f4f4;
-      border-radius: 12px;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #aaa;
-      font-size: 0.9rem;
-      text-align: center;
-      padding: 1rem;
-      border: 1px solid #eee;
-    }
-
-    img {
-      width: 100%;
-      border-radius: 12px;
-      margin: 1.25rem 0;
-    }
-
-    .cover-image {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 12px;
-      margin: 1.25rem 0;
-      display: block;
-    }
-
-    ul { margin-left: 1rem; margin-top: 0.8rem; }
-
-    #impact > .final-columns > div > ul li {
-      margin: 0.35rem 0;
-    }
-    li { margin: 0.35rem 0; }
-    .metric { font-weight: 600; }
-
-    .process {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .key-insight {
-      margin-top: 0.75rem;
-      padding: 1.5rem 1.75rem;
-      background: #f7f7f7;
-      border-left: 3px solid #ddd;
-      border-radius: 12px;
-    }
-
-    .final-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-
-    .impact-metrics {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin: 0.75rem 0 1rem;
-    }
-
-    .impact-metric {
-      padding: 1rem 1.25rem;
-      border: 1px solid #e5e5e5;
-      border-radius: 14px;
-      background: #fafafa;
-    }
-
-    .impact-value {
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.25rem;
-    }
-
-    .impact-label { font-size: 0.85rem; color: #555; }
-
-    #impact .closing-columns h3 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-    }
-    #impact .closing-columns ul li,
-    #impact .closing-columns p {
-      font-size: 0.95rem;
-      line-height: 1.5;
-      color: #555;
-    }
-
-    footer {
-      border-top: 1px solid #e5e5e5;
-      padding: 1.5rem 1.25rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #666;
-    }
-
-    @media (max-width: 900px) {
-      .floating-nav, .nav-right { display: none; }
-      .final-columns, .impact-metrics, .process { grid-template-columns: 1fr; }
-    }
-  </style>
+@media (max-width: 700px) {
+  .nav-right { display: none; }
+  .cs-meta { grid-template-columns: 1fr; }
+  .cs-pain-grid { grid-template-columns: 1fr; }
+  .cs-concept-grid { grid-template-columns: 1fr; }
+  .cs-img-grid { grid-template-columns: 1fr; }
+  .cs-features { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
-<header class="top-nav">
+<header class="top-nav" id="top-nav">
   <div class="top-nav-inner">
     <div class="nav-left"><a href="index.html">Nila Gao</a></div>
     <nav class="nav-right">
       <a href="index.html">Projects</a>
       <a href="playground.html">Playground</a>
-      <a href="about.html">About Me</a>
-      <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit?usp=sharing&ouid=105507303957903473500&rtpof=true&sd=true" target="_blank">Resume</a>
+      <a href="about.html">About</a>
+      <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit" target="_blank">Resume ↗</a>
     </nav>
   </div>
 </header>
 
-<div class="floating-nav">
-  <a href="#overview">Overview</a>
-  <a href="#background">Background</a>
-  <a href="#design-goal">Design Thinking</a>
-  <a href="#final">Final Design</a>
-  <a href="#impact">Impact</a>
-</div>
+<main>
+  <div class="wrap">
 
-<section class="hero" id="overview">
-  <h1>SiteMatch</h1>
-</section>
-
-<section style="border-top: 1px solid #f0f0f0;">
-  <div class="container" style="padding: 1.5rem 1.25rem;">
-    <div style="border-radius: 16px; border: 1px solid #e4e4e7; background: #fafafa; padding: 1.5rem;">
-      <img src="Images/Sitematch/Sitematch cover image.png" alt="SiteMatch Cover - Landing Page, Site Report, and Matched Sites" style="width: 100%; max-width: 872px; border-radius: 12px; height: 288px; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder" style="height: 288px; display:none;">SiteMatch Cover - Landing Page, Site Report, and Matched Sites</div>
-    </div>
-  </div>
-</section>
-
-<section class="container" id="intro">
-  <p>
-    Assists developers in identifying, evaluating, comparing, and selecting potential sites that align with their priorities and have the greatest potential for securing government funding.
-  </p>
-
-  <div class="meta">
-    <div><strong>Role</strong><br />Lead Designer and Strategist</div>
-    <div><strong>Company</strong><br />Builders Patch</div>
-    <div><strong>Timeline</strong><br />Jan 2023 – May 2023</div>
-  </div>
-</section>
-
-
-
-<section class="container" id="background">
-  <h2>Background</h2>
-  <p>
-    The affordable housing development process is riddled with complexities and developers might not be equipped to navigate it with accuracy and speed.
-  </p>
-
-  <h3>Problem</h3>
-  <ul>
-    <li>Complex development process with limited funding and costly acquisition</li>
-    <li>Dependence on QAP (Qualified Allocation Plan) for securing LIHTC funding</li>
-    <li>Partial coverage by tax credits and fierce competition for funding</li>
-    <li>Reliance on governmental support with complex regulations and requirements</li>
-  </ul>
-
-  <h3>Solution Overview</h3>
-  <ul>
-    <li>Product that streamlines site selection for affordable housing developers</li>
-    <li>Leverages data and analytics to identify optimal development sites</li>
-    <li>Increases chances of securing funding by optimizing QAP scores</li>
-    <li>Reduces pre-development time (less than 12 months)</li>
-  </ul>
-
-  <h3>Barriers</h3>
-  <ul>
-    <li>Limited funding while construction costs are rising</li>
-    <li>High demand yet lengthy and cumbersome development process</li>
-    <li>Government dependency with region-specific policies and complex regulations</li>
-  </ul>
-</section>
-
-<section class="container" id="design-goal">
-  <h2>Design Thinking</h2>
-  <p style="margin-bottom: 1.25rem;">
-    How might we help developers identify potential sites to maximize their chances of accumulating more points in the QAP Selection Criteria to obtain LIHTC?
-  </p>
-
-  <h3>Research - The Pain Points</h3>
-  <p>
-    We conducted 10 expert interviews with developers, architects and consultants who work within affordable housing in the east coast to identify 3 common pain points:
-  </p>
-
-  <div class="process" style="margin-top: 1.5rem; grid-template-columns: repeat(3, 1fr);">
-    <div>
-      <img src="Images/Sitematch/Sitematch_research_funding.png" alt="Pain Point 1: Funding" style="width: 100%; border-radius: 12px; margin-bottom: 0.75rem; height: 180px; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder" style="height:180px; margin-bottom:0.75rem; display:none;">Pain Point 1: Funding</div>
-      <h3>Funding</h3>
-      <p>Funding is scarce while construction costs are rising when profits are minimal due to rent limitations.</p>
-    </div>
-    <div>
-      <img src="Images/Sitematch/Sitematch_research_demand.png" alt="Pain Point 2: High Demand, Low Return" style="width: 100%; border-radius: 12px; margin-bottom: 0.75rem; height: 180px; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder" style="height:180px; margin-bottom:0.75rem; display:none;">Pain Point 2: High Demand, Low Return</div>
-      <h3>High Demand, Low Return</h3>
-      <p>Affordable housing is in high demand yet the development process is lengthy and more cumbersome compared to market rate projects.</p>
-    </div>
-    <div>
-      <img src="Images/Sitematch/Sitematch_research_gov.png" alt="Pain Point 3: Government Dependency" style="width: 100%; border-radius: 12px; margin-bottom: 0.75rem; height: 180px; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder" style="height:180px; margin-bottom:0.75rem; display:none;">Pain Point 3: Government Dependency</div>
-      <h3>Government Dependency</h3>
-      <p>Affordable housing relies on region-specific government policies, with complex regulations and requirements.</p>
-    </div>
-  </div>
-
-  <h3 class="concept-heading">Understanding QAP</h3>
-  <p>
-    QAP, otherwise known as Qualified Allocation Plan, is a document detailing priorities and selection criteria to obtain funding. Therefore, the higher a developer's QAP Score is, the higher the probability to get funding.
-  </p>
-  <p>
-    QAP can be broken down into 5 main selection criteria including Community and Economic Impact, Resident Population & Services, Development Characteristics, Development Team and Processes, and Financial Feasibility.
-  </p>
-
-  <img src="Images/Sitematch/QAP.png" alt="QAP" style="width: 100%; border-radius: 12px; margin-top: 1.25rem; height: auto; max-height: 600px; object-fit: contain; background: #f4f4f5;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-  <div class="placeholder" style="height:220px; margin-top:1.25rem; display:none;">QAP</div>
-
-  <h3 class="concept-heading">Value Opportunity Analysis</h3>
-  <p>
-    Affordable housing is so government regulated that where our team can intervene was difficult. To overcome this, we mapped each step on an effort against complexity matrix to find where developers struggle to understand where value can be added.
-  </p>
-
-  <div style="margin-top: 1.25rem;">
-    <img src="Images/Sitematch/Sitematch_valueadded_matrix.png" alt="Value Opportunity Analysis Matrix" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-    <div class="placeholder" style="height:220px; display:none;">Value Opportunity Analysis Matrix</div>
-  </div>
-
-  <div>
-    <img src="Images/Sitematch/Sitematch_Valueadded_task.png" alt="Value Opportunity Analysis Task" style="width: 100%; border-radius: 12px; margin-top: 1rem;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-    <div class="placeholder" style="height:220px; display:none; margin-top: 1rem;">Value Opportunity Analysis Task</div>
-  </div>
-
-  <h3 class="concept-heading">Defining Criteria</h3>
-  <p>
-    To further understand developer's pain points, the team identified seven key values developers seek: enabling, point-in-time, comfort, visual, perception, personality, and independence.
-  </p>
-  <p>
-    Developers struggle with a surplus of information that is often out of date. They don't have control in project completion as information is scattered and messy.
-  </p>
-
-  <img src="Images/Sitematch/Sitematch_definingcriteras.png" alt="Defining Criteria" style="width: 100%; border-radius: 12px; margin-top: 1.25rem; height: auto; max-height: 600px; object-fit: contain; background: #f4f4f5;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-  <div class="placeholder" style="height:220px; margin-top:1.25rem; display:none;">Defining Criteria</div>
-
-  <h3 class="concept-heading">Brainstorming</h3>
-  <p>
-    The team conducted a Build-a-thon, utilizing the Crazy 8 brainstorming and physical wire-framing to generate innovative concepts. This process fostered team confidence and a collective vision for potential solutions.
-  </p>
-
-  <img src="Images/Sitematch/Sitematch_brainstorming.png" alt="Brainstorming Session" style="width: 100%; border-radius: 12px; margin-top: 1.25rem; height: auto; max-height: 600px; object-fit: contain; background: #f4f4f5;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-  <div class="placeholder" style="height:220px; margin-top:1.25rem; display:none;">Brainstorming Session</div>
-
-  <h3 class="concept-heading">Concept Development</h3>
-  <p>The team designed 3 concepts to bridge the gap between experienced and inexperienced developers, provide reliable and up-to-date information, allow for easy site discovery and evaluation at a low cost, and be customizable to developers' priorities and preferences.</p>
-
-  <div class="process">
-    <div>
-      <img src="Images/Sitematch/ConceptSitematch.avif" alt="SiteMatch Concept" style="width: 100%; border-radius: 12px; height: auto; max-height: 300px; object-fit: contain; background: #f4f4f5; margin-bottom: 0.75rem;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder" style="height:180px; margin-bottom:0.75rem; display:none;">SiteMatch Concept</div>
-      <h3>SiteMatch</h3>
-      <p>A platform that streamlines site selection by presenting the best potential sites based on estimated QAP score.</p>
-    </div>
-    <div>
-      <img src="Images/Sitematch/ConceptSitegpt.avif" alt="SiteGPT Concept" style="width: 100%; border-radius: 12px; height: auto; max-height: 300px; object-fit: contain; background: #f4f4f5; margin-bottom: 0.75rem;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder" style="height:180px; margin-bottom:0.75rem; display:none;">SiteGPT Concept</div>
-      <h3>SiteGPT</h3>
-      <p>Conversational platform that provides guidance, resources, and support to streamline workflow, optimize projects, and bridge gaps in knowledge.</p>
-    </div>
-    <div>
-      <img src="Images/Sitematch/ConceptSitescope.avif" alt="SiteScope Concept" style="width: 100%; border-radius: 12px; height: auto; max-height: 300px; object-fit: contain; background: #f4f4f5; margin-bottom: 0.75rem;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder" style="height:180px; margin-bottom:0.75rem; display:none;">SiteScope Concept</div>
-      <h3>SiteScope</h3>
-      <p>An extension that allows developers to save potential sites, maps, research. The extension analyzes the data presented to present site options.</p>
-    </div>
-  </div>
-
-  <div class="key-insight">
-    <h3>Key Insight</h3>
-    <p>The team selected SiteMatch as the winning concept—a platform that streamlines site selection by presenting the best potential sites based on estimated QAP score, addressing the core need for reliable, integrated, and up-to-date information.</p>
-  </div>
-
-  <h3 class="concept-heading">Iteration</h3>
-  <p>
-    Our team facilitated a co-design initiative, bringing together developers, architects, and multi-housing experts in a series of workshops to foster open dialogue, idea exchange, and rapid prototyping.
-  </p>
-
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.25rem;">
-    <div>
-      <img src="Images/Sitematch/Sitematch_iteration.png" alt="Co-Design Workshop" style="width: 100%; border-radius: 12px; height: 220px; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder" style="height:220px; display:none;">Co-Design Workshop</div>
-    </div>
-    <div>
-      <img src="Images/Sitematch/Sitematch_research.png" alt="Affinity Mapping & Reasoning" style="width: 100%; border-radius: 12px; height: 220px; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder" style="height:220px; display:none;">Affinity Mapping & Reasoning</div>
-    </div>
-  </div>
-</section>
-
-<section class="container" id="final">
-  <h2>Final Design</h2>
-  <p>Introducing SiteMatch—a one-stop platform to find reliable, integrated, and up-to-date information of sites according to preferences and market demand.</p>
-
-  <img src="Images/Sitematch/Sitematch_storyboard.png" alt="SiteMatch Storyboard" style="width: 100%; border-radius: 12px; margin: 1.25rem 0; height: auto; max-height: 800px; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-  <div class="placeholder" style="height:260px; margin:1.25rem 0; display:none;">SiteMatch Storyboard</div>
-
-  <h3>User Flow</h3>
-  <p>The proposed user flow for SiteMatch is designed to provide an intuitive and streamlined experience for developers looking for potential development sites. Upon visiting the SiteMatch landing page, users are presented with three main features: "How it works," a case study showcasing the platform's successes, and a sign-up/sign-in section.</p>
-
-  <img src="Images/Sitematch/Sitematch_userflowp1.png" alt="SiteMatch User Flow" style="width: 100%; border-radius: 12px; margin-top: 1.25rem; height: auto; max-height: 600px; object-fit: contain; background: #f4f4f5;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-  <div class="placeholder" style="height:220px; margin-top:1.25rem; display:none;">SiteMatch User Flow</div>
-
-  <div class="process" style="margin-top: 2rem;">
-    <div>
-      <h3>Site Search & Filter</h3>
-      <p>Initial search functionality allows developers to filter potential sites based on location, preferences, and market demand to find optimal development opportunities.</p>
-    </div>
-    <div>
-      <h3>QAP Calculator</h3>
-      <p>Integrated QAP calculator estimates potential scores for each site, helping developers identify sites with the highest probability of securing funding.</p>
-    </div>
-    <div>
-      <h3>Site Comparison</h3>
-      <p>Streamlined workflow enables developers to compare and select sites that optimize QAP score to obtain funding, with access to all potential sites in specified locations.</p>
-    </div>
-    <div>
-      <h3>Implementation</h3>
-      <p>System architecture includes data scraping, data parsing, database integration, and result presentation to ensure reliable and up-to-date information delivery.</p>
-    </div>
-  </div>
-
-  <img src="Images/Sitematch/Sitematch_iteration.png" alt="SiteMatch Implementation Diagram" style="width: 100%; border-radius: 12px; margin-top: 2rem; height: 220px; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-  <div class="placeholder" style="height:220px; margin-top:2rem; display:none;">SiteMatch Implementation Diagram</div>
-</section>
-
-<section class="container" id="impact">
-  <h2>Impact</h2>
-
-  <div class="final-columns">
-    <div>
-      <h3>Value Proposition</h3>
-      <ul>
-        <li>One-stop platform for reliable, integrated, and up-to-date site information</li>
-        <li>Reduces pre-development time (less than 12 months)</li>
-        <li>Centralized guidance optimizes resources and increases project success</li>
-        <li>Access to all potential sites in specified location</li>
-        <li>Streamlined workflow to compare and select sites that optimize QAP score</li>
-        <li>Increases chance to obtain funding</li>
-      </ul>
-    </div>
-
-    <div>
-      <h3>Lessons Learned</h3>
-      <div class="key-insight" style="margin-top: 0;">
-        <h4>Experiences of different users yield different results</h4>
-        <p>It's important to expand user testing to users of different demographics as experience and habits lead to different perspectives. Although site development can be simplified for new users, old developers prefer their routine methods.</p>
-      </div>
-      <div class="key-insight" style="margin-top: 1rem;">
-        <h4>Iterate as much as possible</h4>
-        <p>For complex B2B services, it's important to show to users as soon as possible the deliverable as data gets messy and there is a difference in knowledge level. Pivot, prototype, co-design, and workshop continuously.</p>
+    <div class="cs-hero">
+      <a href="index.html" class="cs-back">← Back to projects</a>
+      <p class="cs-eyebrow">Case study · Builders Patch</p>
+      <h1 class="cs-h1">SiteMatch</h1>
+      <p class="cs-subtitle">Affordable housing developers spend months evaluating potential sites — manually, without data. SiteMatch surfaces the best sites based on estimated QAP score, so developers can find and secure funding faster.</p>
+      <div class="cs-img-wrap" style="margin-top:2rem;">
+        <img src="Images/Sitematch/Sitematch cover image.png" alt="SiteMatch"
+          style="width:100%; height:auto; display:block; aspect-ratio:16/9; object-fit:cover;"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none; aspect-ratio:16/9;">SiteMatch cover</div>
       </div>
     </div>
-  </div>
-</section>
 
-<footer>
-  © 2026 — Designed & built by Nila Gao
-</footer>
+    <div class="cs-meta">
+      <div class="cs-meta-item"><div class="cs-meta-label">Company</div><div class="cs-meta-val">Builders Patch</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Focus</div><div class="cs-meta-val">B2B · Site Selection · QAP Optimization</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Timeline</div><div class="cs-meta-val">Jan – May 2023</div></div>
+    </div>
+
+    <!-- BACKGROUND -->
+    <div class="cs-section">
+      <p class="cs-overline">Background</p>
+      <h2 class="cs-h2">A process built on guesswork and regulation.</h2>
+      <p class="cs-p">Affordable housing development is one of the most complex and bureaucratic processes in real estate. Developers rely on a government scoring system — the QAP (Qualified Allocation Plan) — to secure LIHTC tax credit funding. The higher their QAP score, the better their chances. But navigating QAP criteria across 50 states, with constantly changing policies and scarce data, is nearly impossible to do accurately at speed.</p>
+
+      <div class="cs-pain-grid">
+        <div class="cs-pain">
+          <img src="Images/Sitematch/Sitematch_research_funding.png" alt="Funding" class="cs-pain-img" onerror="this.style.display='none';">
+          <div class="cs-pain-body">
+            <div class="cs-pain-title">Scarce funding</div>
+            <div class="cs-pain-text">Construction costs are rising while profits are capped by rent limitations. Every point of QAP score matters.</div>
+          </div>
+        </div>
+        <div class="cs-pain">
+          <img src="Images/Sitematch/Sitematch_research_demand.png" alt="High demand" class="cs-pain-img" onerror="this.style.display='none';">
+          <div class="cs-pain-body">
+            <div class="cs-pain-title">High demand, low return</div>
+            <div class="cs-pain-text">Affordable housing is urgently needed, but the development process is longer and more complex than market-rate projects.</div>
+          </div>
+        </div>
+        <div class="cs-pain">
+          <img src="Images/Sitematch/Sitematch_research_gov.png" alt="Government dependency" class="cs-pain-img" onerror="this.style.display='none';">
+          <div class="cs-pain-body">
+            <div class="cs-pain-title">Government dependency</div>
+            <div class="cs-pain-text">Region-specific policies and requirements shift constantly. Developers need to stay current across multiple states.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESEARCH -->
+    <div class="cs-section">
+      <p class="cs-overline">Research</p>
+      <h2 class="cs-h2">10 expert interviews. One clear opportunity.</h2>
+      <p class="cs-p">We interviewed developers, architects, and consultants working in affordable housing along the East Coast to understand where the real friction was. The answer: site selection. Developers had no reliable tool to identify and evaluate sites against QAP criteria — they were doing it manually, with outdated information, from scattered sources.</p>
+
+      <p class="cs-img-caption">What is QAP? The 5 selection criteria developers must optimize against</p>
+      <div class="cs-img-wrap">
+        <img src="Images/Sitematch/QAP.png" alt="QAP breakdown"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">QAP breakdown</div>
+      </div>
+
+      <p class="cs-img-caption">Value opportunity analysis — where in the process could we actually intervene?</p>
+      <div class="cs-img-wrap">
+        <img src="Images/Sitematch/Sitematch_valueadded_matrix.png" alt="Value matrix"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">Value matrix</div>
+      </div>
+      <div class="cs-img-wrap">
+        <img src="Images/Sitematch/Sitematch_Valueadded_task.png" alt="Value task"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">Value task</div>
+      </div>
+
+      <p class="cs-img-caption">Defining criteria — the 7 values developers prioritize</p>
+      <div class="cs-img-wrap">
+        <img src="Images/Sitematch/Sitematch_definingcriteras.png" alt="Defining Criteria"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">Defining Criteria</div>
+      </div>
+    </div>
+
+    <!-- DESIGN THINKING -->
+    <div class="cs-section">
+      <p class="cs-overline">Design thinking</p>
+      <h2 class="cs-h2">Three concepts. One winner.</h2>
+      <p class="cs-p">After a Build-a-thon with Crazy 8 ideation and physical wire-framing, the team converged on three concepts — each solving the problem from a different angle.</p>
+
+      <div class="cs-img-wrap">
+        <img src="Images/Sitematch/Sitematch_brainstorming.png" alt="Brainstorming"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">Brainstorming</div>
+      </div>
+
+      <div class="cs-concept-grid">
+        <div class="cs-concept-card">
+          <img src="Images/Sitematch/ConceptSitematch.avif" alt="SiteMatch" class="cs-concept-img" onerror="this.style.opacity='0.15';">
+          <div class="cs-concept-body">
+            <div class="cs-concept-title">SiteMatch · chosen</div>
+            <div class="cs-concept-text">Surfaces best sites based on estimated QAP score. Directly solves the site selection problem.</div>
+          </div>
+        </div>
+        <div class="cs-concept-card">
+          <img src="Images/Sitematch/ConceptSitegpt.avif" alt="SiteGPT" class="cs-concept-img" onerror="this.style.opacity='0.15';">
+          <div class="cs-concept-body">
+            <div class="cs-concept-title">SiteGPT</div>
+            <div class="cs-concept-text">Conversational guidance for developers. Broader scope, harder to scope for MVP.</div>
+          </div>
+        </div>
+        <div class="cs-concept-card">
+          <img src="Images/Sitematch/ConceptSitescope.avif" alt="SiteScope" class="cs-concept-img" onerror="this.style.opacity='0.15';">
+          <div class="cs-concept-body">
+            <div class="cs-concept-title">SiteScope</div>
+            <div class="cs-concept-text">Browser extension to save and analyze sites. Too passive — doesn't proactively surface opportunities.</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="cs-img-caption">Co-design workshops with developers, architects, and multi-housing experts</p>
+      <div class="cs-img-grid">
+        <div class="cs-img-wrap">
+          <img src="Images/Sitematch/Sitematch_iteration.png" alt="Co-design"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="cs-img-placeholder" style="display:none;">Co-design</div>
+        </div>
+        <div class="cs-img-wrap">
+          <img src="Images/Sitematch/Sitematch_research.png" alt="Affinity mapping"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="cs-img-placeholder" style="display:none;">Affinity mapping</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINAL DESIGN -->
+    <div class="cs-section">
+      <p class="cs-overline">Final design</p>
+      <h2 class="cs-h2">Find the right site. Score it. Win the funding.</h2>
+      <p class="cs-p">SiteMatch is a one-stop platform for reliable, integrated, and up-to-date site information — organized around what developers actually need to decide: which site gives them the best shot at funding.</p>
+
+      <div class="cs-img-wrap">
+        <img src="Images/Sitematch/Sitematch_storyboard.png" alt="Storyboard"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">Storyboard</div>
+      </div>
+
+      <div class="cs-img-wrap">
+        <img src="Images/Sitematch/Sitematch_userflowp1.png" alt="User flow"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">User flow</div>
+      </div>
+
+      <div class="cs-features">
+        <div class="cs-feature">
+          <div class="cs-feature-title">Site search & filter</div>
+          <div class="cs-feature-text">Filter potential sites by location, preferences, and market demand to find optimal development opportunities.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature-title">QAP calculator</div>
+          <div class="cs-feature-text">Estimates potential QAP scores per site — identifying which sites have the highest probability of securing funding.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature-title">Site comparison</div>
+          <div class="cs-feature-text">Compare multiple sites side by side, ranked by QAP score, so developers can make confident decisions fast.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature-title">Live data</div>
+          <div class="cs-feature-text">Data scraping and parsing keeps site information current — no more stale spreadsheets or manual research.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMPACT -->
+    <div class="cs-section" style="border-bottom:none;">
+      <p class="cs-overline">Impact</p>
+      <h2 class="cs-h2">Value delivered.</h2>
+      <p class="cs-p">SiteMatch reduces pre-development time to under 12 months, centralizes scattered site data, and gives developers a clear path to maximizing their QAP score — and their chances of securing LIHTC funding.</p>
+
+      <div class="cs-insight">
+        <div class="cs-insight-label">Lessons learned</div>
+        <div class="cs-insight-text"><strong>Experience level shapes everything.</strong> New developers want simplicity; experienced developers want their existing workflows respected. Show deliverables to users as early as possible — in complex B2B, knowledge gaps are wide and data gets messy fast. Pivot, prototype, co-design, and workshop continuously.</div>
+      </div>
+
+      <div class="cs-back-top">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Back to top</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>© Nila Gao 2026</footer>
 
 <script>
-  let lastScroll = 0;
-  const nav = document.querySelector('.top-nav');
-  let ticking = false;
-
-  function updateNav() {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (currentScroll <= 0) {
-      nav.classList.remove('hidden');
-    } else if (currentScroll > lastScroll && currentScroll > 100) {
-      // Scrolling down
-      nav.classList.add('hidden');
-    } else {
-      // Scrolling up
-      nav.classList.remove('hidden');
-    }
-    
-    lastScroll = currentScroll;
-    ticking = false;
+const nav = document.getElementById('top-nav');
+let lastScroll = 0, ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const cur = window.pageYOffset;
+      if (cur <= 0) nav.classList.remove('hidden');
+      else if (cur > lastScroll && cur > 80) nav.classList.add('hidden');
+      else nav.classList.remove('hidden');
+      lastScroll = cur;
+      ticking = false;
+    });
+    ticking = true;
   }
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(updateNav);
-      ticking = true;
-    }
-  });
+});
 </script>
 <script src="js/scroll-reveal.js" defer></script>
-
 </body>
 </html>
