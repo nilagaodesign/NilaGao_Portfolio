@@ -2,188 +2,54 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="description" content="Nila Gao — AI Designer at Klaviyo. Portfolio of product design work including personalized send time, subject line assist, and audience optimization.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nila Gao, AI Designer @ Klaviyo</title>
-<meta property="og:title" content="Nila Gao, AI Designer @ Klaviyo">
+<title>Nila Gao — AI Designer @ Klaviyo</title>
+<meta name="description" content="Nila Gao — AI Designer at Klaviyo. Portfolio of product design work including personalized send time, subject line assist, and audience optimization.">
+<meta property="og:title" content="Nila Gao — AI Designer @ Klaviyo">
 <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/scroll-reveal.css">
-<noscript><style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }
-a:focus-visible, button:focus-visible { outline: 2px solid #a15d11; outline-offset: 3px; border-radius: 3px; }
-</style></noscript>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: #FFFFFF;
-  color: #1A1916;
-  line-height: 1.6;
-}
-
+body { font-family: 'Figtree', sans-serif; background: #FFFFFF; color: #1A1916; line-height: 1.6; }
 a { text-decoration: none; color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid #a15d11; outline-offset: 3px; border-radius: 3px; }
 
-/* ── Nav ── */
-.top-nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(8px);
-  border-bottom: 0.5px solid rgba(232,226,217,0.9);
-  transition: transform 0.3s ease-in-out;
-}
+.top-nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 0.5px solid rgba(232,226,217,0.9); transition: transform 0.3s ease-in-out; }
 .top-nav.hidden { transform: translateY(-100%); }
-.top-nav-inner {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 1.1rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.nav-left {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: rgba(26,24,22,0.85);
-  letter-spacing: -0.01em;
-}
+.top-nav-inner { max-width: 960px; margin: 0 auto; padding: 1.1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+.nav-left { font-size: 1rem; font-weight: 600; color: rgba(26,24,22,0.85); letter-spacing: -0.01em; }
 .nav-left a { color: inherit; }
 .nav-left a:hover { color: #1A1916; }
 .nav-right { display: flex; gap: 1.75rem; }
-.nav-right a { min-height: 44px; display: inline-flex; align-items: center;
-  font-size: 1.05rem;
-  color: #717070;
-  transition: color 0.15s;
-}
+.nav-right a { font-size: 0.82rem; color: #717070; transition: color 0.15s; min-height: 44px; display: inline-flex; align-items: center; }
 .nav-right a:hover { color: #1A1916; }
 
-/* ── Hero ── */
-.hero {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem 2rem;
-  text-align: left;
-}
-.hero-eyebrow {
-  font-size: 1.05rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #a15d11;
-  margin-bottom: 1rem;
-}
-.hero-h1 {
-  font-size: clamp(2.2rem, 5.5vw, 2.8rem);
-  font-weight: 700;
-  color: #1A1916;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin: 0 0 0.875rem;
-}
-.hero-sub {
-  font-size: 1.1rem;
-  color: #6B6968;
-  max-width: 100%;
-  line-height: 1.7;
-}
+.hero { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem 2rem; text-align: left; }
+.hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: #a15d11; margin-bottom: 1rem; }
+.hero-h1 { font-size: clamp(2.2rem, 5.5vw, 2.8rem); font-weight: 700; color: #1A1916; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 0.875rem; }
+.hero-sub { font-size: 1.1rem; color: #6B6968; max-width: 100%; line-height: 1.7; }
 
-/* ── Divider ── */
-.divider {
-  height: 0.5px;
-  background: rgba(232,226,217,0.9);
-  margin: 1.5rem 1.5rem 0;
-}
+.divider { height: 0.5px; background: rgba(232,226,217,0.9); margin: 1.5rem 1.5rem 0; }
 
-/* ── Projects ── */
-.projects-section {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 1.5rem 1.5rem 4rem;
-}
-.section-label {
-  font-size: 0.8rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #6E6C6B;
-  margin-bottom: 1.75rem;
-}
+.projects-section { max-width: 960px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
-.project-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #F7F5F2;
-  border: 0.5px solid rgba(232,226,217,0.9);
-  transition: border-color 0.2s;
-}
-.project-card:hover { border-color: rgba(161,93,17,0.25); }
+.project-card { display: flex; flex-direction: column; border-radius: 10px; overflow: hidden; background: #F7F5F2; border: 0.5px solid rgba(232,226,217,0.9); transition: border-color 0.2s, box-shadow 0.2s; }
+.project-card:hover { border-color: rgba(161,93,17,0.25); box-shadow: 0 4px 24px rgba(26,24,22,0.05); }
 .project-card:hover .card-title { color: #a15d11; }
-.project-card-img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  background: #F7F5F2;
-  display: block;
-}
-.project-card-img--contain { object-fit: contain; background: #F7F5F2; }
-.project-card-img--audience {
-  background-image: url('Images/Homepage/Purple_background.png');
-  background-size: cover;
-  background-position: center;
-}
-.project-card .card-body { padding: 0.875rem 1rem 1rem; }
 
-.card-title {
-  font-weight: 500;
-  color: #1A1916;
-  margin: 0 0 0.35rem;
-  line-height: 1.3;
-  transition: color 0.15s;
-}
-.card-top .card-title { font-size: 1.1rem; }
-.card-bot .card-title { font-size: 1.05rem; }
+.card-svg { width: 100%; display: block; }
+.card-body { padding: 0.875rem 1rem 1rem; }
+.card-title { font-weight: 500; color: #1A1916; margin: 0 0 0.25rem; font-size: 0.9rem; line-height: 1.3; transition: color 0.15s; }
+.card-desc { font-size: 0.8rem; color: #717070; line-height: 1.5; }
 
-.card-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; }
-.card-tag {
-  font-size: 1.1rem;
-  letter-spacing: 0.04em;
-  padding: 2px 8px;
-  border-radius: 99px;
-  border: 0.5px solid rgba(184,169,142,0.22);
-  color: rgba(184,169,142,0.55);
-}
-.card-bot .card-tag { font-size: 1.1rem; }
-
-/* ── Fade-in ── */
-
-.card-desc { font-size: 0.8rem; color: #6B6968; line-height: 1.5; margin-top: 0.3rem; }
-.card-title { margin-bottom: 0.2rem; }
-.fade-in {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
-}
+.fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease-out, transform 0.55s ease-out; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-/* ── Footer ── */
-footer {
-  border-top: 0.5px solid rgba(232,226,217,0.9);
-  padding: 1.5rem 1.5rem;
-  text-align: center;
-  font-size: 1.1rem;
-  color: #6E6C6B;
-}
+footer { border-top: 0.5px solid rgba(232,226,217,0.9); padding: 1.5rem; text-align: center; font-size: 0.75rem; color: #6E6C6B; }
 
-/* ── Responsive ── */
 @media (max-width: 700px) {
   .nav-right { display: none; }
-  .hero-h1 { font-size: 2.2rem; }
+  .hero-h1 { font-size: 2rem; }
   .projects-grid { grid-template-columns: 1fr; }
 }
 @media (min-width: 701px) and (max-width: 900px) {
@@ -194,6 +60,7 @@ footer {
 <body>
 
 <a href="#main-content" style="position:absolute;top:-99px;left:0;z-index:999;padding:0.5rem 1rem;background:#a15d11;color:#fff;font-size:0.8rem;border-radius:0 0 6px 0;transition:top 0.1s;" onfocus="this.style.top='0'" onblur="this.style.top='-99px'">Skip to main content</a>
+
 <header class="top-nav" id="top-nav">
   <div class="top-nav-inner">
     <div class="nav-left"><a href="index.html">Nila Gao</a></div>
@@ -201,7 +68,7 @@ footer {
       <a href="index.html">Projects</a>
       <a href="playground.html">Playground</a>
       <a href="about.html">About</a>
-      <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit?usp=sharing&ouid=105507303957903473500&rtpof=true&sd=true" target="_blank">Resume ↗</a>
+      <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit" target="_blank">Resume ↗</a>
     </nav>
   </div>
 </header>
@@ -215,69 +82,175 @@ footer {
 
   <div class="divider"></div>
 
-  <section class="projects-section" id="projects">
-
-
+  <section class="projects-section">
     <div class="projects-grid">
-      <a href="case-study8.html" class="project-card fade-in">
-        <img src="Images/Homepage/PST_cover.png" alt="Personalized Send Time"
-          class="project-card-img project-card-img--contain"
-          onerror="this.style.background='#22201e'; this.removeAttribute('src');">
+
+      <a href="personalized-send-time.html" class="project-card fade-in">
+        <svg class="card-svg" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="320" height="200" fill="#FEF9F4"/>
+          <circle cx="160" cy="100" r="68" fill="#FDF0E0" stroke="#E8D4B8" stroke-width="1.5"/>
+          <circle cx="160" cy="100" r="54" fill="#FEF9F4" stroke="#EDD8B8" stroke-width="1"/>
+          <line x1="160" y1="50" x2="160" y2="58" stroke="#D4B896" stroke-width="2" stroke-linecap="round"/>
+          <line x1="160" y1="142" x2="160" y2="150" stroke="#D4B896" stroke-width="2" stroke-linecap="round"/>
+          <line x1="106" y1="100" x2="114" y2="100" stroke="#D4B896" stroke-width="2" stroke-linecap="round"/>
+          <line x1="206" y1="100" x2="214" y2="100" stroke="#D4B896" stroke-width="2" stroke-linecap="round"/>
+          <line x1="160" y1="100" x2="160" y2="68" stroke="#a15d11" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="160" y1="100" x2="184" y2="88" stroke="#1A1916" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="160" cy="100" r="4" fill="#a15d11"/>
+          <circle cx="160" cy="44" r="5" fill="#a15d11" opacity="0.9"/>
+          <circle cx="207" cy="73" r="4" fill="#C4956A" opacity="0.75"/>
+          <circle cx="207" cy="127" r="4" fill="#C4956A" opacity="0.6"/>
+          <circle cx="138" cy="155" r="4" fill="#C4956A" opacity="0.5"/>
+          <rect x="148" y="38" width="24" height="15" rx="2" fill="none" stroke="#a15d11" stroke-width="1.2"/>
+          <polyline points="148,38 160,49 172,38" fill="none" stroke="#a15d11" stroke-width="1.2"/>
+        </svg>
         <div class="card-body">
           <div class="card-title">Personalized Send Time</div>
           <div class="card-desc">AI-driven send time, per person</div>
         </div>
       </a>
 
-      <a href="case-study1.html" class="project-card fade-in">
-        <img src="Images/Subjectlineassist/Subjectlineassist_cover.png" alt="Subject Line Assist"
-          class="project-card-img"
-          onerror="this.style.background='#22201e'; this.removeAttribute('src');">
+      <a href="subject-line-assist.html" class="project-card fade-in">
+        <svg class="card-svg" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="320" height="200" fill="#FEF9F4"/>
+          <rect x="40" y="30" width="240" height="140" rx="8" fill="#FFFDF9" stroke="#E8E2D9" stroke-width="1.2"/>
+          <line x1="40" y1="62" x2="280" y2="62" stroke="#EDE8E0" stroke-width="0.75"/>
+          <text x="56" y="52" font-size="9" fill="#B0A090" font-family="sans-serif">To</text>
+          <rect x="76" y="40" width="110" height="14" rx="3" fill="#EDE8E0"/>
+          <line x1="40" y1="82" x2="280" y2="82" stroke="#EDE8E0" stroke-width="0.75"/>
+          <text x="56" y="74" font-size="9" fill="#B0A090" font-family="sans-serif">Subject</text>
+          <text x="115" y="74" font-size="9" fill="#1A1916" font-family="sans-serif">Spring Sale —</text>
+          <rect x="198" y="65" width="1.5" height="12" rx="1" fill="#a15d11"/>
+          <rect x="56" y="90" width="208" height="22" rx="4" fill="#FDF0E0" stroke="#E8C898" stroke-width="0.75"/>
+          <text x="66" y="105" font-size="8.5" fill="#a15d11" font-family="sans-serif">✦  Spring Sale: 20% Off Sitewide!</text>
+          <rect x="56" y="116" width="208" height="22" rx="4" fill="#FFFDF9" stroke="#EDE8E0" stroke-width="0.75"/>
+          <text x="66" y="131" font-size="8.5" fill="#595655" font-family="sans-serif">Spring Collection — Limited Time</text>
+          <rect x="56" y="142" width="208" height="22" rx="4" fill="#FFFDF9" stroke="#EDE8E0" stroke-width="0.75"/>
+          <text x="66" y="157" font-size="8.5" fill="#595655" font-family="sans-serif">Just for You: Spring Deals Inside</text>
+        </svg>
         <div class="card-body">
           <div class="card-title">Subject Line Assist</div>
           <div class="card-desc">From buried modal to 8× adoption</div>
         </div>
       </a>
 
-      <a href="case-study7.html" class="project-card fade-in">
-        <img src="Images/Homepage/Audienceoptimizationcover.png" alt="Audience Optimization"
-          class="project-card-img project-card-img--audience"
-          onerror="this.removeAttribute('src');">
+      <a href="audience-optimization.html" class="project-card fade-in">
+        <svg class="card-svg" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="320" height="200" fill="#FEF9F4"/>
+          <rect x="40" y="28" width="240" height="26" rx="5" fill="#FFFDF9" stroke="#EDE8E0" stroke-width="1"/>
+          <text x="56" y="45" font-size="9" fill="#717070" font-family="sans-serif">Audience</text>
+          <text x="160" y="45" font-size="9" fill="#1A1916" font-family="sans-serif" font-weight="500">1,842 recipients</text>
+          <circle cx="70" cy="90" r="7" fill="#a15d11" opacity="0.9"/>
+          <circle cx="92" cy="90" r="7" fill="#a15d11" opacity="0.9"/>
+          <circle cx="114" cy="90" r="7" fill="#C4956A" opacity="0.8"/>
+          <circle cx="136" cy="90" r="7" fill="#a15d11" opacity="0.9"/>
+          <circle cx="158" cy="90" r="7" fill="#C4956A" opacity="0.8"/>
+          <circle cx="180" cy="90" r="7" fill="#a15d11" opacity="0.9"/>
+          <circle cx="202" cy="90" r="7" fill="#C4956A" opacity="0.75"/>
+          <circle cx="224" cy="90" r="7" fill="#a15d11" opacity="0.85"/>
+          <circle cx="246" cy="90" r="7" fill="#C4956A" opacity="0.8"/>
+          <circle cx="70" cy="115" r="7" fill="#EDE8E0" opacity="0.5"/>
+          <circle cx="92" cy="115" r="7" fill="#EDE8E0" opacity="0.35"/>
+          <circle cx="114" cy="115" r="7" fill="#a15d11" opacity="0.85"/>
+          <circle cx="136" cy="115" r="7" fill="#EDE8E0" opacity="0.3"/>
+          <circle cx="158" cy="115" r="7" fill="#EDE8E0" opacity="0.4"/>
+          <circle cx="180" cy="115" r="7" fill="#a15d11" opacity="0.9"/>
+          <circle cx="202" cy="115" r="7" fill="#EDE8E0" opacity="0.35"/>
+          <circle cx="224" cy="115" r="7" fill="#C4956A" opacity="0.75"/>
+          <circle cx="246" cy="115" r="7" fill="#EDE8E0" opacity="0.3"/>
+          <circle cx="70" cy="150" r="5" fill="#a15d11"/>
+          <text x="80" y="154" font-size="8.5" fill="#595655" font-family="sans-serif">Engaged</text>
+          <circle cx="145" cy="150" r="5" fill="#EDE8E0" stroke="#C4B8A8" stroke-width="0.75"/>
+          <text x="155" y="154" font-size="8.5" fill="#595655" font-family="sans-serif">Removed</text>
+        </svg>
         <div class="card-body">
           <div class="card-title">Audience Optimization</div>
           <div class="card-desc">Send smarter, protect list health</div>
         </div>
       </a>
 
-      <a href="case-study6.html" class="project-card fade-in">
-        <img src="Images/Homepage/ChannelAffinitycover.png" alt="Channel Affinity"
-          class="project-card-img"
-          onerror="this.style.background='#1e1c1a'; this.removeAttribute('src');">
+      <a href="channel-affinity.html" class="project-card fade-in">
+        <svg class="card-svg" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="320" height="200" fill="#FEF9F4"/>
+          <circle cx="90" cy="80" r="28" fill="#FDF0E0" stroke="#E8D4B8" stroke-width="1.2"/>
+          <circle cx="90" cy="72" r="10" fill="#C4956A"/>
+          <ellipse cx="90" cy="98" rx="16" ry="10" fill="#C4956A"/>
+          <text x="138" y="58" font-size="8.5" fill="#717070" font-family="sans-serif">Channel engagement</text>
+          <text x="138" y="78" font-size="9" fill="#1A1916" font-family="sans-serif">Email</text>
+          <rect x="178" y="69" width="85" height="10" rx="3" fill="#EDE8E0"/>
+          <rect x="178" y="69" width="82" height="10" rx="3" fill="#a15d11"/>
+          <text x="266" y="78" font-size="8" fill="#a15d11" font-family="sans-serif">1st</text>
+          <text x="138" y="100" font-size="9" fill="#1A1916" font-family="sans-serif">SMS</text>
+          <rect x="178" y="91" width="85" height="10" rx="3" fill="#EDE8E0"/>
+          <rect x="178" y="91" width="48" height="10" rx="3" fill="#C4956A"/>
+          <text x="266" y="100" font-size="8" fill="#717070" font-family="sans-serif">2nd</text>
+          <text x="138" y="122" font-size="9" fill="#1A1916" font-family="sans-serif">Push</text>
+          <rect x="178" y="113" width="85" height="10" rx="3" fill="#EDE8E0"/>
+          <rect x="178" y="113" width="22" height="10" rx="3" fill="#DDD5C8"/>
+          <text x="266" y="122" font-size="8" fill="#B0A898" font-family="sans-serif">3rd</text>
+          <line x1="40" y1="140" x2="280" y2="140" stroke="#EDE8E0" stroke-width="0.75"/>
+          <text x="90" y="158" font-size="8.5" fill="#a15d11" font-family="sans-serif" text-anchor="middle">High engagement tier</text>
+        </svg>
         <div class="card-body">
           <div class="card-title">Channel Affinity</div>
           <div class="card-desc">Right message, right channel</div>
         </div>
       </a>
 
-      <a href="case-study4.html" class="project-card fade-in">
-        <img src="Images/Homepage/Sitematch.png" alt="SiteMatch"
-          class="project-card-img"
-          onerror="this.style.background='#1e1c1a'; this.removeAttribute('src');">
+      <a href="sitematch.html" class="project-card fade-in">
+        <svg class="card-svg" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="320" height="200" fill="#FEF9F4"/>
+          <rect x="40" y="40" width="240" height="130" rx="6" fill="#F0EBE3" stroke="#DDD5C8" stroke-width="1"/>
+          <line x1="40" y1="80" x2="280" y2="80" stroke="#FFFDF9" stroke-width="3"/>
+          <line x1="40" y1="115" x2="280" y2="115" stroke="#FFFDF9" stroke-width="3"/>
+          <line x1="110" y1="40" x2="110" y2="170" stroke="#FFFDF9" stroke-width="3"/>
+          <line x1="185" y1="40" x2="185" y2="170" stroke="#FFFDF9" stroke-width="3"/>
+          <rect x="45" y="45" width="60" height="30" rx="2" fill="#DDD5C8"/>
+          <rect x="115" y="45" width="65" height="30" rx="2" fill="#DDD5C8"/>
+          <rect x="190" y="45" width="85" height="30" rx="2" fill="#DDD5C8"/>
+          <rect x="45" y="85" width="60" height="25" rx="2" fill="#DDD5C8"/>
+          <rect x="190" y="85" width="85" height="25" rx="2" fill="#C4B8A8"/>
+          <rect x="45" y="120" width="60" height="45" rx="2" fill="#C4B8A8"/>
+          <rect x="115" y="120" width="65" height="45" rx="2" fill="#DDD5C8"/>
+          <rect x="190" y="120" width="85" height="45" rx="2" fill="#DDD5C8"/>
+          <rect x="115" y="85" width="65" height="25" rx="2" fill="#FDF0E0" stroke="#a15d11" stroke-width="1.5"/>
+          <ellipse cx="147" cy="104" rx="5" ry="3" fill="#a15d11" opacity="0.3"/>
+          <circle cx="147" cy="88" r="8" fill="#a15d11"/>
+          <circle cx="147" cy="88" r="4" fill="#FFFDF9"/>
+          <line x1="147" y1="96" x2="147" y2="101" stroke="#a15d11" stroke-width="2" stroke-linecap="round"/>
+          <rect x="162" y="82" width="34" height="16" rx="4" fill="#a15d11"/>
+          <text x="179" y="93" font-size="8.5" fill="#FFFDF9" font-family="sans-serif" text-anchor="middle" font-weight="500">94 pts</text>
+        </svg>
         <div class="card-body">
           <div class="card-title">SiteMatch</div>
           <div class="card-desc">Site selection for affordable housing</div>
         </div>
       </a>
 
-      <a href="case-study3.html" class="project-card fade-in">
-        <img src="Images/Homepage/AthenicAI.png" alt="Data XRay"
-          class="project-card-img"
-          onerror="this.style.background='#1e1c1a'; this.removeAttribute('src');">
+      <a href="data-xray.html" class="project-card fade-in">
+        <svg class="card-svg" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="320" height="200" fill="#FEF9F4"/>
+          <rect x="40" y="30" width="180" height="36" rx="8" fill="#FDF0E0" stroke="#E8C898" stroke-width="1"/>
+          <polygon points="56,66 68,66 62,76" fill="#FDF0E0" stroke="#E8C898" stroke-width="1" stroke-linejoin="round"/>
+          <text x="130" y="53" font-size="9" fill="#a15d11" font-family="sans-serif" text-anchor="middle">Which product drives most revenue?</text>
+          <line x1="56" y1="155" x2="56" y2="95" stroke="#C4B8A8" stroke-width="1" stroke-linecap="round"/>
+          <line x1="56" y1="155" x2="264" y2="155" stroke="#C4B8A8" stroke-width="1" stroke-linecap="round"/>
+          <rect x="72" y="118" width="30" height="37" rx="3" fill="#C4956A" opacity="0.7"/>
+          <rect x="116" y="100" width="30" height="55" rx="3" fill="#a15d11"/>
+          <rect x="160" y="128" width="30" height="27" rx="3" fill="#C4956A" opacity="0.6"/>
+          <rect x="204" y="110" width="30" height="45" rx="3" fill="#C4956A" opacity="0.75"/>
+          <text x="131" y="95" font-size="11" fill="#a15d11" font-family="sans-serif" text-anchor="middle">✦</text>
+          <text x="87" y="167" font-size="7.5" fill="#B0A090" font-family="sans-serif" text-anchor="middle">Shoes</text>
+          <text x="131" y="167" font-size="7.5" fill="#a15d11" font-family="sans-serif" text-anchor="middle">Bags</text>
+          <text x="175" y="167" font-size="7.5" fill="#B0A090" font-family="sans-serif" text-anchor="middle">Hats</text>
+          <text x="219" y="167" font-size="7.5" fill="#B0A090" font-family="sans-serif" text-anchor="middle">Belts</text>
+        </svg>
         <div class="card-body">
           <div class="card-title">Data XRay</div>
           <div class="card-desc">Ask a question, get a chart</div>
         </div>
       </a>
+
     </div>
   </section>
 </main>
@@ -300,12 +273,10 @@ window.addEventListener('scroll', () => {
     ticking = true;
   }
 });
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
-<script src="js/scroll-reveal.js" defer></script>
 </body>
 </html>
