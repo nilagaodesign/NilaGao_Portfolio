@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="description" content="Audience Optimization — An AI decision engine that removes likely-to-unsubscribe recipients before campaigns send.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Audience Optimization – Nila Gao</title>
+<meta property="og:title" content="Audience Optimization – Nila Gao">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/scroll-reveal.css">
+<noscript><style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }
+a:focus-visible, button:focus-visible { outline: 2px solid #a15d11; outline-offset: 3px; border-radius: 3px; }
+
+.cs-img-wrap { width: 100%; background: #F7F5F2; border: 0.5px solid rgba(232,226,217,0.9); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-img-wrap img { width: 100%; height: auto; display: block; }
+.cs-img-wrap video { width: 100%; display: block; background: #1a1a1a; }
+
+/* cover: fills container, crops to ratio */
+.img-cover    { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center top; }
+.img-cover-21 { width: 100%; aspect-ratio: 21/9; object-fit: cover; object-position: center; }
+/* contain: shows full image, no crop, white bg */
+.img-contain  { width: 100%; height: auto; display: block; object-fit: contain; max-height: 600px; }
+/* tall contain: for portrait/square images */
+.img-tall     { width: 100%; height: auto; display: block; object-fit: contain; max-height: 480px; padding: 1.5rem; background: #F7F5F2; }
+/* concept cards already use inline height via cs-concept-img */
+
+</style></noscript>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Figtree', sans-serif; background: #FFFFFF; color: #1A1916; line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+.top-nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 0.5px solid rgba(232,226,217,0.9); transition: transform 0.3s ease-in-out; }
+.top-nav.hidden { transform: translateY(-100%); }
+.top-nav-inner { max-width: 960px; margin: 0 auto; padding: 1.1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+.nav-left { font-size: 1rem; font-weight: 600; color: rgba(26,24,22,0.85); letter-spacing: -0.01em; }
+.nav-left a { color: inherit; }
+.nav-left a:hover { color: #1A1916; }
+.nav-right { display: flex; gap: 1.75rem; }
+.nav-right a { font-size: 0.82rem; color: #717070; transition: color 0.15s; min-height: 44px; display: inline-flex; align-items: center; }
+.nav-right a:hover { color: #1A1916; }
+.nav-right a.active { color: rgba(26,24,22,0.7); }
+.wrap { max-width: 960px; margin: 0 auto; }
+
+.cs-hero { padding: 4rem 1.5rem 3rem; border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-back { font-size: 0.85rem; color: #6B6968; margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.15s; }
+.cs-back:hover { color: rgba(26,24,22,0.65); }
+.cs-eyebrow { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #a15d11; margin-bottom: 1rem; }
+.cs-h1 { font-size: clamp(2.8rem, 5.5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; color: #1A1916; margin-bottom: 1rem; max-width: 100%; }
+.cs-subtitle { font-size: 1rem; color: #595655; max-width: 100%; line-height: 1.75; }
+
+.cs-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(232,226,217,1); border-top: 0.5px solid rgba(232,226,217,1); border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-meta-item { background: #FFFFFF; padding: 1.25rem 1.5rem; }
+.cs-meta-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #717070; margin-bottom: 0.4rem; }
+.cs-meta-val { font-size: 0.9rem; color: rgba(26,24,22,0.7); font-weight: 500; }
+
+.cs-section { padding: 2.5rem 1.5rem; border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-overline { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #717070; margin-bottom: 0.6rem; }
+.cs-h2 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; color: #1A1916; margin-bottom: 0.75rem; line-height: 1.2; }
+.cs-p { font-size: 1rem; color: #595655; line-height: 1.75; margin-bottom: 0.75rem; }
+.cs-p:last-child { margin-bottom: 0; }
+.cs-p strong { color: rgba(26,24,22,0.78); font-weight: 600; }
+
+.cs-img-wrap { width: 100%; background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-img-wrap img { width: 100%; height: auto; display: block; object-fit: contain; background: #F7F5F2; }
+.cs-img-wrap video { width: 100%; display: block; background: #F7F5F2; }
+.cs-img-placeholder { aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; font-size: 1.05rem; color: #8A8988; border: 1.5px dashed rgba(216,208,196,1); border-radius: 10px; padding: 2rem; text-align: center; }
+.cs-img-placeholder-label { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(161,93,17,0.35); }
+.cs-img-caption { font-size: 0.8rem; color: #6E6C6B; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+
+.cs-img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.25rem 0; }
+.cs-img-grid-item { display: flex; flex-direction: column; gap: 0.4rem; }
+.cs-img-grid .cs-img-wrap { margin: 0; }
+
+.cs-concept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.25rem 0; }
+.cs-concept-card { background: transparent; border: none; }
+.cs-concept-img { width: 100%; height: auto; object-fit: contain; background: #F7F5F2; border-radius: 8px; border: 0.5px solid rgba(232,226,217,1); display: block; }
+.cs-concept-body { padding: 0.6rem 0 0; }
+.cs-concept-title { font-size: 0.95rem; font-weight: 600; color: #595655; margin-bottom: 0.2rem; }
+.cs-concept-text { font-size: 0.8rem; color: #717070; line-height: 1.5; }
+
+.cs-roadmap { display: flex; flex-direction: column; gap: 0.5px; background: rgba(232,226,217,1); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-roadmap-row { display: grid; grid-template-columns: 120px 1fr; background: #F7F5F2; }
+.cs-roadmap-row:first-child { background: #F7F5F2; }
+.cs-roadmap-badge { padding: 0.875rem 1rem; display: flex; align-items: flex-start; padding-top: 1rem; }
+.cs-roadmap-badge span { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; border: 0.5px solid rgba(161,93,17,0.25); color: #a15d11; white-space: nowrap; }
+.cs-roadmap-content { padding: 0.875rem 1rem 0.875rem 0; border-left: 0.5px solid rgba(232,226,217,0.9); }
+.cs-roadmap-title { font-size: 0.95rem; font-weight: 600; color: rgba(26,24,22,0.7); margin-bottom: 0.2rem; }
+.cs-roadmap-text { font-size: 1.1rem; color: #6B6968; line-height: 1.5; }
+
+.cs-insight { background: rgba(161,93,17,0.06); border: 0.5px solid rgba(161,93,17,0.25); border-radius: 10px; padding: 1.1rem 1.25rem; margin-top: 1.25rem; }
+.cs-insight-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #a15d11; margin-bottom: 0.4rem; }
+.cs-insight-text { font-size: 0.95rem; color: rgba(26,24,22,0.6); line-height: 1.65; }
+
+.cs-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 1.25rem; }
+.cs-metric { background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; padding: 1.25rem 1rem; }
+.cs-metric-val { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.03em; color: #1A1916; line-height: 1; margin-bottom: 0.5rem; }
+.cs-metric-label { font-size: 0.8rem; color: #636160; line-height: 1.45; }
+
+.cs-back-top { text-align: center; padding: 2.5rem 0 1rem; }
+.cs-back-top a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #6E6C6B; padding: 0.5rem 1.25rem; border: 0.5px solid rgba(216,208,196,1); border-radius: 99px; transition: color 0.15s, border-color 0.15s; }
+.cs-back-top a:hover { color: #595655; border-color: #6E6C6B; }
+
+footer { border-top: 0.5px solid rgba(232,226,217,0.9); padding: 1.5rem; text-align: center; font-size: 0.75rem; color: #6E6C6B; }
+
+@media (max-width: 700px) {
+  .nav-right { display: none; }
+  .cs-meta { grid-template-columns: 1fr; }
+  .cs-img-grid { grid-template-columns: 1fr; }
+  .cs-concept-grid { grid-template-columns: 1fr; }
+  .cs-metrics { grid-template-columns: repeat(2, 1fr); }
+  .cs-roadmap-row { grid-template-columns: 90px 1fr; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" style="position:absolute;top:-99px;left:0;z-index:999;padding:0.5rem 1rem;background:#a15d11;color:#fff;font-size:0.8rem;border-radius:0 0 6px 0;transition:top 0.1s;" onfocus="this.style.top='0'" onblur="this.style.top='-99px'">Skip to main content</a>
+<header class="top-nav" id="top-nav">
+  <div class="top-nav-inner">
+    <div class="nav-left"><a href="index.html">Nila Gao</a></div>
+    <nav class="nav-right" aria-label="Main navigation">
+      <a href="index.html">Projects</a>
+      <a href="playground.html">Playground</a>
+      <a href="about.html">About</a>
+      <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit" target="_blank">Resume ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="wrap">
+
+    <div class="cs-hero">
+      <a href="index.html" class="cs-back">← Back to projects</a>
+      <p class="cs-eyebrow">Case study · Klaviyo</p>
+      <h1 class="cs-h1">Audience Optimization</h1>
+      <p class="cs-subtitle">An intelligent decision engine that determines who should receive which messages — removing people likely to unsubscribe, adding people likely to convert. I led the UX from beta to GA.</p>
+      <div class="cs-img-wrap" style="margin-top:2rem;">
+        <img src="Images/AO/AO_Topimage.png" alt="Audience Optimization" class="img-cover"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none; aspect-ratio:16/9;">
+          <span class="cs-img-placeholder-label">Cover image</span>
+          <span>AO_Topimage.png</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-meta">
+      <div class="cs-meta-item"><div class="cs-meta-label">Company</div><div class="cs-meta-val">Klaviyo</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Focus</div><div class="cs-meta-val">AI Decisioning · Trust · Analytics</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Impact</div><div class="cs-meta-val">~5% KAV lift · −1.4% unsubscribe rate</div></div>
+    </div>
+
+    <!-- BACKGROUND -->
+    <div class="cs-section">
+      <p class="cs-overline">Background</p>
+      <h2 class="cs-h2">Sending to the wrong people, at scale.</h2>
+      <p class="cs-p">When multiple campaigns run simultaneously, marketers have no way to ensure the most valuable message reaches the right person. They rely on send time as a crude priority signal — manual, unscalable, and blind to engagement risk. The result: higher unsubscribes, damaged sender reputation, and lost revenue.</p>
+      <p class="cs-p">No competitor offers content-aware, real-time volume control that dynamically adjusts who gets what — based on message value, channel cost, and recipient behavior. That's the gap AO fills.</p>
+    </div>
+
+    <!-- SETUP -->
+    <div class="cs-section">
+      <p class="cs-overline">Setup experience</p>
+      <h2 class="cs-h2">One toggle. Maximum impact.</h2>
+      <p class="cs-p">AO lives in the audience selection step — a single toggle that removes recipients at high unsubscribe risk before the campaign sends. Simple to enable, easy to understand.</p>
+
+      <p class="cs-img-caption">Setup — audience selection with AO toggle</p>
+      <div class="cs-img-wrap">
+        <video src="Images/AO/AODemoSetup.mov" controls muted playsinline
+          style="width:100%; display:block; background:#000;"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+        <div class="cs-img-placeholder" style="display:none;">
+          <span class="cs-img-placeholder-label">Add video</span>
+          <span>AODemoSetup.mov</span>
+        </div>
+      </div>
+
+      <div class="cs-img-wrap">
+        <div class="cs-img-placeholder">
+          <span class="cs-img-placeholder-label">📌 Add image here</span>
+          <span>Audience selection step showing AO toggle + estimated recipients removed</span>
+        </div>
+      </div>
+
+      <div class="cs-img-wrap">
+        <div class="cs-img-placeholder">
+          <span class="cs-img-placeholder-label">📌 Add image here</span>
+          <span>Omnichannel campaign — AO enabled at campaign level and per-message override</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESIGN THINKING -->
+    <div class="cs-section">
+      <p class="cs-overline">Design thinking</p>
+      <h2 class="cs-h2">What changed → Who was removed → How it changed.</h2>
+      <p class="cs-p">The model doesn't understand campaign intent — so I couldn't make it invisible. I structured the UX as a story: where is AO active, who did it affect, and did it work? Three design questions, three sections of the experience.</p>
+
+      <p class="cs-overline" style="margin-top:1.5rem;">Showing where AO is active</p>
+      <p class="cs-p">AO is configured at the audience level but surfaces across campaign setup, the message list, and analytics. I introduced an AI badge with Design Systems to make it visible end-to-end.</p>
+
+      <div class="cs-img-grid">
+        <div class="cs-img-grid-item">
+          <span class="cs-img-caption">Campaign list with AO badge</span>
+          <div class="cs-img-wrap">
+            <img src="Images/AO/AO_appliedondashboard.png" class="img-cover-21" alt="AO on dashboard"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cs-img-placeholder" style="display:none;">AO on dashboard</div>
+          </div>
+        </div>
+        <div class="cs-img-grid-item">
+          <span class="cs-img-caption">Message-level indicator</span>
+          <div class="cs-img-wrap">
+            <img src="Images/AO/AO_applied.png" class="img-cover" alt="AO applied"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cs-img-placeholder" style="display:none;">AO applied</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="cs-overline" style="margin-top:1.5rem;">Showing who was removed</p>
+      <p class="cs-p">I explored three design directions for the campaign analytics view — from minimal summaries to full transparency panels. Option 3 won: per-feature toggles that give customers intentional control without overwhelming them.</p>
+
+      <div class="cs-concept-grid">
+        <div class="cs-concept-card">
+          <img src="Images/AO/AO design 1_ Campaign personalization box.png" alt="AO option 1" class="cs-concept-img"
+            onerror="this.style.opacity='0.15';">
+          <div class="cs-concept-body">
+            <div class="cs-concept-title">Option 1 — Summary box</div>
+            <div class="cs-concept-text">Simple, low friction — but lacks control and transparency over what was optimized.</div>
+          </div>
+        </div>
+        <div class="cs-concept-card">
+          <img src="Images/AO/AO Design 2.png" alt="AO option 2" class="cs-concept-img"
+            onerror="this.style.opacity='0.15';">
+          <div class="cs-concept-body">
+            <div class="cs-concept-title">Option 2 — Expanded metrics</div>
+            <div class="cs-concept-text">High transparency — but cognitively overwhelming at decision time.</div>
+          </div>
+        </div>
+        <div class="cs-concept-card">
+          <img src="Images/AO/Ao design 3.png" alt="AO option 3" class="cs-concept-img"
+            onerror="this.style.opacity='0.15';">
+          <div class="cs-concept-body">
+            <div class="cs-concept-title">Option 3 · chosen</div>
+            <div class="cs-concept-text">Per-feature toggles — clear control, flexible, scalable to future milestones.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANALYTICS -->
+    <div class="cs-section">
+      <p class="cs-overline">Analytics</p>
+      <h2 class="cs-h2">Did it work? Make it obvious.</h2>
+      <p class="cs-p">I partnered with Data Science to connect model decisions to clear, measurable outcomes — profiles removed, unsubscribe rate improvement, and aggregate lift across campaigns — surfaced directly in the campaign overview.</p>
+
+      <p class="cs-img-caption">Campaign analytics — profiles removed and unsubscribe lift</p>
+      <div class="cs-img-wrap">
+        <img src="Images/AO/AO_profiles removed_Reporting.png" class="img-contain" alt="AO reporting"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">AO reporting</div>
+      </div>
+
+      <div class="cs-img-wrap">
+        <div class="cs-img-placeholder">
+          <span class="cs-img-placeholder-label">📌 Add image here</span>
+          <span>Removed recipients list — profile-level drill-down from campaign overview</span>
+        </div>
+      </div>
+
+      <div class="cs-img-wrap">
+        <div class="cs-img-placeholder">
+          <span class="cs-img-placeholder-label">📌 Add image here</span>
+          <span>Aggregate analytics — adoption, profiles removed %, unsubscribe rate vs. control</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROADMAP -->
+    <div class="cs-section">
+      <p class="cs-overline">Roadmap</p>
+      <h2 class="cs-h2">From protection to full orchestration.</h2>
+      <p class="cs-p">AO ships in phases — each expanding what the model can do and how much control marketers have.</p>
+
+      <div class="cs-roadmap">
+        <div class="cs-roadmap-row">
+          <div class="cs-roadmap-badge"><span>M1 · Live</span></div>
+          <div class="cs-roadmap-content">
+            <div class="cs-roadmap-title">Remove likely-to-unsubscribe recipients</div>
+            <div class="cs-roadmap-text">Email campaigns only. Protect list health. Single objective model.</div>
+          </div>
+        </div>
+        <div class="cs-roadmap-row">
+          <div class="cs-roadmap-badge"><span>M2 · Q2</span></div>
+          <div class="cs-roadmap-content">
+            <div class="cs-roadmap-title">Multi-objective removal — all channels</div>
+            <div class="cs-roadmap-text">Remove recipients unlikely to engage or convert, or at unsubscribe risk. Email, SMS, Push, WhatsApp.</div>
+          </div>
+        </div>
+        <div class="cs-roadmap-row">
+          <div class="cs-roadmap-badge"><span>M3 · Q3</span></div>
+          <div class="cs-roadmap-content">
+            <div class="cs-roadmap-title">Add high-value recipients</div>
+            <div class="cs-roadmap-text">Add recipients likely to engage or convert — unlocking incremental revenue from people not in the original audience.</div>
+          </div>
+        </div>
+        <div class="cs-roadmap-row">
+          <div class="cs-roadmap-badge"><span>M4–5 · H2</span></div>
+          <div class="cs-roadmap-content">
+            <div class="cs-roadmap-title">Cost-aware orchestration + customer controls</div>
+            <div class="cs-roadmap-text">Factor in channel cost. Let marketers tune objectives, define exclusions, and debug decisions.</div>
+          </div>
+        </div>
+        <div class="cs-roadmap-row">
+          <div class="cs-roadmap-badge"><span>M6–7 · H2</span></div>
+          <div class="cs-roadmap-content">
+            <div class="cs-roadmap-title">Message prioritization across campaigns & flows</div>
+            <div class="cs-roadmap-text">Send the most relevant message to each recipient, considering content value, channel cost, and behavior — across all active campaigns and flows.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMPACT -->
+    <div class="cs-section" style="border-bottom:none;">
+      <p class="cs-overline">Impact</p>
+      <h2 class="cs-h2">Results</h2>
+      <div class="cs-metrics">
+        <div class="cs-metric">
+          <div class="cs-metric-val">~5%</div>
+          <div class="cs-metric-label">KAV lift for companies using the feature</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">−1.4%</div>
+          <div class="cs-metric-label">Unsubscribe rate reduction (statistically significant)</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">$640M+</div>
+          <div class="cs-metric-label">Projected impact as anchor feature of Marketing Analytics SKU</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">20%</div>
+          <div class="cs-metric-label">Target customer adoption rate at scale</div>
+        </div>
+      </div>
+      <div class="cs-insight" style="margin-top:1.5rem;">
+        <div class="cs-insight-label">Reflection</div>
+        <div class="cs-insight-text">The hardest design problem wasn't the setup — it was making the model's decisions trustworthy. When customers can see exactly who was removed, why, and what changed, they stop second-guessing the AI and start relying on it. Trust is the unlock for adoption at scale.</div>
+      </div>
+      <div class="cs-back-top">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" aria-label="Back to top of page">↑ Back to top</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>© Nila Gao 2026</footer>
+
+<script>
+const nav = document.getElementById('top-nav');
+let lastScroll = 0, ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const cur = window.pageYOffset;
+      if (cur <= 0) nav.classList.remove('hidden');
+      else if (cur > lastScroll && cur > 80) nav.classList.add('hidden');
+      else nav.classList.remove('hidden');
+      lastScroll = cur;
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+</script>
+<script src="js/scroll-reveal.js" defer></script>
+</body>
+</html>

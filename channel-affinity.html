@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="description" content="Channel Affinity — A predictive ML model that tells marketers which channel each customer is most likely to engage with.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Channel Affinity – Nila Gao</title>
+<meta property="og:title" content="Channel Affinity – Nila Gao">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/scroll-reveal.css">
+<noscript><style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }
+a:focus-visible, button:focus-visible { outline: 2px solid #a15d11; outline-offset: 3px; border-radius: 3px; }
+
+.cs-img-wrap { width: 100%; background: #F7F5F2; border: 0.5px solid rgba(232,226,217,0.9); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-img-wrap img { width: 100%; height: auto; display: block; }
+.cs-img-wrap video { width: 100%; display: block; background: #1a1a1a; }
+
+/* cover: fills container, crops to ratio */
+.img-cover    { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center top; }
+.img-cover-21 { width: 100%; aspect-ratio: 21/9; object-fit: cover; object-position: center; }
+/* contain: shows full image, no crop, white bg */
+.img-contain  { width: 100%; height: auto; display: block; object-fit: contain; max-height: 600px; }
+/* tall contain: for portrait/square images */
+.img-tall     { width: 100%; height: auto; display: block; object-fit: contain; max-height: 480px; padding: 1.5rem; background: #F7F5F2; }
+/* concept cards already use inline height via cs-concept-img */
+
+</style></noscript>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Figtree', sans-serif; background: #FFFFFF; color: #1A1916; line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+.top-nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 0.5px solid rgba(232,226,217,0.9); transition: transform 0.3s ease-in-out; }
+.top-nav.hidden { transform: translateY(-100%); }
+.top-nav-inner { max-width: 960px; margin: 0 auto; padding: 1.1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+.nav-left { font-size: 1rem; font-weight: 600; color: rgba(26,24,22,0.85); letter-spacing: -0.01em; }
+.nav-left a { color: inherit; }
+.nav-left a:hover { color: #1A1916; }
+.nav-right { display: flex; gap: 1.75rem; }
+.nav-right a { font-size: 0.82rem; color: #717070; transition: color 0.15s; min-height: 44px; display: inline-flex; align-items: center; }
+.nav-right a:hover { color: #1A1916; }
+.nav-right a.active { color: rgba(26,24,22,0.7); }
+.wrap { max-width: 960px; margin: 0 auto; }
+
+.cs-hero { padding: 4rem 1.5rem 3rem; border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-back { font-size: 0.85rem; color: #6B6968; margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.15s; }
+.cs-back:hover { color: rgba(26,24,22,0.65); }
+.cs-eyebrow { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #a15d11; margin-bottom: 1rem; }
+.cs-h1 { font-size: clamp(2.8rem, 5.5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; color: #1A1916; margin-bottom: 1rem; max-width: 100%; }
+.cs-subtitle { font-size: 1rem; color: #595655; max-width: 100%; line-height: 1.75; }
+
+.cs-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(232,226,217,1); border-top: 0.5px solid rgba(232,226,217,1); border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-meta-item { background: #FFFFFF; padding: 1.25rem 1.5rem; }
+.cs-meta-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #717070; margin-bottom: 0.4rem; }
+.cs-meta-val { font-size: 0.9rem; color: rgba(26,24,22,0.7); font-weight: 500; }
+
+.cs-section { padding: 2.5rem 1.5rem; border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-overline { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #717070; margin-bottom: 0.6rem; }
+.cs-h2 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; color: #1A1916; margin-bottom: 0.75rem; line-height: 1.2; }
+.cs-p { font-size: 1rem; color: #595655; line-height: 1.75; margin-bottom: 0.75rem; }
+.cs-p:last-child { margin-bottom: 0; }
+.cs-p strong { color: rgba(26,24,22,0.78); font-weight: 600; }
+
+.cs-img-wrap { width: 100%; background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-img-wrap img { width: 100%; height: auto; display: block; object-fit: contain; background: #F7F5F2; }
+.cs-img-placeholder { aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; font-size: 1.05rem; color: #8A8988; border: 1.5px dashed rgba(216,208,196,1); border-radius: 10px; padding: 2rem; text-align: center; }
+.cs-img-placeholder-label { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(161,93,17,0.35); }
+.cs-img-caption { font-size: 0.8rem; color: #6E6C6B; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+
+.cs-img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.25rem 0; }
+.cs-img-grid-item { display: flex; flex-direction: column; gap: 0.4rem; }
+.cs-img-grid .cs-img-wrap { margin: 0; }
+
+.cs-pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1.25rem; }
+.cs-pain { background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; padding: 1rem 1.1rem; }
+.cs-pain-title { font-size: 0.95rem; font-weight: 600; color: rgba(26,24,22,0.78); margin-bottom: 0.3rem; }
+.cs-pain-text { font-size: 0.875rem; color: #636160; line-height: 1.6; }
+.cs-pain-quote { font-size: 0.875rem; font-style: italic; color: rgba(161,93,17,0.6); margin-top: 0.5rem; line-height: 1.5; }
+
+.cs-use-cases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1.25rem; }
+.cs-use-case { background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; padding: 1rem 1.1rem; }
+.cs-use-case-title { font-size: 0.95rem; font-weight: 600; color: rgba(26,24,22,0.78); margin-bottom: 0.3rem; }
+.cs-use-case-text { font-size: 0.875rem; color: #636160; line-height: 1.55; }
+
+.cs-research-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.25rem; }
+.cs-research-card { background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; padding: 1rem 1.1rem; }
+.cs-research-title { font-size: 0.95rem; font-weight: 600; color: rgba(26,24,22,0.65); margin-bottom: 0.5rem; }
+.cs-research-item { font-size: 0.875rem; color: #636160; line-height: 1.6; padding-left: 0.875rem; position: relative; margin-bottom: 0.35rem; }
+.cs-research-item::before { content: '•'; position: absolute; left: 0; color: #a15d11; }
+
+.cs-insight { background: rgba(161,93,17,0.06); border: 0.5px solid rgba(161,93,17,0.25); border-radius: 10px; padding: 1.1rem 1.25rem; margin-top: 1.25rem; }
+.cs-insight-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #a15d11; margin-bottom: 0.4rem; }
+.cs-insight-text { font-size: 0.95rem; color: rgba(26,24,22,0.6); line-height: 1.65; }
+
+.cs-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 1.25rem; }
+.cs-metric { background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; padding: 1.25rem 1rem; }
+.cs-metric-val { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.03em; color: #1A1916; line-height: 1; margin-bottom: 0.5rem; }
+.cs-metric-label { font-size: 0.8rem; color: #636160; line-height: 1.45; }
+
+.cs-back-top { text-align: center; padding: 2.5rem 0 1rem; }
+.cs-back-top a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #6E6C6B; padding: 0.5rem 1.25rem; border: 0.5px solid rgba(216,208,196,1); border-radius: 99px; transition: color 0.15s, border-color 0.15s; }
+.cs-back-top a:hover { color: #595655; border-color: #6E6C6B; }
+
+footer { border-top: 0.5px solid rgba(232,226,217,0.9); padding: 1.5rem; text-align: center; font-size: 0.75rem; color: #6E6C6B; }
+
+@media (max-width: 700px) {
+  .nav-right { display: none; }
+  .cs-meta { grid-template-columns: 1fr; }
+  .cs-pain-grid { grid-template-columns: 1fr; }
+  .cs-img-grid { grid-template-columns: 1fr; }
+  .cs-use-cases { grid-template-columns: 1fr; }
+  .cs-research-grid { grid-template-columns: 1fr; }
+  .cs-metrics { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" style="position:absolute;top:-99px;left:0;z-index:999;padding:0.5rem 1rem;background:#a15d11;color:#fff;font-size:0.8rem;border-radius:0 0 6px 0;transition:top 0.1s;" onfocus="this.style.top='0'" onblur="this.style.top='-99px'">Skip to main content</a>
+<header class="top-nav" id="top-nav">
+  <div class="top-nav-inner">
+    <div class="nav-left"><a href="index.html">Nila Gao</a></div>
+    <nav class="nav-right" aria-label="Main navigation">
+      <a href="index.html">Projects</a>
+      <a href="playground.html">Playground</a>
+      <a href="about.html">About</a>
+      <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit" target="_blank">Resume ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="wrap">
+
+    <div class="cs-hero">
+      <a href="index.html" class="cs-back">← Back to projects</a>
+      <p class="cs-eyebrow">Case study · Klaviyo</p>
+      <h1 class="cs-h1">Channel Affinity</h1>
+      <p class="cs-subtitle">A predictive ML model that tells marketers which channel — Email, SMS, Push, or WhatsApp — each customer is most likely to engage with. I led the UX for profile attributes, segmentation, and flows.</p>
+      <div class="cs-img-wrap" style="margin-top:2rem;">
+        <img src="Images/Channel affinity/Channel affinity hero.png" alt="Channel Affinity" class="img-cover"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none; aspect-ratio:16/9;">
+          <span class="cs-img-placeholder-label">Cover image</span>
+          <span>Channel affinity hero.png</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-meta">
+      <div class="cs-meta-item"><div class="cs-meta-label">Company</div><div class="cs-meta-val">Klaviyo</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Focus</div><div class="cs-meta-val">ML Routing · Segmentation UX · Trust</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Impact</div><div class="cs-meta-val">+5–10% engagement lift · +42% SMS</div></div>
+    </div>
+
+    <!-- BACKGROUND -->
+    <div class="cs-section">
+      <p class="cs-overline">Background</p>
+      <h2 class="cs-h2">Channel selection was guesswork.</h2>
+      <p class="cs-p">About 10% of Klaviyo customers send across more than one channel monthly. When they do, they have no ML signal to tell them where each customer is most likely to engage. SMS is expensive — marketers want to spend it on people who'll actually respond. But without data, it's just intuition.</p>
+      <p class="cs-p">Customers told us directly in research — from VICI ($36k MRR) to Sakroots ($25k MRR) to Gourmetgiftbaskets ($20k MRR):</p>
+
+      <div class="cs-pain-grid">
+        <div class="cs-pain">
+          <div class="cs-pain-title">Duplicate messaging fatigue</div>
+          <div class="cs-pain-text">Sending the same message to the same person on email and SMS simultaneously feels like spam.</div>
+          <div class="cs-pain-quote">"People don't want to at the exact same time receive the same message through both channels." — Sakroots</div>
+        </div>
+        <div class="cs-pain">
+          <div class="cs-pain-title">Wasted SMS spend</div>
+          <div class="cs-pain-text">SMS costs money per message. Sending to disengaged customers burns budget with no return.</div>
+          <div class="cs-pain-quote">"We want to send SMS to people who really need it." — Customer research</div>
+        </div>
+        <div class="cs-pain">
+          <div class="cs-pain-title">Channel silos</div>
+          <div class="cs-pain-text">When someone unsubscribes from email but stays on SMS, marketers have no way to adapt their strategy to that signal.</div>
+          <div class="cs-pain-quote">"We're operating within a silo — blind to those unsubscribes." — Gourmetgiftbaskets</div>
+        </div>
+        <div class="cs-pain">
+          <div class="cs-pain-title">Manual workarounds</div>
+          <div class="cs-pain-text">Savvy customers built their own preferred channel properties using flow logic and engagement tracking — a system that doesn't scale.</div>
+          <div class="cs-pain-quote">"Some CSMs create preferred channel preferences manually." — Internal research</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOLUTION -->
+    <div class="cs-section">
+      <p class="cs-overline">Solution</p>
+      <h2 class="cs-h2">Ranked predictions. Built into your workflow.</h2>
+      <p class="cs-p">Channel Affinity uses historical engagement data — opens, clicks, delivery rates over 7, 30, and 90 days — to predict each profile's likelihood to engage with each channel. The output: two new profile properties available in Segment Builder, Flow Builder, and on the Profile page.</p>
+
+      <div class="cs-use-cases">
+        <div class="cs-use-case">
+          <div class="cs-use-case-title">Channel Engagement Preference</div>
+          <div class="cs-use-case-text">Orders channels by expected engagement — First, Second, Third. Used to route to a customer's most responsive channel.</div>
+        </div>
+        <div class="cs-use-case">
+          <div class="cs-use-case-title">Channel Engagement Tier</div>
+          <div class="cs-use-case-text">Assigns a predicted engagement level — High, Medium, Low — by comparing each profile to others. Available for single-channel accounts too.</div>
+        </div>
+      </div>
+
+      <p class="cs-img-caption" style="margin-top:1.5rem;">Before Channel Affinity — manual, rule-based routing</p>
+      <div class="cs-img-wrap">
+        <img src="Images/Channel affinity/Channel affinity current fustrations.png" class="img-cover" alt="Current frustrations"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">Current frustrations</div>
+      </div>
+
+      <p class="cs-img-caption">With Channel Affinity — automated prediction, built into existing workflows</p>
+      <div class="cs-img-wrap">
+        <img src="Images/Channel affinity/Channel affinity Future visioning.png" class="img-cover" alt="Future visioning"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">Future visioning</div>
+      </div>
+    </div>
+
+    <!-- USER TESTING -->
+    <div class="cs-section">
+      <p class="cs-overline">User testing</p>
+      <h2 class="cs-h2">11 customers. A lot of confusion.</h2>
+      <p class="cs-p">I ran 1:1 interviews with 11 customers (SMB → Mid-Market) to test whether they understood the mental model and could apply it in their workflows.</p>
+
+      <div class="cs-img-wrap">
+        <img src="Images/Channel affinity/Channel affinity User information.png" class="img-contain" alt="Research participants"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">User research participants</div>
+      </div>
+
+      <div class="cs-research-grid">
+        <div class="cs-research-card">
+          <div class="cs-research-title">What we learned</div>
+          <div class="cs-research-item">Low conceptual understanding — customers didn't know this was a prediction, not a stored preference</div>
+          <div class="cs-research-item">Terminology confusion — "preference" implied a manual field, not a model output</div>
+          <div class="cs-research-item">Lack of trust — users wanted transparency into how rankings were decided</div>
+          <div class="cs-research-item">Rank labels felt ambiguous — "top engaged" or "rank 1" didn't land clearly</div>
+        </div>
+        <div class="cs-research-card">
+          <div class="cs-research-title">Design decisions made</div>
+          <div class="cs-research-item">Renamed "preference" → "engagement" to signal it's predictive, not manual</div>
+          <div class="cs-research-item">Launched in Segment Builder first — most familiar surface, clearest mental model</div>
+          <div class="cs-research-item">Added Tier (High/Medium/Low) alongside Preference — gives context, not just rank</div>
+          <div class="cs-research-item">Used percentile-based thresholds per company — avoids one-size-fits-all cutoffs</div>
+        </div>
+      </div>
+
+      <div class="cs-insight">
+        <div class="cs-insight-label">Key insight</div>
+        <div class="cs-insight-text">Customers who have a preferred channel with low predicted engagement could be misled by a simple "preferred channel" label. The two-property system — Preference (rank) + Tier (level) — gives both the direction and the signal strength.</div>
+      </div>
+    </div>
+
+    <!-- SURFACES -->
+    <div class="cs-section">
+      <p class="cs-overline">Where it lives</p>
+      <h2 class="cs-h2">Three surfaces. One data model.</h2>
+
+      <p class="cs-img-caption">Profile page — channel engagement visible on every customer record</p>
+      <div class="cs-img-wrap">
+        <img src="Images/Channel affinity/Channel affinity - indivisual profile page.png" class="img-cover" alt="Profile page"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">Profile page</div>
+      </div>
+
+      <div class="cs-img-grid">
+        <div class="cs-img-grid-item">
+          <span class="cs-img-caption">Segment Builder — build audiences by channel engagement tier or preference</span>
+          <div class="cs-img-wrap">
+            <img src="Images/Channel affinity/Channel affinity Segment builder.png" class="img-cover-21" alt="Segment builder"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cs-img-placeholder" style="display:none;">Segment builder</div>
+          </div>
+        </div>
+        <div class="cs-img-grid-item">
+          <span class="cs-img-caption">Flow Builder — conditional splits route messages to the right channel</span>
+          <div class="cs-img-wrap">
+            <img src="Images/Channel affinity/Channel affinity flows.png" class="img-cover" alt="Flows"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cs-img-placeholder" style="display:none;">Flows</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="cs-p">The use cases this unlocks: send single-channel to the customer's most engaged channel; follow up with the second channel only if they don't respond; exclude low-engagement profiles from expensive SMS sends; or reach high-intent customers across all channels they're likely to act on.</p>
+    </div>
+
+    <!-- IMPACT -->
+    <div class="cs-section" style="border-bottom:none;">
+      <p class="cs-overline">Impact</p>
+      <h2 class="cs-h2">Results</h2>
+      <div class="cs-metrics">
+        <div class="cs-metric">
+          <div class="cs-metric-val">+5–10%</div>
+          <div class="cs-metric-label">Engagement lift in concierge experiments</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">+7.8%</div>
+          <div class="cs-metric-label">Email lift in flow experiments (directional)</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">+42%</div>
+          <div class="cs-metric-label">SMS lift in flow experiments (directional)</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">Inconclusive</div>
+          <div class="cs-metric-label">Aggregate vs. simpler heuristics — informing next-gen work</div>
+        </div>
+      </div>
+      <div class="cs-insight" style="margin-top:1.5rem;">
+        <div class="cs-insight-label">Reflection</div>
+        <div class="cs-insight-text">The hardest part wasn't the model — it was making predictions feel trustworthy. Renaming "preference" to "engagement", adding the tier system, and surfacing both rank and signal strength turned a confusing ML output into something marketers could actually act on with confidence.</div>
+      </div>
+      <div class="cs-back-top">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" aria-label="Back to top of page">↑ Back to top</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>© Nila Gao 2026</footer>
+
+<script>
+const nav = document.getElementById('top-nav');
+let lastScroll = 0, ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const cur = window.pageYOffset;
+      if (cur <= 0) nav.classList.remove('hidden');
+      else if (cur > lastScroll && cur > 80) nav.classList.add('hidden');
+      else nav.classList.remove('hidden');
+      lastScroll = cur;
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+</script>
+<script src="js/scroll-reveal.js" defer></script>
+</body>
+</html>

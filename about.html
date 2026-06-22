@@ -10,6 +10,20 @@
 <link rel="stylesheet" href="css/scroll-reveal.css">
 <noscript><style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }
 a:focus-visible, button:focus-visible { outline: 2px solid #a15d11; outline-offset: 3px; border-radius: 3px; }
+
+.cs-img-wrap { width: 100%; background: #F7F5F2; border: 0.5px solid rgba(232,226,217,0.9); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-img-wrap img { width: 100%; height: auto; display: block; }
+.cs-img-wrap video { width: 100%; display: block; background: #1a1a1a; }
+
+/* cover: fills container, crops to ratio */
+.img-cover    { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center top; }
+.img-cover-21 { width: 100%; aspect-ratio: 21/9; object-fit: cover; object-position: center; }
+/* contain: shows full image, no crop, white bg */
+.img-contain  { width: 100%; height: auto; display: block; object-fit: contain; max-height: 600px; }
+/* tall contain: for portrait/square images */
+.img-tall     { width: 100%; height: auto; display: block; object-fit: contain; max-height: 480px; padding: 1.5rem; background: #F7F5F2; }
+/* concept cards already use inline height via cs-concept-img */
+
 </style></noscript>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -19,13 +33,13 @@ a { text-decoration: none; color: inherit; }
 .top-nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 0.5px solid rgba(232,226,217,0.9); transition: transform 0.3s ease-in-out; }
 .top-nav.hidden { transform: translateY(-100%); }
 .top-nav-inner { max-width: 960px; margin: 0 auto; padding: 1.1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-.nav-left { font-size: 1.1rem; font-weight: 600; color: rgba(26,24,22,0.85); letter-spacing: -0.01em; }
+.nav-left { font-size: 1rem; font-weight: 600; color: rgba(26,24,22,0.85); letter-spacing: -0.01em; }
 .nav-left a { color: inherit; }
 .nav-left a:hover { color: #1A1916; }
 .nav-right { display: flex; gap: 1.75rem; }
-.nav-right a { min-height: 44px; display: inline-flex; align-items: center; font-size: 1.05rem; color: #717070; transition: color 0.15s; }
+.nav-right a { font-size: 0.82rem; color: #717070; transition: color 0.15s; min-height: 44px; display: inline-flex; align-items: center; }
 .nav-right a:hover { color: #1A1916; }
-.nav-right a.active { color: rgba(26,24,22,0.65); }
+.nav-right a.active { color: rgba(26,24,22,0.7); }
 
 .about-wrap { max-width: 960px; margin: 0 auto; padding: 3.5rem 1.5rem 5rem; }
 
@@ -62,7 +76,7 @@ a { text-decoration: none; color: inherit; }
 .about-link-btn.primary { border-color: rgba(161,93,17,0.3); color: #a15d11; }
 .about-link-btn.primary:hover { border-color: #a15d11; color: #a15d11; }
 
-footer { border-top: 0.5px solid rgba(232,226,217,0.9); padding: 1.5rem 1.5rem; text-align: center; font-size: 1.05rem; color: #6E6C6B; }
+footer { border-top: 0.5px solid rgba(232,226,217,0.9); padding: 1.5rem; text-align: center; font-size: 0.75rem; color: #6E6C6B; }
 
 @media (max-width: 700px) {
   .nav-right { display: none; }
@@ -77,11 +91,11 @@ footer { border-top: 0.5px solid rgba(232,226,217,0.9); padding: 1.5rem 1.5rem; 
 <a href="#main-content" style="position:absolute;top:-99px;left:0;z-index:999;padding:0.5rem 1rem;background:#a15d11;color:#fff;font-size:0.8rem;border-radius:0 0 6px 0;transition:top 0.1s;" onfocus="this.style.top='0'" onblur="this.style.top='-99px'">Skip to main content</a>
 <header class="top-nav" id="top-nav">
   <div class="top-nav-inner">
-    <div class="nav-left"><a href="index-white.html">Nila Gao</a></div>
+    <div class="nav-left"><a href="index.html">Nila Gao</a></div>
     <nav class="nav-right" aria-label="Main navigation">
-      <a href="index-white.html">Projects</a>
-      <a href="playground-white.html">Playground</a>
-      <a href="about-white.html" class="active" aria-current="page">About</a>
+      <a href="index.html">Projects</a>
+      <a href="playground.html">Playground</a>
+      <a href="about.html" class="active" aria-current="page">About</a>
       <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit" target="_blank">Resume ↗</a>
     </nav>
   </div>
@@ -91,7 +105,7 @@ footer { border-top: 0.5px solid rgba(232,226,217,0.9); padding: 1.5rem 1.5rem; 
   <div class="about-wrap">
 
     <div class="about-photo">
-      <img src="Images/Aboutimage.png" alt="Nila Gao" onerror="this.style.display='none';">
+      <img src="Images/Aboutimage.png" alt="Nila Gao" class="img-cover" style="object-position: center top;" onerror="this.style.display='none';">
     </div>
 
     <div class="about-bio-wrap">

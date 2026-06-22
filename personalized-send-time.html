@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="description" content="Personalized Send Time — Designing the scheduling UX and analytics that made marketers trust AI-driven timing.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Personalized Send Time – Nila Gao</title>
+<meta property="og:title" content="Personalized Send Time – Nila Gao">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/scroll-reveal.css">
+<noscript><style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }
+a:focus-visible, button:focus-visible { outline: 2px solid #a15d11; outline-offset: 3px; border-radius: 3px; }
+
+.cs-img-wrap { width: 100%; background: #F7F5F2; border: 0.5px solid rgba(232,226,217,0.9); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-img-wrap img { width: 100%; height: auto; display: block; }
+.cs-img-wrap video { width: 100%; display: block; background: #1a1a1a; }
+
+/* cover: fills container, crops to ratio */
+.img-cover    { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center top; }
+.img-cover-21 { width: 100%; aspect-ratio: 21/9; object-fit: cover; object-position: center; }
+/* contain: shows full image, no crop, white bg */
+.img-contain  { width: 100%; height: auto; display: block; object-fit: contain; max-height: 600px; }
+/* tall contain: for portrait/square images */
+.img-tall     { width: 100%; height: auto; display: block; object-fit: contain; max-height: 480px; padding: 1.5rem; background: #F7F5F2; }
+/* concept cards already use inline height via cs-concept-img */
+
+</style></noscript>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Figtree', sans-serif; background: #FFFFFF; color: #1A1916; line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+.top-nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 0.5px solid rgba(232,226,217,0.9); transition: transform 0.3s ease-in-out; }
+.top-nav.hidden { transform: translateY(-100%); }
+.top-nav-inner { max-width: 960px; margin: 0 auto; padding: 1.1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+.nav-left { font-size: 1rem; font-weight: 600; color: rgba(26,24,22,0.85); letter-spacing: -0.01em; }
+.nav-left a { color: inherit; }
+.nav-left a:hover { color: #1A1916; }
+.nav-right { display: flex; gap: 1.75rem; }
+.nav-right a { font-size: 0.82rem; color: #717070; transition: color 0.15s; min-height: 44px; display: inline-flex; align-items: center; }
+.nav-right a:hover { color: #1A1916; }
+.nav-right a.active { color: rgba(26,24,22,0.7); }
+.wrap { max-width: 960px; margin: 0 auto; }
+
+/* Hero */
+.cs-hero { padding: 4rem 1.5rem 3rem; border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-back { font-size: 0.85rem; color: #6B6968; margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.15s; }
+.cs-back:hover { color: rgba(26,24,22,0.65); }
+.cs-eyebrow { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #a15d11; margin-bottom: 1rem; }
+.cs-h1 { font-size: clamp(2.8rem, 5.5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; color: #1A1916; margin-bottom: 1rem; max-width: 100%; }
+.cs-subtitle { font-size: 1rem; color: #595655; max-width: 100%; line-height: 1.75; }
+
+/* Meta strip */
+.cs-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(232,226,217,1); border-top: 0.5px solid rgba(232,226,217,1); border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-meta-item { background: #FFFFFF; padding: 1.25rem 1.5rem; }
+.cs-meta-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #717070; margin-bottom: 0.4rem; }
+.cs-meta-val { font-size: 0.9rem; color: rgba(26,24,22,0.7); font-weight: 500; }
+
+/* Sections */
+.cs-section { padding: 2.5rem 1.5rem; border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-overline { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #717070; margin-bottom: 0.6rem; }
+.cs-h2 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; color: #1A1916; margin-bottom: 0.75rem; line-height: 1.2; }
+.cs-p { font-size: 1rem; color: #595655; line-height: 1.75; margin-bottom: 0.75rem; }
+.cs-p:last-child { margin-bottom: 0; }
+.cs-p strong { color: rgba(26,24,22,0.78); font-weight: 600; }
+
+/* Images */
+.cs-img-wrap { width: 100%; background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-img-wrap img { width: 100%; height: auto; display: block; object-fit: contain; background: #F7F5F2; }
+.cs-img-wrap video { width: 100%; display: block; background: #F7F5F2; }
+.cs-img-placeholder { aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; font-size: 1.05rem; color: #8A8988; border: 1.5px dashed rgba(216,208,196,1); border-radius: 10px; padding: 2rem; text-align: center; }
+.cs-img-placeholder-label { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(161,93,17,0.35); }
+.cs-img-caption { font-size: 0.8rem; color: #6E6C6B; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+
+/* 2-col image grid */
+.cs-img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.25rem 0; }
+.cs-img-grid-item { display: flex; flex-direction: column; }
+.cs-img-grid-caption { font-size: 1.1rem; color: #6E6C6B; margin-bottom: 0.4rem; }
+.cs-img-grid .cs-img-wrap { margin: 0; }
+
+/* Insight callout */
+.cs-insight { background: rgba(161,93,17,0.06); border: 0.5px solid rgba(161,93,17,0.25); border-radius: 10px; padding: 1.1rem 1.25rem; margin-top: 1.25rem; }
+.cs-insight-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #a15d11; margin-bottom: 0.4rem; }
+.cs-insight-text { font-size: 0.95rem; color: rgba(26,24,22,0.6); line-height: 1.65; }
+
+/* Metrics */
+.cs-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 1.25rem; }
+.cs-metric { background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; padding: 1.25rem 1rem; }
+.cs-metric-val { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.03em; color: #1A1916; line-height: 1; margin-bottom: 0.5rem; }
+.cs-metric-label { font-size: 0.8rem; color: #636160; line-height: 1.45; }
+
+/* Back to top */
+.cs-back-top { text-align: center; padding: 2.5rem 0 1rem; }
+.cs-back-top a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #6E6C6B; padding: 0.5rem 1.25rem; border: 0.5px solid rgba(216,208,196,1); border-radius: 99px; transition: color 0.15s, border-color 0.15s; }
+.cs-back-top a:hover { color: #595655; border-color: #6E6C6B; }
+
+footer { border-top: 0.5px solid rgba(232,226,217,0.9); padding: 1.5rem; text-align: center; font-size: 0.75rem; color: #6E6C6B; }
+
+@media (max-width: 700px) {
+  .nav-right { display: none; }
+  .cs-metrics { grid-template-columns: repeat(2, 1fr); }
+  .cs-meta { grid-template-columns: 1fr; }
+  .cs-img-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" style="position:absolute;top:-99px;left:0;z-index:999;padding:0.5rem 1rem;background:#a15d11;color:#fff;font-size:0.8rem;border-radius:0 0 6px 0;transition:top 0.1s;" onfocus="this.style.top='0'" onblur="this.style.top='-99px'">Skip to main content</a>
+<header class="top-nav" id="top-nav">
+  <div class="top-nav-inner">
+    <div class="nav-left"><a href="index.html">Nila Gao</a></div>
+    <nav class="nav-right" aria-label="Main navigation">
+      <a href="index.html">Projects</a>
+      <a href="playground.html">Playground</a>
+      <a href="about.html">About</a>
+      <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit" target="_blank">Resume ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="wrap">
+
+    <div class="cs-hero">
+      <a href="index.html" class="cs-back">← Back to projects</a>
+      <p class="cs-eyebrow">Case study · Klaviyo</p>
+      <h1 class="cs-h1">Personalized Send Time</h1>
+      <p class="cs-subtitle">PESTO sends each message when that specific person is most likely to open it. I designed the scheduling UX, manual controls, and analytics that made marketers trust it.</p>
+      <div class="cs-img-wrap" style="margin-top:2rem;">
+        <img src="Images/PST/PST toggle.png" alt="Personalized Send Time" class="img-contain"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">
+          <span class="cs-img-placeholder-label">Cover image</span>
+          <span>PST toggle.png</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-meta">
+      <div class="cs-meta-item"><div class="cs-meta-label">Company</div><div class="cs-meta-val">Klaviyo</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Focus</div><div class="cs-meta-val">Optimization UX · Trust · Analytics</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Impact</div><div class="cs-meta-val">+6% KAV lift · 27% adoption in 2 weeks</div></div>
+    </div>
+
+    <!-- BACKGROUND -->
+    <div class="cs-section">
+      <p class="cs-overline">Background</p>
+      <h2 class="cs-h2">Tuesday at 10am. Everyone. All at once.</h2>
+      <p class="cs-p">Most campaigns send everyone at the same moment. But your customers live on different schedules — and the existing Smart Send Time had gaps: no time windows, an invisible experiment baseline, and results nobody trusted. One large customer (Marley Lilly) churned over this, reporting Attentive's version doubled their revenue.</p>
+
+      <div class="cs-img-wrap">
+        <div class="cs-img-placeholder">
+          <span class="cs-img-placeholder-label">📌 Add image here</span>
+          <span>Old experience / pain point screenshot — e.g. the original SST modal</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENTRY POINT -->
+    <div class="cs-section">
+      <p class="cs-overline">Design thinking</p>
+      <h2 class="cs-h2">Build on what people already know.</h2>
+      <p class="cs-p">I tested two entry points. The dropdown won — it plugged into the existing "send type" selector marketers already used, making the new behavior feel like a natural next step.</p>
+
+      <div class="cs-img-grid">
+        <div class="cs-img-grid-item">
+          <span class="cs-img-grid-caption">Toggle — too binary, doesn't communicate a window</span>
+          <div class="cs-img-wrap">
+            <img src="Images/PST/PST toggle.png" alt="Toggle entry point"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cs-img-placeholder" style="display:none;">
+              <span class="cs-img-placeholder-label">Add image</span><span>PST toggle.png</span>
+            </div>
+          </div>
+        </div>
+        <div class="cs-img-grid-item">
+          <span class="cs-img-grid-caption">Dropdown · chosen — familiar pattern, lower cognitive load</span>
+          <div class="cs-img-wrap">
+            <img src="Images/PST/PST dropdown.png" alt="Dropdown entry point"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="cs-img-placeholder" style="display:none;">
+              <span class="cs-img-placeholder-label">Add image</span><span>PST dropdown.png</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="cs-img-caption" style="margin-top:0.5rem;">Scheduling drawer — define a window, Klaviyo finds the right moment for each person</p>
+      <div class="cs-img-wrap">
+        <video src="Images/PST/PST Manual controls.mov" controls playsinline muted
+          style="width:100%; display:block; background:#000;"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+        <div class="cs-img-placeholder" style="display:none;">
+          <span class="cs-img-placeholder-label">Add video</span><span>PST Manual controls.mov</span>
+        </div>
+      </div>
+
+      <div class="cs-img-wrap">
+        <img src="Images/PST/PST Drawer manual controls.png" class="img-cover" alt="PST Drawer"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">
+          <span class="cs-img-placeholder-label">Add image</span><span>PST Drawer manual controls.png</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MANUAL CONTROLS -->
+    <div class="cs-section">
+      <p class="cs-overline">Manual controls</p>
+      <h2 class="cs-h2">Make the experiment visible.</h2>
+      <p class="cs-p">The original PST ran a silent A/B test against an invisible baseline. I designed the Manual Controls system — giving marketers visibility into what they're comparing against, without breaking analytics integrity.</p>
+
+      <div class="cs-img-wrap">
+        <div class="cs-img-placeholder">
+          <span class="cs-img-placeholder-label">📌 Add image here</span>
+          <span>Manual control baseline selector — the UI where marketers choose what PST compares against</span>
+        </div>
+      </div>
+
+      <div class="cs-img-wrap">
+        <div class="cs-img-placeholder">
+          <span class="cs-img-placeholder-label">📌 Add image here</span>
+          <span>Account-level control settings — global default per channel</span>
+        </div>
+      </div>
+
+      <div class="cs-insight">
+        <div class="cs-insight-label">Key tension</div>
+        <div class="cs-insight-text">Too much control reintroduces complexity. Too little and it's a black box. The answer: a sensible global default with per-campaign overrides — and analytics that make the experiment structure explicit, not hidden.</div>
+      </div>
+    </div>
+
+    <!-- ANALYTICS -->
+    <div class="cs-section">
+      <p class="cs-overline">Analytics</p>
+      <h2 class="cs-h2">Trust is built through proof.</h2>
+      <p class="cs-p">Campaign-level: send time distribution vs. control. Account-level: headline lift across all campaigns. The question marketers ask is "is this working?" — I made sure they could answer it fast.</p>
+
+      <p class="cs-img-caption">Campaign analytics — send time distribution vs. control group</p>
+      <div class="cs-img-wrap">
+        <img src="Images/PST/PST Campaign analytics - send time distribution.png" class="img-cover" alt="PST campaign analytics"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">
+          <span class="cs-img-placeholder-label">Add image</span><span>PST Campaign analytics - send time distribution.png</span>
+        </div>
+      </div>
+
+      <p class="cs-img-caption">Aggregate lift — orders, clicks, opens across all campaigns using PST</p>
+      <div class="cs-img-wrap">
+        <img src="Images/PST/PST aggregate lift.png" class="img-cover" alt="PST aggregate lift"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">
+          <span class="cs-img-placeholder-label">Add image</span><span>PST aggregate lift.png</span>
+        </div>
+      </div>
+
+      <div class="cs-img-wrap">
+        <div class="cs-img-placeholder">
+          <span class="cs-img-placeholder-label">📌 Add image here</span>
+          <span>Campaign list view with PST indicator badge — shows which campaigns used PST</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMPACT -->
+    <div class="cs-section" style="border-bottom:none;">
+      <p class="cs-overline">Impact</p>
+      <h2 class="cs-h2">Results</h2>
+      <div class="cs-metrics">
+        <div class="cs-metric">
+          <div class="cs-metric-val">+6%</div>
+          <div class="cs-metric-label">Average KAV lift per campaign</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">~0.7%</div>
+          <div class="cs-metric-label">Projected sitewide KAV lift at scale</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">27%</div>
+          <div class="cs-metric-label">Adoption within 2 weeks of GA</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">~$421k</div>
+          <div class="cs-metric-label">Estimated annual infrastructure savings</div>
+        </div>
+      </div>
+      <div class="cs-insight" style="margin-top:1.5rem;">
+        <div class="cs-insight-label">Reflection</div>
+        <div class="cs-insight-text">Building trust in AI-driven features is as much a design problem as a model problem. When users can see what they're comparing against and understand why a number looks the way it does — that's when they stop second-guessing and start relying on the system.</div>
+      </div>
+      <div class="cs-back-top">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" aria-label="Back to top of page">↑ Back to top</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>© Nila Gao 2026</footer>
+
+<script>
+const nav = document.getElementById('top-nav');
+let lastScroll = 0, ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const cur = window.pageYOffset;
+      if (cur <= 0) nav.classList.remove('hidden');
+      else if (cur > lastScroll && cur > 80) nav.classList.add('hidden');
+      else nav.classList.remove('hidden');
+      lastScroll = cur;
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+</script>
+<script src="js/scroll-reveal.js" defer></script>
+</body>
+</html>

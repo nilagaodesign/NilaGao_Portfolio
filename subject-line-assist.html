@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="description" content="Subject Line Assist — How redesigning the interaction model drove an 8× increase in AI adoption at Klaviyo.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Subject Line Assist – Nila Gao</title>
+<meta property="og:title" content="Subject Line Assist – Nila Gao">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="stylesheet" href="css/scroll-reveal.css">
+<noscript><style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }
+a:focus-visible, button:focus-visible { outline: 2px solid #a15d11; outline-offset: 3px; border-radius: 3px; }
+
+.cs-img-wrap { width: 100%; background: #F7F5F2; border: 0.5px solid rgba(232,226,217,0.9); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-img-wrap img { width: 100%; height: auto; display: block; }
+.cs-img-wrap video { width: 100%; display: block; background: #1a1a1a; }
+
+/* cover: fills container, crops to ratio */
+.img-cover    { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center top; }
+.img-cover-21 { width: 100%; aspect-ratio: 21/9; object-fit: cover; object-position: center; }
+/* contain: shows full image, no crop, white bg */
+.img-contain  { width: 100%; height: auto; display: block; object-fit: contain; max-height: 600px; }
+/* tall contain: for portrait/square images */
+.img-tall     { width: 100%; height: auto; display: block; object-fit: contain; max-height: 480px; padding: 1.5rem; background: #F7F5F2; }
+/* concept cards already use inline height via cs-concept-img */
+
+</style></noscript>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Figtree', sans-serif; background: #FFFFFF; color: #1A1916; line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+.top-nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 0.5px solid rgba(232,226,217,0.9); transition: transform 0.3s ease-in-out; }
+.top-nav.hidden { transform: translateY(-100%); }
+.top-nav-inner { max-width: 960px; margin: 0 auto; padding: 1.1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+.nav-left { font-size: 1rem; font-weight: 600; color: rgba(26,24,22,0.85); letter-spacing: -0.01em; }
+.nav-left a { color: inherit; }
+.nav-left a:hover { color: #1A1916; }
+.nav-right { display: flex; gap: 1.75rem; }
+.nav-right a { font-size: 0.82rem; color: #717070; transition: color 0.15s; min-height: 44px; display: inline-flex; align-items: center; }
+.nav-right a:hover { color: #1A1916; }
+.nav-right a.active { color: rgba(26,24,22,0.7); }
+.wrap { max-width: 960px; margin: 0 auto; }
+.cs-hero { padding: 4rem 1.5rem 3rem; border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-back { font-size: 0.85rem; color: #6B6968; margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.15s; }
+.cs-back:hover { color: rgba(26,24,22,0.65); }
+.cs-eyebrow { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #a15d11; margin-bottom: 1rem; }
+.cs-h1 { font-size: clamp(2.8rem, 5.5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; color: #1A1916; margin-bottom: 1rem; max-width: 100%; }
+.cs-subtitle { font-size: 1rem; color: #595655; max-width: 100%; line-height: 1.75; }
+.cs-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(232,226,217,1); border-top: 0.5px solid rgba(232,226,217,1); border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-meta-item { background: #FFFFFF; padding: 1.25rem 1.5rem; }
+.cs-meta-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #717070; margin-bottom: 0.4rem; }
+.cs-meta-val { font-size: 0.9rem; color: rgba(26,24,22,0.7); font-weight: 500; }
+.cs-section { padding: 2.5rem 1.5rem; border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-overline { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #717070; margin-bottom: 0.6rem; }
+.cs-h2 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; color: #1A1916; margin-bottom: 0.75rem; line-height: 1.2; }
+.cs-p { font-size: 1rem; color: #595655; line-height: 1.75; margin-bottom: 0.75rem; }
+.cs-p:last-child { margin-bottom: 0; }
+.cs-p strong { color: rgba(26,24,22,0.78); font-weight: 600; }
+.cs-img-wrap { width: 100%; background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-img-wrap img { width: 100%; height: auto; display: block; object-fit: contain; background: #F7F5F2; }
+.cs-img-placeholder { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #8A8988; }
+.cs-img-caption { font-size: 0.8rem; color: #6E6C6B; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+.cs-pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1.25rem; }
+.cs-pain { background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; padding: 1rem 1.1rem; }
+.cs-pain-title { font-size: 0.95rem; font-weight: 600; color: rgba(26,24,22,0.78); margin-bottom: 0.3rem; }
+.cs-pain-text { font-size: 0.875rem; color: #636160; line-height: 1.6; }
+.cs-adoption-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; margin: 1.25rem 0; }
+.cs-adoption-bar { background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 8px; padding: 0.75rem 0.6rem; text-align: center; }
+.cs-adoption-segment { font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase; color: #6E6C6B; margin-bottom: 0.4rem; }
+.cs-adoption-pct { font-size: 1.1rem; font-weight: 700; color: rgba(26,24,22,0.6); letter-spacing: -0.02em; }
+.cs-adoption-label { font-size: 1.1rem; color: #6E6C6B; margin-top: 0.2rem; }
+.cs-concept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 1.25rem 0; }
+.cs-concept-card { background: transparent; border: none; }
+.cs-concept-img { width: 100%; height: 160px; object-fit: contain; background: #F7F5F2; border-radius: 8px; border: 0.5px solid rgba(232,226,217,1); display: block; }
+.cs-concept-body { padding: 0.6rem 0 0; }
+.cs-concept-title { font-size: 0.95rem; font-weight: 600; color: #595655; margin-bottom: 0.2rem; }
+.cs-concept-text { font-size: 0.8rem; color: #717070; line-height: 1.5; }
+.cs-timeline { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 1.25rem; }
+.cs-tl-line { position: absolute; top: 13px; left: 16.67%; right: 16.67%; height: 1px; background: rgba(216,208,196,1); z-index: 0; }
+.cs-tl-line-fill { position: absolute; top: 13px; left: 16.67%; width: 66.67%; height: 1px; background: rgba(161,93,17,0.5); z-index: 0; }
+.cs-tl-item { display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; z-index: 1; padding: 0 0.5rem; }
+.cs-tl-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(216,208,196,1); border: 1.5px solid #8A8988; margin-bottom: 0.875rem; flex-shrink: 0; }
+.cs-tl-item.chosen .cs-tl-dot { background: #a15d11; border-color: #a15d11; width: 13px; height: 13px; margin-bottom: calc(0.875rem - 1.5px); }
+.cs-tl-badge { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #6E6C6B; margin-bottom: 0.35rem; }
+.cs-tl-item.chosen .cs-tl-badge { color: #a15d11; }
+.cs-tl-title { font-size: 0.95rem; font-weight: 600; color: #595655; margin-bottom: 0.25rem; }
+.cs-tl-item.chosen .cs-tl-title { color: #1A1916; }
+.cs-tl-text { font-size: 0.875rem; color: #717070; line-height: 1.5; }
+.cs-tl-item.chosen .cs-tl-text { color: rgba(26,24,22,0.5); }
+.cs-insight { background: rgba(161,93,17,0.06); border: 0.5px solid rgba(161,93,17,0.25); border-radius: 10px; padding: 1.1rem 1.25rem; margin-top: 1.25rem; }
+.cs-insight-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #a15d11; margin-bottom: 0.4rem; }
+.cs-insight-text { font-size: 0.95rem; color: rgba(26,24,22,0.6); line-height: 1.65; }
+.cs-decisions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1rem; }
+.cs-decision { background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; padding: 1rem 1.1rem; }
+.cs-decision-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #a15d11; margin-bottom: 0.4rem; }
+.cs-decision-text { font-size: 0.875rem; color: #595655; line-height: 1.6; }
+.cs-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1.25rem; }
+.cs-metric { background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; padding: 1.5rem 1.25rem; }
+.cs-metric-val { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.03em; color: #1A1916; line-height: 1; margin-bottom: 0.5rem; }
+.cs-metric-label { font-size: 0.8rem; color: #636160; line-height: 1.45; }
+.cs-back-top { text-align: center; padding: 2.5rem 0 1rem; }
+.cs-back-top a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #6E6C6B; padding: 0.5rem 1.25rem; border: 0.5px solid rgba(216,208,196,1); border-radius: 99px; transition: color 0.15s, border-color 0.15s; }
+.cs-back-top a:hover { color: #595655; border-color: #6E6C6B; }
+footer { border-top: 0.5px solid rgba(232,226,217,0.9); padding: 1.5rem; text-align: center; font-size: 0.75rem; color: #6E6C6B; }
+@media (max-width: 700px) {
+  .nav-right { display: none; }
+  .cs-pain-grid { grid-template-columns: 1fr; }
+  .cs-adoption-grid { grid-template-columns: repeat(3, 1fr); }
+  .cs-concept-grid { grid-template-columns: 1fr; }
+  .cs-timeline { grid-template-columns: 1fr; }
+  .cs-decisions { grid-template-columns: 1fr; }
+  .cs-metrics { grid-template-columns: 1fr; }
+  .cs-meta { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" style="position:absolute;top:-99px;left:0;z-index:999;padding:0.5rem 1rem;background:#a15d11;color:#fff;font-size:0.8rem;border-radius:0 0 6px 0;transition:top 0.1s;" onfocus="this.style.top='0'" onblur="this.style.top='-99px'">Skip to main content</a>
+<header class="top-nav" id="top-nav">
+  <div class="top-nav-inner">
+    <div class="nav-left"><a href="index.html">Nila Gao</a></div>
+    <nav class="nav-right" aria-label="Main navigation">
+      <a href="index.html">Projects</a>
+      <a href="playground.html">Playground</a>
+      <a href="about.html">About</a>
+      <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit" target="_blank">Resume ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="wrap">
+
+    <div class="cs-hero">
+      <a href="index.html" class="cs-back">← Back to projects</a>
+      <p class="cs-eyebrow">Case study · Klaviyo</p>
+      <h1 class="cs-h1">Subject Line Assist</h1>
+      <p class="cs-subtitle">Klaviyo's AI could write brand-aligned subject lines automatically. Only 1.74% of users were using it. I redesigned the interaction model from scratch and drove an 8× increase in adoption.</p>
+      <div class="cs-img-wrap" style="margin-top:2rem;">
+        <img src="Images/Subjectlineassist/Typeaheadimage.png" alt="Subject Line Assist" class="img-cover"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none; aspect-ratio:16/9;">Subject Line Assist cover</div>
+      </div>
+    </div>
+
+    <div class="cs-meta">
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Company</div>
+        <div class="cs-meta-val">Klaviyo</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Focus</div>
+        <div class="cs-meta-val">Interaction Design · AI UX · Experimentation</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Impact</div>
+        <div class="cs-meta-val">1.5% → 24% account-level adoption</div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <p class="cs-overline">Background</p>
+      <h2 class="cs-h2">Great AI. Nobody using it.</h2>
+      <p class="cs-p">Klaviyo's Subject Line Assistant used your brand's historical emails, tone, and segment data to generate personalized subject lines automatically. The AI was good. But across every customer tier — from scrappy startups to enterprise accounts — barely anyone was using it.</p>
+      <p class="cs-p">Average adoption: <strong>1.74% of messages.</strong> Flat. Across all segments.</p>
+
+      <div class="cs-adoption-grid">
+        <div class="cs-adoption-bar">
+          <div class="cs-adoption-segment">LENT</div>
+          <div class="cs-adoption-pct">2.8%</div>
+          <div class="cs-adoption-label">Large enterprise</div>
+        </div>
+        <div class="cs-adoption-bar">
+          <div class="cs-adoption-segment">UENT</div>
+          <div class="cs-adoption-pct">2.0%</div>
+          <div class="cs-adoption-label">Upper enterprise</div>
+        </div>
+        <div class="cs-adoption-bar">
+          <div class="cs-adoption-segment">LSMB</div>
+          <div class="cs-adoption-pct">1.6%</div>
+          <div class="cs-adoption-label">Large SMB</div>
+        </div>
+        <div class="cs-adoption-bar">
+          <div class="cs-adoption-segment">USMB</div>
+          <div class="cs-adoption-pct">1.3%</div>
+          <div class="cs-adoption-label">Upper SMB</div>
+        </div>
+        <div class="cs-adoption-bar">
+          <div class="cs-adoption-segment">MM</div>
+          <div class="cs-adoption-pct">1.0%</div>
+          <div class="cs-adoption-label">Mid-market</div>
+        </div>
+      </div>
+
+      <p class="cs-p" style="margin-top:1.25rem;">User tickets told the same story. About 5 tickets and 10 chats every month — all saying the same things:</p>
+      <div class="cs-pain-grid">
+        <div class="cs-pain">
+          <div class="cs-pain-title">Too many clicks</div>
+          <div class="cs-pain-text">The SLA required clicking an icon, filling in context fields, and clicking generate — multiple screen changes just to see a suggestion.</div>
+        </div>
+        <div class="cs-pain">
+          <div class="cs-pain-title">Disconnected from writing</div>
+          <div class="cs-pain-text">Users had to leave the subject line field entirely to access the assistant, breaking their flow at the exact moment they needed help.</div>
+        </div>
+        <div class="cs-pain">
+          <div class="cs-pain-title">Suggestions felt generic</div>
+          <div class="cs-pain-text">Output didn't reflect brand voice or campaign context. Users didn't trust it, so they didn't use it again.</div>
+        </div>
+        <div class="cs-pain">
+          <div class="cs-pain-title">Hard to learn</div>
+          <div class="cs-pain-text">"Takes time to learn to generate subject lines that are brand relevant" — users gave up before they ever got good results.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <p class="cs-overline">Design thinking</p>
+      <h2 class="cs-h2">The interaction model was the problem.</h2>
+      <p class="cs-p">My goal: reduce clicks to 3 or fewer, integrate brand services, and get adoption to ~5% of messages. But before picking a direction, I explored three fundamentally different theories of how AI should enter the writing experience.</p>
+
+      <div class="cs-concept-grid">
+        <div class="cs-concept-card">
+          <img src="Images/Subjectlineassist/Subject line assist_conceptexploration_ adding keywords.png"
+            alt="Keyword-Based Prompting" class="cs-concept-img" onerror="this.style.opacity='0.15';">
+          <div class="cs-concept-body">
+            <div class="cs-concept-title">Keyword-based prompting</div>
+            <div class="cs-concept-text">Users guide AI with keywords — adds intent, but still an extra step. Creates uncertainty around what the AI will do.</div>
+          </div>
+        </div>
+        <div class="cs-concept-card">
+          <img src="Images/Subjectlineassist/Conceptexploration_toolbarbased.png"
+            alt="Toolbar-Based AI" class="cs-concept-img" onerror="this.style.opacity='0.15';">
+          <div class="cs-concept-body">
+            <div class="cs-concept-title">Toolbar-based controls</div>
+            <div class="cs-concept-text">AI triggered via a sparkle icon — more efficient, but still reactive. Users have to remember to activate it every time.</div>
+          </div>
+        </div>
+        <div class="cs-concept-card">
+          <img src="Images/Subjectlineassist/Conceptexploration_performancebased.png"
+            alt="Performance-Informed" class="cs-concept-img" onerror="this.style.opacity='0.15';">
+          <div class="cs-concept-body">
+            <div class="cs-concept-title">Performance-informed</div>
+            <div class="cs-concept-text">Surfaces past subject lines with open rates — builds trust but raises data clarity concerns and echo-chamber risk.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-insight">
+        <div class="cs-insight-label">Key insight</div>
+        <div class="cs-insight-text">Every concept still required users to do something extra. The pattern became clear: any friction — a click, a modal, a context field — was enough to make users skip it. The guiding principle: <strong>guidance without friction.</strong></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <p class="cs-overline">Experimentation</p>
+      <h2 class="cs-h2">Three experiments. One clear winner.</h2>
+      <p class="cs-p">I designed and shipped an A/B/C experiment across ⅓ of all Klaviyo users — free and paid — to isolate the impact of proactive vs. reactive AI and inline vs. modal interactions. Each user account was assigned to one variation so experiences stayed consistent.</p>
+
+      <div class="cs-timeline">
+        <div class="cs-tl-line"></div>
+        <div class="cs-tl-line-fill"></div>
+        <div class="cs-tl-item">
+          <div class="cs-tl-dot"></div>
+          <div class="cs-tl-badge">Control · A</div>
+          <div class="cs-tl-title">Modal</div>
+          <div class="cs-tl-text">Existing multi-step experience — click icon, fill context, click generate</div>
+        </div>
+        <div class="cs-tl-item">
+          <div class="cs-tl-dot"></div>
+          <div class="cs-tl-badge">Variant · B</div>
+          <div class="cs-tl-title">Reactive</div>
+          <div class="cs-tl-text">Sparkle icon triggers inline suggestions with a regenerate option</div>
+        </div>
+        <div class="cs-tl-item chosen">
+          <div class="cs-tl-dot"></div>
+          <div class="cs-tl-badge">Variant · C · chosen</div>
+          <div class="cs-tl-title">Proactive</div>
+          <div class="cs-tl-text">Suggestions surface on focus, refresh every 3 words with a 2-second pause</div>
+        </div>
+      </div>
+
+      <p class="cs-img-caption" style="margin-top:1.5rem;">Control — existing modal-based Subject Line Assistant</p>
+      <div class="cs-img-wrap">
+        <img src="Images/Subjectlineassist/Experiment1_original.gif" alt="Control"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">Control — modal SLA</div>
+      </div>
+
+      <p class="cs-img-caption">Variant B — reactive AI via sparkle icon</p>
+      <div class="cs-img-wrap">
+        <img src="Images/Subjectlineassist/Reactive.gif" alt="Reactive AI"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">Reactive AI</div>
+      </div>
+
+      <p class="cs-img-caption">Variant C — proactive inline AI surfacing suggestions as users type</p>
+      <div class="cs-img-wrap">
+        <img src="Images/Subjectlineassist/proactive.gif" alt="Proactive inline AI"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">Proactive inline AI</div>
+      </div>
+
+      <div class="cs-insight">
+        <div class="cs-insight-label">Experiment takeaway</div>
+        <div class="cs-insight-text">Proactive inline AI drove ~6× higher message-level adoption and ~8× higher account-level adoption vs. the modal baseline. Interaction design — not the AI model — was the constraint the whole time.</div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <p class="cs-overline">Final design</p>
+      <h2 class="cs-h2">Type. See. Choose.</h2>
+      <p class="cs-p">Variant C became the shipped experience. Proactive adaptive autocomplete — embedded directly in the subject line field, pulling from the user's last 5 emails, brand tone service, and segment attributes (lifecycle stage, product preferences). No modal. No extra clicks. The AI shows up where you already are.</p>
+
+      <div class="cs-img-wrap">
+        <img src="Images/Subjectlineassist/Finaldesign.png" class="img-contain" style="max-height:700px;" alt="Final Design"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">Final Design</div>
+      </div>
+
+      <p class="cs-overline" style="margin-top:1.5rem;">Key design decisions</p>
+      <div class="cs-decisions">
+        <div class="cs-decision">
+          <div class="cs-decision-label">Discoverability</div>
+          <div class="cs-decision-text">Suggestions appear when the field is focused — no activation step, no icon to hunt for. Zero additional clicks to see the AI.</div>
+        </div>
+        <div class="cs-decision">
+          <div class="cs-decision-label">Timing</div>
+          <div class="cs-decision-text">Suggestions refresh every 3 words with a 2-second pause — responsive to context without interrupting the writing rhythm.</div>
+        </div>
+        <div class="cs-decision">
+          <div class="cs-decision-label">Control</div>
+          <div class="cs-decision-text">A visible loading state lets users cancel a refresh and keep the current suggestions. AI supports — never blocks.</div>
+        </div>
+        <div class="cs-decision">
+          <div class="cs-decision-label">Exploration</div>
+          <div class="cs-decision-text">Regenerate gives users a new set of suggestions without losing their place — iteration without commitment.</div>
+        </div>
+        <div class="cs-decision" style="grid-column:1/-1;">
+          <div class="cs-decision-label">Brand relevance</div>
+          <div class="cs-decision-text">Suggestions pull from historical subject lines, the brand tone service, and segment attributes — so output feels like yours, not generic AI copy. When no historical data exists, the system falls back to segment context (e.g. "Holiday Specials for Our Loyal Shoppers!") rather than going generic.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section" style="border-bottom:none;">
+      <p class="cs-overline">Impact</p>
+      <h2 class="cs-h2">Results</h2>
+      <div class="cs-metrics">
+        <div class="cs-metric">
+          <div class="cs-metric-val">1.5% → 8–9%</div>
+          <div class="cs-metric-label">Message-level adoption (~6× increase)</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">3% → 24%</div>
+          <div class="cs-metric-label">Account-level adoption (~8× increase)</div>
+        </div>
+      </div>
+      <div class="cs-insight" style="margin-top:1.5rem;">
+        <div class="cs-insight-label">Reflection</div>
+        <div class="cs-insight-text">The AI was already good enough. What changed was where and when it showed up. Moving from a modal users had to find — to suggestions that appeared in context, without a single extra click — was the entire unlock. The PRD originally targeted 3× adoption (~5%). We hit 8×. Sometimes the best design decision is removing the decision entirely.</div>
+      </div>
+      <div class="cs-back-top">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" aria-label="Back to top of page">↑ Back to top</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>© Nila Gao 2026</footer>
+
+<script>
+const nav = document.getElementById('top-nav');
+let lastScroll = 0, ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const cur = window.pageYOffset;
+      if (cur <= 0) nav.classList.remove('hidden');
+      else if (cur > lastScroll && cur > 80) nav.classList.add('hidden');
+      else nav.classList.remove('hidden');
+      lastScroll = cur;
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+</script>
+<script src="js/scroll-reveal.js" defer></script>
+</body>
+</html>

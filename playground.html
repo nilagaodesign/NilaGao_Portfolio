@@ -3,11 +3,26 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>White – Playground – Nila Gao</title>
+<title>Playground – Nila Gao</title>
+<meta property="og:title" content="Playground – Nila Gao">
 <meta name="description" content="Nila Gao's playground — explorations across installations, branding, and exhibitions.">
 <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/scroll-reveal.css">
-<noscript><style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }</style></noscript>
+<noscript><style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }
+.cs-img-wrap { width: 100%; background: #F7F5F2; border: 0.5px solid rgba(232,226,217,0.9); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-img-wrap img { width: 100%; height: auto; display: block; }
+.cs-img-wrap video { width: 100%; display: block; background: #1a1a1a; }
+
+/* cover: fills container, crops to ratio */
+.img-cover    { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center top; }
+.img-cover-21 { width: 100%; aspect-ratio: 21/9; object-fit: cover; object-position: center; }
+/* contain: shows full image, no crop, white bg */
+.img-contain  { width: 100%; height: auto; display: block; object-fit: contain; max-height: 600px; }
+/* tall contain: for portrait/square images */
+.img-tall     { width: 100%; height: auto; display: block; object-fit: contain; max-height: 480px; padding: 1.5rem; background: #F7F5F2; }
+/* concept cards already use inline height via cs-concept-img */
+
+</style></noscript>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Figtree', sans-serif; background: #FFFFFF; color: #1A1916; line-height: 1.6; }
@@ -60,7 +75,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #a15d11; outline-offs
 .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease-out, transform 0.55s ease-out; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-footer { border-top: 0.5px solid rgba(242,237,230,0.08); padding: 1.5rem; text-align: center; font-size: 0.75rem; color: #6E6C6B; }
+footer { border-top: 0.5px solid rgba(232,226,217,0.9); padding: 1.5rem; text-align: center; font-size: 0.75rem; color: #6E6C6B; }
 
 @media (max-width: 700px) {
   .nav-right { display: none; }
@@ -71,13 +86,14 @@ footer { border-top: 0.5px solid rgba(242,237,230,0.08); padding: 1.5rem; text-a
 </head>
 <body>
 
+<a href="#main-content" style="position:absolute;top:-99px;left:0;z-index:999;padding:0.5rem 1rem;background:#a15d11;color:#fff;font-size:0.8rem;border-radius:0 0 6px 0;transition:top 0.1s;" onfocus="this.style.top='0'" onblur="this.style.top='-99px'">Skip to main content</a>
 <header class="top-nav" id="top-nav">
   <div class="top-nav-inner">
-    <div class="nav-left"><a href="index-white.html">Nila Gao</a></div>
+    <div class="nav-left"><a href="index.html">Nila Gao</a></div>
     <nav class="nav-right" aria-label="Main navigation">
-      <a href="index-white.html">Projects</a>
-      <a href="playground-white.html" class="active" aria-current="page">Playground</a>
-      <a href="about-white.html">About</a>
+      <a href="index.html">Projects</a>
+      <a href="playground.html" class="active" aria-current="page">Playground</a>
+      <a href="about.html">About</a>
       <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit" target="_blank">Resume ↗</a>
     </nav>
   </div>
@@ -97,7 +113,7 @@ footer { border-top: 0.5px solid rgba(242,237,230,0.08); padding: 1.5rem; text-a
     <section class="pg-section">
       <div class="pg-grid">
 
-        <a href="case-study5-white.html" class="pg-card fade-in">
+        <a href="case-study5.html" class="pg-card fade-in">
           <img src="Images/Peoplesvertex/headingimage.avif" alt="People's Vertex" class="pg-card-img"
             onerror="this.style.opacity='0.3';">
           <div class="pg-card-body">
@@ -106,7 +122,7 @@ footer { border-top: 0.5px solid rgba(242,237,230,0.08); padding: 1.5rem; text-a
           </div>
         </a>
 
-        <a href="case-study-4run2-white.html" class="pg-card fade-in">
+        <a href="case-study-4run2.html" class="pg-card fade-in">
           <img src="Images/4Run2/4run2thumbnail.avif" alt="4Run2" class="pg-card-img pg-card-img--contain"
             onerror="this.style.opacity='0.3';">
           <div class="pg-card-body">

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="description" content="Data XRay — Designing an AI analytics workbook for non-technical users at Athenic AI.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Data XRay – Nila Gao</title>
+<meta property="og:title" content="Data XRay – Nila Gao">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="stylesheet" href="css/scroll-reveal.css">
+<noscript><style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }
+a:focus-visible, button:focus-visible { outline: 2px solid #a15d11; outline-offset: 3px; border-radius: 3px; }
+
+.cs-img-wrap { width: 100%; background: #F7F5F2; border: 0.5px solid rgba(232,226,217,0.9); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-img-wrap img { width: 100%; height: auto; display: block; }
+.cs-img-wrap video { width: 100%; display: block; background: #1a1a1a; }
+
+/* cover: fills container, crops to ratio */
+.img-cover    { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center top; }
+.img-cover-21 { width: 100%; aspect-ratio: 21/9; object-fit: cover; object-position: center; }
+/* contain: shows full image, no crop, white bg */
+.img-contain  { width: 100%; height: auto; display: block; object-fit: contain; max-height: 600px; }
+/* tall contain: for portrait/square images */
+.img-tall     { width: 100%; height: auto; display: block; object-fit: contain; max-height: 480px; padding: 1.5rem; background: #F7F5F2; }
+/* concept cards already use inline height via cs-concept-img */
+
+</style></noscript>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Figtree', sans-serif; background: #FFFFFF; color: #1A1916; line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+
+.top-nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 0.5px solid rgba(232,226,217,0.9); transition: transform 0.3s ease-in-out; }
+.top-nav.hidden { transform: translateY(-100%); }
+.top-nav-inner { max-width: 960px; margin: 0 auto; padding: 1.1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+.nav-left { font-size: 1rem; font-weight: 600; color: rgba(26,24,22,0.85); letter-spacing: -0.01em; }
+.nav-left a { color: inherit; }
+.nav-left a:hover { color: #1A1916; }
+.nav-right { display: flex; gap: 1.75rem; }
+.nav-right a { font-size: 0.82rem; color: #717070; transition: color 0.15s; min-height: 44px; display: inline-flex; align-items: center; }
+.nav-right a:hover { color: #1A1916; }
+.nav-right a.active { color: rgba(26,24,22,0.7); }
+
+.wrap { max-width: 960px; margin: 0 auto; }
+
+/* Hero */
+.cs-hero { padding: 4rem 1.5rem 3rem; border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-back { font-size: 0.85rem; color: #6B6968; margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.15s; }
+.cs-back:hover { color: rgba(26,24,22,0.65); }
+.cs-eyebrow { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #a15d11; margin-bottom: 1rem; }
+.cs-h1 { font-size: clamp(2.8rem, 5.5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; color: #1A1916; margin-bottom: 1rem; max-width: 100%; }
+.cs-subtitle { font-size: 1rem; color: #595655; max-width: 100%; line-height: 1.75; }
+
+/* Meta strip */
+.cs-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(232,226,217,1); border-top: 0.5px solid rgba(232,226,217,1); border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-meta-item { background: #FFFFFF; padding: 1.25rem 1.5rem; }
+.cs-meta-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #717070; margin-bottom: 0.4rem; }
+.cs-meta-val { font-size: 0.9rem; color: rgba(26,24,22,0.7); font-weight: 500; }
+
+/* Sections */
+.cs-section { padding: 2.5rem 1.5rem; border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-overline { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #717070; margin-bottom: 0.6rem; }
+.cs-h2 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; color: #1A1916; margin-bottom: 0.75rem; line-height: 1.2; }
+.cs-p { font-size: 1rem; color: #595655; line-height: 1.75; margin-bottom: 0.75rem; }
+.cs-p:last-child { margin-bottom: 0; }
+
+/* Pain cards */
+.cs-pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1.25rem; }
+.cs-pain { background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; padding: 1rem 1.1rem; }
+.cs-pain-title { font-size: 0.95rem; font-weight: 600; color: rgba(26,24,22,0.78); margin-bottom: 0.3rem; }
+.cs-pain-text { font-size: 0.875rem; color: #636160; line-height: 1.6; }
+
+/* Image/video blocks */
+.cs-img-wrap { width: 100%; background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-img-wrap img { width: 100%; height: auto; display: block; object-fit: contain; background: #F7F5F2; }
+.cs-img-wrap video { width: 100%; display: block; background: #F7F5F2; border-radius: 10px; }
+.cs-img-placeholder { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #8A8988; }
+.cs-img-caption { font-size: 0.8rem; color: #6E6C6B; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+
+/* Timeline */
+.cs-timeline { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 1.25rem; }
+.cs-tl-line { position: absolute; top: 13px; left: 12.5%; right: 12.5%; height: 1px; background: rgba(216,208,196,1); z-index: 0; }
+.cs-tl-line-fill { position: absolute; top: 13px; left: 12.5%; width: 75%; height: 1px; background: rgba(161,93,17,0.5); z-index: 0; }
+.cs-tl-item { display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; z-index: 1; padding: 0 0.5rem; }
+.cs-tl-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(216,208,196,1); border: 1.5px solid #8A8988; margin-bottom: 0.875rem; flex-shrink: 0; }
+.cs-tl-item.chosen .cs-tl-dot { background: #a15d11; border-color: #a15d11; width: 13px; height: 13px; margin-bottom: calc(0.875rem - 1.5px); }
+.cs-tl-badge { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #6E6C6B; margin-bottom: 0.35rem; }
+.cs-tl-item.chosen .cs-tl-badge { color: #a15d11; }
+.cs-tl-title { font-size: 0.95rem; font-weight: 600; color: #595655; margin-bottom: 0.25rem; }
+.cs-tl-item.chosen .cs-tl-title { color: #1A1916; }
+.cs-tl-text { font-size: 0.875rem; color: #717070; line-height: 1.5; }
+.cs-tl-item.chosen .cs-tl-text { color: rgba(26,24,22,0.5); }
+
+/* Iteration strip (keep for fallback) */
+.cs-iter { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 1.25rem; }
+.cs-iter-item { background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; padding: 1rem; }
+.cs-iter-item.chosen { border-color: #a15d11; background: rgba(161,93,17,0.06); }
+.cs-iter-badge { display: inline-block; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; border: 0.5px solid rgba(216,208,196,1); color: #6B6968; margin-bottom: 0.5rem; }
+.cs-iter-item.chosen .cs-iter-badge { border-color: #a15d11; color: #a15d11; background: rgba(184,169,142,0.1); }
+.cs-iter-title { font-size: 1.1rem; font-weight: 600; color: rgba(26,24,22,0.78); margin-bottom: 0.25rem; }
+.cs-iter-text { font-size: 1.1rem; color: #636160; line-height: 1.5; }
+
+/* Concept cards (2-col iteration images) */
+.cs-concept-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 2rem; margin: 1.25rem 0; }
+.cs-concept-card { background: transparent; border: none; border-radius: 0; overflow: hidden; }
+.cs-concept-img { width: 100%; height: auto; display: block; background: #F7F5F2; border-radius: 8px; border: 0.5px solid rgba(232,226,217,1); }
+.cs-concept-body { padding: 0.6rem 0 0; }
+.cs-concept-title { font-size: 0.95rem; font-weight: 600; color: #595655; margin-bottom: 0.2rem; }
+.cs-concept-text { font-size: 0.8rem; color: #717070; line-height: 1.5; }
+
+/* Insight callout */
+.cs-insight { background: rgba(161,93,17,0.06); border: 0.5px solid rgba(161,93,17,0.25); border-radius: 10px; padding: 1.1rem 1.25rem; margin-top: 1.25rem; }
+.cs-insight-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #a15d11; margin-bottom: 0.4rem; }
+.cs-insight-text { font-size: 0.95rem; color: rgba(26,24,22,0.6); line-height: 1.65; }
+
+/* Final design cards */
+.cs-final-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: 1.25rem; }
+.cs-final-card { background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; overflow: hidden; }
+.cs-final-img { width: 100%; aspect-ratio: 16/10; background: #F7F5F2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; }
+.cs-final-icon { font-size: 1.375rem; color: #8A8988; }
+.cs-final-img span { font-size: 1.1rem; color: #6E6C6B; text-align: center; padding: 0 0.75rem; }
+.cs-final-body { padding: 0.875rem 1rem; }
+.cs-final-title { font-size: 1.1rem; font-weight: 600; color: rgba(26,24,22,0.78); margin-bottom: 0.2rem; }
+.cs-final-text { font-size: 0.8rem; color: #636160; line-height: 1.5; }
+
+/* Metrics */
+.cs-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: 1.25rem; }
+.cs-metric { background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; padding: 1.5rem 1.25rem; }
+.cs-metric-val { font-size: 2.8rem; font-weight: 700; letter-spacing: -0.03em; color: #1A1916; line-height: 1; margin-bottom: 0.5rem; }
+.cs-metric-label { font-size: 0.8rem; color: #636160; line-height: 1.45; }
+
+/* Back to top */
+.cs-back-top { text-align: center; padding: 2.5rem 0 1rem; }
+.cs-back-top a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #6E6C6B; padding: 0.5rem 1.25rem; border: 0.5px solid rgba(216,208,196,1); border-radius: 99px; transition: color 0.15s, border-color 0.15s; }
+.cs-back-top a:hover { color: #595655; border-color: #6E6C6B; }
+
+footer { border-top: 0.5px solid rgba(232,226,217,0.9); padding: 1.5rem; text-align: center; font-size: 0.75rem; color: #6E6C6B; }
+
+@media (max-width: 700px) {
+  .nav-right { display: none; }
+  .cs-pain-grid { grid-template-columns: 1fr; }
+  .cs-iter { grid-template-columns: repeat(2, 1fr); }
+  .cs-final-grid { grid-template-columns: 1fr; }
+  .cs-metrics { grid-template-columns: 1fr; }
+  .cs-concept-grid { grid-template-columns: 1fr; }
+  .cs-meta { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" style="position:absolute;top:-99px;left:0;z-index:999;padding:0.5rem 1rem;background:#a15d11;color:#fff;font-size:0.8rem;border-radius:0 0 6px 0;transition:top 0.1s;" onfocus="this.style.top='0'" onblur="this.style.top='-99px'">Skip to main content</a>
+<header class="top-nav" id="top-nav">
+  <div class="top-nav-inner">
+    <div class="nav-left"><a href="index.html">Nila Gao</a></div>
+    <nav class="nav-right" aria-label="Main navigation">
+      <a href="index.html">Projects</a>
+      <a href="playground.html">Playground</a>
+      <a href="about.html">About</a>
+      <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit" target="_blank">Resume ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="wrap">
+
+    <div class="cs-hero">
+      <a href="index.html" class="cs-back">← Back to projects</a>
+      <p class="cs-eyebrow">Case study · Athenic AI</p>
+      <h1 class="cs-h1">Data XRay</h1>
+      <p class="cs-subtitle" style="max-width:100%;">Athenic lets business teams analyze data in plain English — no SQL, no data team required. I led the end-to-end design to make that promise feel real.</p>
+      <div class="cs-img-wrap" style="margin-top: 2rem;">
+        <img src="Images/AthenicAi/fc15c1_daf756bef187452ab5f633c5d06977d7f000.avif" alt="Data XRay cover" class="img-cover"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none; aspect-ratio:16/9;">Data XRay cover</div>
+      </div>
+    </div>
+
+    <div class="cs-meta">
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Company</div>
+        <div class="cs-meta-val">Athenic AI</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Focus</div>
+        <div class="cs-meta-val">AI UX · Activation · Engagement</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Impact</div>
+        <div class="cs-meta-val">+18% activation · BMW as customer</div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <p class="cs-overline">Background</p>
+      <h2 class="cs-h2">Powerful AI. But nobody could use it.</h2>
+      <p class="cs-p">Users would sign up, get confused, and leave before experiencing any value. Not because the AI failed — because the experience got in the way.</p>
+      <div class="cs-pain-grid">
+        <div class="cs-pain">
+          <div class="cs-pain-title">Unclear question asking</div>
+          <div class="cs-pain-text">Users didn't know how to phrase questions the AI could actually answer.</div>
+        </div>
+        <div class="cs-pain">
+          <div class="cs-pain-title">Hidden product value</div>
+          <div class="cs-pain-text">Users couldn't see enough of the product to understand what was possible.</div>
+        </div>
+        <div class="cs-pain">
+          <div class="cs-pain-title">No continuity</div>
+          <div class="cs-pain-text">Every session felt like starting over — no history, no follow-ups, no flow.</div>
+        </div>
+        <div class="cs-pain">
+          <div class="cs-pain-title">Fragmented flows</div>
+          <div class="cs-pain-text">Dashboard and search were disconnected — constant context switching.</div>
+        </div>
+      </div>
+      <div class="cs-img-wrap">
+        <img src="Images/AthenicAi/AthenicAI_understandingpainpoint.avif" class="img-cover-21" alt="Understanding pain points"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">Understanding pain points</div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <p class="cs-overline">Design thinking</p>
+      <h2 class="cs-h2">Fewer features. More clarity.</h2>
+      <p class="cs-p">Rather than adding more AI power, I focused on instructional design, discoverability, and conversational continuity. I led a whiteboard session with engineering to map capabilities and prioritize what to build first.</p>
+      <div class="cs-img-wrap">
+        <img src="Images/AthenicAi/AthenicAI_whiteboarding.avif" class="img-cover-21" alt="Whiteboard session"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">Whiteboard session</div>
+      </div>
+      <p class="cs-p">Over 12 rounds of user testing, I iterated through four distinct product directions before converging on the workbook.</p>
+      <div class="cs-timeline">
+        <div class="cs-tl-line"></div>
+        <div class="cs-tl-line-fill"></div>
+        <div class="cs-tl-item">
+          <div class="cs-tl-dot"></div>
+          <div class="cs-tl-badge">V1</div>
+          <div class="cs-tl-title">Search bar</div>
+          <div class="cs-tl-text">Asking AI questions for tables & graphs</div>
+        </div>
+        <div class="cs-tl-item">
+          <div class="cs-tl-dot"></div>
+          <div class="cs-tl-badge">V2</div>
+          <div class="cs-tl-title">Chat</div>
+          <div class="cs-tl-text">Transition from search to conversational AI</div>
+        </div>
+        <div class="cs-tl-item">
+          <div class="cs-tl-dot"></div>
+          <div class="cs-tl-badge">V3</div>
+          <div class="cs-tl-title">Tabs</div>
+          <div class="cs-tl-text">Reducing clutter through merged navigation</div>
+        </div>
+        <div class="cs-tl-item chosen">
+          <div class="cs-tl-dot"></div>
+          <div class="cs-tl-badge">V4 · chosen</div>
+          <div class="cs-tl-title">Workbook</div>
+          <div class="cs-tl-text">Merging search and dashboard into one unified space</div>
+        </div>
+      </div>
+      <div class="cs-img-wrap" style="margin-top:1.25rem;">
+        <img src="Images/AthenicAi/AthenicAi_Iteration.avif" class="img-cover-21" alt="Iteration studies"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="cs-img-placeholder" style="display:none;">Iteration studies</div>
+      </div>
+      <div class="cs-concept-grid">
+        <div class="cs-concept-card">
+          <img src="Images/AthenicAi/AthenicAi_productpivot_searchbar.avif" alt="Search bar" class="cs-concept-img" onerror="this.style.display='none';">
+          <div class="cs-concept-body">
+            <div class="cs-concept-title">Search bar experience</div>
+            <div class="cs-concept-text">Asking AI questions for tables & graphs</div>
+          </div>
+        </div>
+        <div class="cs-concept-card">
+          <img src="Images/AthenicAi/AthenicAi_productpivot_chat.avif" alt="Chat" class="cs-concept-img" onerror="this.style.display='none';">
+          <div class="cs-concept-body">
+            <div class="cs-concept-title">Chat experience</div>
+            <div class="cs-concept-text">Transition from search AI to conversational AI</div>
+          </div>
+        </div>
+        <div class="cs-concept-card">
+          <img src="Images/AthenicAi/AthenicAi_productpivot_tabs.avif" alt="Tabs" class="cs-concept-img" onerror="this.style.display='none';">
+          <div class="cs-concept-body">
+            <div class="cs-concept-title">Tabs experience</div>
+            <div class="cs-concept-text">Reducing clutter through merged tabs</div>
+          </div>
+        </div>
+        <div class="cs-concept-card">
+          <img src="Images/AthenicAi/AthenicAi_productpivot_workbook.avif" alt="Workbook" class="cs-concept-img" onerror="this.style.display='none';">
+          <div class="cs-concept-body">
+            <div class="cs-concept-title" style="color: #a15d11;">Workbook experience · chosen</div>
+            <div class="cs-concept-text">Merging search and dashboard into one unified space</div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-insight">
+        <div class="cs-insight-label">Key insight</div>
+        <div class="cs-insight-text">Users didn't need more analytical power — they needed clarity, guidance, and continuity. The constraint wasn't the AI. It was the experience around it.</div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <p class="cs-overline">Final design</p>
+      <h2 class="cs-h2">Ask. See. Remember.</h2>
+      <p class="cs-p">Chat, charts, and saved insights unified in one workbook. Users ask a question, see the answer visualized, and build on it — without ever losing their place.</p>
+
+      <div style="display:flex; flex-direction:column; gap:2rem; margin-top:1.25rem;">
+
+        <div>
+          <p class="cs-img-caption">Workbook & chat — unified experience</p>
+          <div class="cs-img-wrap" style="margin-top:0.4rem;">
+            <video src="Images/AthenicAi/New Dashboard Asking Experience (1).mp4" controls muted style="width:100%; display:block; background:#000;"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+            <div class="cs-img-placeholder" style="display:none; aspect-ratio:16/9;">Workbook & chat integrated</div>
+          </div>
+          <div style="margin-top:0.6rem;">
+            <div style="font-size:0.78rem; font-weight:600; color:rgba(26,24,22,0.78); margin-bottom:0.2rem;">Unified workbook</div>
+            <div style="font-size:0.72rem; color:#636160; line-height:1.55;">Ask questions and see charts in one place — no context switching between search and dashboard.</div>
+          </div>
+        </div>
+
+        <div>
+          <p class="cs-img-caption">Question asking — transparency during wait time</p>
+          <div class="cs-img-wrap" style="margin-top:0.4rem;">
+            <video src="Images/AthenicAi/Questionaskingexperience.mp4" controls muted style="width:100%; display:block; background:#000;"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+            <div class="cs-img-placeholder" style="display:none; aspect-ratio:16/9;">Question asking experience</div>
+          </div>
+          <div style="margin-top:0.6rem;">
+            <div style="font-size:0.78rem; font-weight:600; color:rgba(26,24,22,0.78); margin-bottom:0.2rem;">Transparent wait time</div>
+            <div style="font-size:0.72rem; color:#636160; line-height:1.55;">Animated feedback while the backend processes — pulls tables first, then graphs, showing where data comes from. Builds trust while users wait.</div>
+          </div>
+        </div>
+
+        <div>
+          <p class="cs-img-caption">Question history — continuity across sessions</p>
+          <div class="cs-img-wrap" style="margin-top:0.4rem;">
+            <video src="Images/AthenicAi/Question History Experience (1).mp4" controls muted style="width:100%; display:block; background:#000;"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+            <div class="cs-img-placeholder" style="display:none; aspect-ratio:16/9;">Question history experience</div>
+          </div>
+          <div style="margin-top:0.6rem;">
+            <div style="font-size:0.78rem; font-weight:600; color:rgba(26,24,22,0.78); margin-bottom:0.2rem;">Question history</div>
+            <div style="font-size:0.72rem; color:#636160; line-height:1.55;">Access previously asked questions within the current session and across past sessions — so insights build on each other instead of starting over every time.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="cs-section" style="border-bottom: none;">
+      <p class="cs-overline">Impact</p>
+      <h2 class="cs-h2">Results</h2>
+      <div class="cs-metrics">
+        <div class="cs-metric">
+          <div class="cs-metric-val">+18%</div>
+          <div class="cs-metric-label">Increase in product activation</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">15</div>
+          <div class="cs-metric-label">Installs in the first week post-launch</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">BMW</div>
+          <div class="cs-metric-label">Enterprise customer acquired</div>
+        </div>
+      </div>
+      <div class="cs-insight" style="margin-top: 1.5rem;">
+        <div class="cs-insight-label">Reflection</div>
+        <div class="cs-insight-text">Powerful AI is only valuable when users understand and trust it. By reframing analytics as a conversational, insight-driven experience, Data XRay helped non-technical teams engage with their data confidently — without needing a data analyst in the room.</div>
+      </div>
+      <div class="cs-back-top">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" aria-label="Back to top of page">↑ Back to top</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>© Nila Gao 2026</footer>
+
+<script>
+const nav = document.getElementById('top-nav');
+let lastScroll = 0, ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const cur = window.pageYOffset;
+      if (cur <= 0) nav.classList.remove('hidden');
+      else if (cur > lastScroll && cur > 80) nav.classList.add('hidden');
+      else nav.classList.remove('hidden');
+      lastScroll = cur;
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+</script>
+<script src="js/scroll-reveal.js" defer></script>
+</body>
+</html>
