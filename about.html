@@ -2,65 +2,92 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="description" content="About Nila Gao — AI Designer at Klaviyo making machine learning feel human.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>About – Nila Gao</title>
+<meta property="og:title" content="About – Nila Gao">
 <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/scroll-reveal.css">
+<noscript><style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }
+a:focus-visible, button:focus-visible { outline: 2px solid #a15d11; outline-offset: 3px; border-radius: 3px; }
+</style></noscript>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Figtree', sans-serif; background: #FAFAF9; color: #1A1916; line-height: 1.6; }
+body { font-family: 'Figtree', sans-serif; background: #FFFFFF; color: #1A1916; line-height: 1.6; }
 a { text-decoration: none; color: inherit; }
 
-.top-nav { position: sticky; top: 0; z-index: 50; background: rgba(250,250,249,0.92); backdrop-filter: blur(8px); border-bottom: 0.5px solid rgba(26,25,22,0.08); transition: transform 0.3s ease-in-out; }
+.top-nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 0.5px solid rgba(232,226,217,0.9); transition: transform 0.3s ease-in-out; }
 .top-nav.hidden { transform: translateY(-100%); }
 .top-nav-inner { max-width: 960px; margin: 0 auto; padding: 1.1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-.nav-left { font-size: 1rem; font-weight: 600; color: #1A1916; letter-spacing: -0.01em; }
+.nav-left { font-size: 1.1rem; font-weight: 600; color: rgba(26,24,22,0.85); letter-spacing: -0.01em; }
 .nav-left a { color: inherit; }
+.nav-left a:hover { color: #1A1916; }
 .nav-right { display: flex; gap: 1.75rem; }
-.nav-right a { font-size: 0.82rem; color: rgba(26,25,22,0.4); transition: color 0.15s; }
+.nav-right a { min-height: 44px; display: inline-flex; align-items: center; font-size: 1.05rem; color: #717070; transition: color 0.15s; }
 .nav-right a:hover { color: #1A1916; }
-.nav-right a.active { color: rgba(26,25,22,0.7); }
+.nav-right a.active { color: rgba(26,24,22,0.65); }
 
 .about-wrap { max-width: 960px; margin: 0 auto; padding: 3.5rem 1.5rem 5rem; }
 
-.about-photo { width: 100%; aspect-ratio: 16/9; background: #E8E5E0; border-radius: 14px; overflow: hidden; margin-bottom: 3.5rem; }
+/* Photo */
+.about-photo { width: 100%; aspect-ratio: 16/9; background: #1C1B19; border-radius: 14px; overflow: hidden; margin-bottom: 3.5rem; }
 .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.about-bio-wrap { max-width: 560px; margin-bottom: 3rem; }
-.about-intro { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 600; font-style: normal; line-height: 1.25; letter-spacing: -0.02em; color: #1A1916; margin-bottom: 1.25rem; }
-.about-bio { font-size: 0.9rem; line-height: 1.9; color: rgba(26,25,22,0.55); margin-bottom: 0.75rem; }
+/* Intro — big italic opener */
+.about-intro { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; font-style: normal; line-height: 1.25; letter-spacing: -0.02em; color: #1A1916; margin-bottom: 1.25rem; max-width: 100%; }
+.about-intro em { color: #a15d11; font-style: italic; }
+
+/* Fact tags row */
+.about-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 3rem; }
+.about-tag { font-size: 1.05rem; padding: 0.4rem 0.875rem; border-radius: 99px; border: 0.5px solid rgba(216,208,196,1); color: rgba(26,24,22,0.5); letter-spacing: 0.02em; }
+.about-tag.accent { border-color: rgba(161,93,17,0.25); color: #a15d11; }
+
+/* Bio */
+.about-bio-wrap { max-width: 100%; margin-bottom: 3rem; }
+.about-bio { font-size: 1.1rem; line-height: 1.9; color: #595655; margin-bottom: 0.75rem; }
 .about-bio:last-child { margin-bottom: 0; }
-.about-bio strong { color: #1A1916; font-weight: 600; }
+.about-bio strong { color: rgba(26,24,22,0.78); font-weight: 600; }
 
+/* Currently section */
+.about-currently { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(232,226,217,0.9); border-radius: 12px; overflow: hidden; margin-bottom: 3rem; }
+.about-currently-item { background: #FFFFFF; padding: 1.25rem 1.25rem 1.5rem; }
+.about-currently-label { font-size: 1.1rem; letter-spacing: 0.14em; text-transform: uppercase; color: #8A8988; margin-bottom: 0.6rem; }
+.about-currently-val { font-size: 1.05rem; color: #595655; line-height: 1.5; }
+.about-currently-val strong { color: rgba(26,24,22,0.85); font-weight: 600; display: block; }
+
+/* Links */
 .about-links-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.about-link-btn { font-size: 0.78rem; padding: 0.55rem 1.1rem; border-radius: 99px; border: 0.5px solid rgba(26,25,22,0.15); color: rgba(26,25,22,0.5); transition: border-color 0.15s, color 0.15s; letter-spacing: 0.02em; }
-.about-link-btn:hover { border-color: rgba(26,25,22,0.4); color: #1A1916; }
-.about-link-btn.primary { border-color: rgba(26,25,22,0.3); color: #1A1916; }
-.about-link-btn.primary:hover { border-color: #1A1916; }
+.about-link-btn { font-size: 1.1rem; padding: 0.55rem 1.1rem; border-radius: 99px; border: 0.5px solid rgba(216,208,196,1); color: rgba(26,24,22,0.5); transition: border-color 0.15s, color 0.15s; letter-spacing: 0.02em; }
+.about-link-btn:hover { border-color: #717070; color: #1A1916; }
+.about-link-btn.primary { border-color: rgba(161,93,17,0.3); color: #a15d11; }
+.about-link-btn.primary:hover { border-color: #a15d11; color: #a15d11; }
 
-footer { border-top: 0.5px solid rgba(26,25,22,0.08); padding: 1.5rem 1.5rem; text-align: center; font-size: 0.75rem; color: rgba(26,25,22,0.3); }
+footer { border-top: 0.5px solid rgba(232,226,217,0.9); padding: 1.5rem 1.5rem; text-align: center; font-size: 1.05rem; color: #6E6C6B; }
 
 @media (max-width: 700px) {
   .nav-right { display: none; }
   .about-photo { aspect-ratio: 4/3; }
   .about-intro { font-size: 1.45rem; }
+  .about-currently { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
+<a href="#main-content" style="position:absolute;top:-99px;left:0;z-index:999;padding:0.5rem 1rem;background:#a15d11;color:#fff;font-size:0.8rem;border-radius:0 0 6px 0;transition:top 0.1s;" onfocus="this.style.top='0'" onblur="this.style.top='-99px'">Skip to main content</a>
 <header class="top-nav" id="top-nav">
   <div class="top-nav-inner">
-    <div class="nav-left"><a href="index.html">Nila Gao</a></div>
-    <nav class="nav-right">
-      <a href="index.html">Projects</a>
-      <a href="playground.html">Playground</a>
-      <a href="about.html" class="active">About</a>
+    <div class="nav-left"><a href="index-white.html">Nila Gao</a></div>
+    <nav class="nav-right" aria-label="Main navigation">
+      <a href="index-white.html">Projects</a>
+      <a href="playground-white.html">Playground</a>
+      <a href="about-white.html" class="active" aria-current="page">About</a>
       <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit" target="_blank">Resume ↗</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="main-content">
   <div class="about-wrap">
 
     <div class="about-photo">
@@ -72,6 +99,8 @@ footer { border-top: 0.5px solid rgba(26,25,22,0.08); padding: 1.5rem 1.5rem; te
       <p class="about-bio">I'm a soup girl. I grew up in my family's Chinese restaurant in New York — working there taught me that small details shape how people feel. I still design that way.</p>
       <p class="about-bio">Now I'm at <strong>Klaviyo</strong>, designing AI features that help marketers send smarter. The goal is always the same — make the complex feel effortless.</p>
     </div>
+
+
 
     <div class="about-links-row">
       <a href="https://www.linkedin.com/in/nila-gao/" target="_blank" class="about-link-btn primary">LinkedIn ↗</a>
@@ -101,5 +130,6 @@ window.addEventListener('scroll', () => {
   }
 });
 </script>
+<script src="js/scroll-reveal.js" defer></script>
 </body>
 </html>
