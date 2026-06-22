@@ -2,51 +2,55 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="description" content="Audience Optimization — An AI decision engine that removes likely-to-unsubscribe recipients before campaigns send.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Audience Optimization – Nila Gao</title>
+<meta property="og:title" content="Audience Optimization – Nila Gao">
 <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/scroll-reveal.css">
-<noscript><style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }</style></noscript>
+<noscript><style>.reveal-on-scroll { opacity: 1 !important; transform: none !important; }
+a:focus-visible, button:focus-visible { outline: 2px solid #a15d11; outline-offset: 3px; border-radius: 3px; }
+</style></noscript>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Figtree', sans-serif; background: #0A0A09; color: #F2EDE6; line-height: 1.6; }
+body { font-family: 'Figtree', sans-serif; background: #FFFFFF; color: #1A1916; line-height: 1.6; }
 a { text-decoration: none; color: inherit; }
-.top-nav { position: sticky; top: 0; z-index: 50; background: rgba(10,10,9,0.92); backdrop-filter: blur(8px); border-bottom: 0.5px solid rgba(242,237,230,0.08); transition: transform 0.3s ease-in-out; }
+.top-nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 0.5px solid rgba(232,226,217,1); transition: transform 0.3s ease-in-out; }
 .top-nav.hidden { transform: translateY(-100%); }
 .top-nav-inner { max-width: 960px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-.nav-left { font-size: 0.95rem; font-weight: 600; color: #F2EDE6; }
+.nav-left { font-size: 1.05rem; font-weight: 600; color: #1A1916; }
 .nav-left a { color: inherit; }
 .nav-left a:hover { opacity: 0.7; }
 .nav-right { display: flex; gap: 1.5rem; }
-.nav-right a { font-size: 0.8rem; color: rgba(242,237,230,0.45); transition: color 0.15s; }
-.nav-right a:hover { color: #F2EDE6; }
+.nav-right a { min-height: 44px; display: inline-flex; align-items: center; font-size: 1.1rem; color: #636160; transition: color 0.15s; }
+.nav-right a:hover { color: #1A1916; }
 .wrap { max-width: 960px; margin: 0 auto; }
 
-.cs-hero { padding: 4rem 1.5rem 3rem; border-bottom: 0.5px solid rgba(242,237,230,0.08); }
-.cs-back { font-size: 0.8rem; color: rgba(242,237,230,0.4); margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.15s; }
-.cs-back:hover { color: rgba(242,237,230,0.7); }
-.cs-eyebrow { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: #B8A98E; margin-bottom: 1rem; }
-.cs-h1 { font-size: clamp(2.5rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; color: #F2EDE6; margin-bottom: 1rem; max-width: 600px; }
-.cs-subtitle { font-size: 0.88rem; color: rgba(242,237,230,0.55); max-width: 100%; line-height: 1.75; }
+.cs-hero { padding: 4rem 1.5rem 3rem; border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-back { font-size: 0.85rem; color: #6B6968; margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.15s; }
+.cs-back:hover { color: rgba(26,24,22,0.65); }
+.cs-eyebrow { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #a15d11; margin-bottom: 1rem; }
+.cs-h1 { font-size: clamp(2.8rem, 5.5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; color: #1A1916; margin-bottom: 1rem; max-width: 600px; }
+.cs-subtitle { font-size: 1rem; color: #595655; max-width: 100%; line-height: 1.75; }
 
-.cs-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(242,237,230,0.08); border-top: 0.5px solid rgba(242,237,230,0.08); border-bottom: 0.5px solid rgba(242,237,230,0.08); }
-.cs-meta-item { background: #0A0A09; padding: 1.25rem 1.5rem; }
-.cs-meta-label { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(242,237,230,0.35); margin-bottom: 0.4rem; }
-.cs-meta-val { font-size: 0.85rem; color: rgba(242,237,230,0.75); font-weight: 500; }
+.cs-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(232,226,217,1); border-top: 0.5px solid rgba(232,226,217,1); border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-meta-item { background: #FFFFFF; padding: 1.25rem 1.5rem; }
+.cs-meta-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #717070; margin-bottom: 0.4rem; }
+.cs-meta-val { font-size: 0.9rem; color: rgba(26,24,22,0.7); font-weight: 500; }
 
-.cs-section { padding: 2.5rem 1.5rem; border-bottom: 0.5px solid rgba(242,237,230,0.08); }
-.cs-overline { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(242,237,230,0.35); margin-bottom: 0.6rem; }
-.cs-h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: #F2EDE6; margin-bottom: 0.75rem; line-height: 1.2; }
-.cs-p { font-size: 0.85rem; color: rgba(242,237,230,0.6); line-height: 1.75; margin-bottom: 0.75rem; }
+.cs-section { padding: 2.5rem 1.5rem; border-bottom: 0.5px solid rgba(232,226,217,1); }
+.cs-overline { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #717070; margin-bottom: 0.6rem; }
+.cs-h2 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; color: #1A1916; margin-bottom: 0.75rem; line-height: 1.2; }
+.cs-p { font-size: 1rem; color: #595655; line-height: 1.75; margin-bottom: 0.75rem; }
 .cs-p:last-child { margin-bottom: 0; }
-.cs-p strong { color: rgba(242,237,230,0.8); font-weight: 600; }
+.cs-p strong { color: rgba(26,24,22,0.78); font-weight: 600; }
 
-.cs-img-wrap { width: 100%; background: #131311; border: 0.5px solid rgba(242,237,230,0.1); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
-.cs-img-wrap img { width: 100%; height: auto; display: block; object-fit: contain; background: #131311; }
-.cs-img-wrap video { width: 100%; display: block; background: #000; }
-.cs-img-placeholder { aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.72rem; color: rgba(242,237,230,0.2); border: 1.5px dashed rgba(242,237,230,0.1); border-radius: 10px; padding: 2rem; text-align: center; }
-.cs-img-placeholder-label { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(184,169,142,0.4); }
-.cs-img-caption { font-size: 0.7rem; color: rgba(242,237,230,0.3); margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+.cs-img-wrap { width: 100%; background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-img-wrap img { width: 100%; height: auto; display: block; object-fit: contain; background: #F7F5F2; }
+.cs-img-wrap video { width: 100%; display: block; background: #F7F5F2; }
+.cs-img-placeholder { aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; font-size: 1.05rem; color: #8A8988; border: 1.5px dashed rgba(216,208,196,1); border-radius: 10px; padding: 2rem; text-align: center; }
+.cs-img-placeholder-label { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(161,93,17,0.35); }
+.cs-img-caption { font-size: 0.8rem; color: #6E6C6B; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
 
 .cs-img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.25rem 0; }
 .cs-img-grid-item { display: flex; flex-direction: column; gap: 0.4rem; }
@@ -54,34 +58,34 @@ a { text-decoration: none; color: inherit; }
 
 .cs-concept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.25rem 0; }
 .cs-concept-card { background: transparent; border: none; }
-.cs-concept-img { width: 100%; height: auto; object-fit: contain; background: #1c1b18; border-radius: 8px; border: 0.5px solid rgba(242,237,230,0.08); display: block; }
+.cs-concept-img { width: 100%; height: auto; object-fit: contain; background: #F7F5F2; border-radius: 8px; border: 0.5px solid rgba(232,226,217,1); display: block; }
 .cs-concept-body { padding: 0.6rem 0 0; }
-.cs-concept-title { font-size: 0.75rem; font-weight: 600; color: rgba(242,237,230,0.6); margin-bottom: 0.2rem; }
-.cs-concept-text { font-size: 0.68rem; color: rgba(242,237,230,0.35); line-height: 1.5; }
+.cs-concept-title { font-size: 0.95rem; font-weight: 600; color: #595655; margin-bottom: 0.2rem; }
+.cs-concept-text { font-size: 0.8rem; color: #717070; line-height: 1.5; }
 
-.cs-roadmap { display: flex; flex-direction: column; gap: 0.5px; background: rgba(242,237,230,0.08); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
-.cs-roadmap-row { display: grid; grid-template-columns: 120px 1fr; background: #131311; }
-.cs-roadmap-row:first-child { background: #1a1916; }
+.cs-roadmap { display: flex; flex-direction: column; gap: 0.5px; background: rgba(232,226,217,1); border-radius: 10px; overflow: hidden; margin: 1.25rem 0; }
+.cs-roadmap-row { display: grid; grid-template-columns: 120px 1fr; background: #F7F5F2; }
+.cs-roadmap-row:first-child { background: #F7F5F2; }
 .cs-roadmap-badge { padding: 0.875rem 1rem; display: flex; align-items: flex-start; padding-top: 1rem; }
-.cs-roadmap-badge span { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; border: 0.5px solid rgba(184,169,142,0.3); color: #B8A98E; white-space: nowrap; }
-.cs-roadmap-content { padding: 0.875rem 1rem 0.875rem 0; border-left: 0.5px solid rgba(242,237,230,0.07); }
-.cs-roadmap-title { font-size: 0.78rem; font-weight: 600; color: rgba(242,237,230,0.75); margin-bottom: 0.2rem; }
-.cs-roadmap-text { font-size: 0.7rem; color: rgba(242,237,230,0.4); line-height: 1.5; }
+.cs-roadmap-badge span { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; border: 0.5px solid rgba(161,93,17,0.25); color: #a15d11; white-space: nowrap; }
+.cs-roadmap-content { padding: 0.875rem 1rem 0.875rem 0; border-left: 0.5px solid rgba(232,226,217,0.9); }
+.cs-roadmap-title { font-size: 0.95rem; font-weight: 600; color: rgba(26,24,22,0.7); margin-bottom: 0.2rem; }
+.cs-roadmap-text { font-size: 1.1rem; color: #6B6968; line-height: 1.5; }
 
-.cs-insight { background: rgba(184,169,142,0.07); border: 0.5px solid rgba(184,169,142,0.25); border-radius: 10px; padding: 1.1rem 1.25rem; margin-top: 1.25rem; }
-.cs-insight-label { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: #B8A98E; margin-bottom: 0.4rem; }
-.cs-insight-text { font-size: 0.82rem; color: rgba(242,237,230,0.65); line-height: 1.65; }
+.cs-insight { background: rgba(161,93,17,0.06); border: 0.5px solid rgba(161,93,17,0.25); border-radius: 10px; padding: 1.1rem 1.25rem; margin-top: 1.25rem; }
+.cs-insight-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #a15d11; margin-bottom: 0.4rem; }
+.cs-insight-text { font-size: 0.95rem; color: rgba(26,24,22,0.6); line-height: 1.65; }
 
 .cs-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 1.25rem; }
-.cs-metric { background: #131311; border: 0.5px solid rgba(242,237,230,0.1); border-radius: 10px; padding: 1.25rem 1rem; }
-.cs-metric-val { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; color: #F2EDE6; line-height: 1; margin-bottom: 0.5rem; }
-.cs-metric-label { font-size: 0.68rem; color: rgba(242,237,230,0.45); line-height: 1.45; }
+.cs-metric { background: #F7F5F2; border: 0.5px solid rgba(216,208,196,1); border-radius: 10px; padding: 1.25rem 1rem; }
+.cs-metric-val { font-size: 1.65rem; font-weight: 700; letter-spacing: -0.03em; color: #1A1916; line-height: 1; margin-bottom: 0.5rem; }
+.cs-metric-label { font-size: 0.8rem; color: #636160; line-height: 1.45; }
 
 .cs-back-top { text-align: center; padding: 2.5rem 0 1rem; }
-.cs-back-top a { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(242,237,230,0.25); padding: 0.5rem 1.25rem; border: 0.5px solid rgba(242,237,230,0.12); border-radius: 99px; transition: color 0.15s, border-color 0.15s; }
-.cs-back-top a:hover { color: rgba(242,237,230,0.6); border-color: rgba(242,237,230,0.3); }
+.cs-back-top a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #6E6C6B; padding: 0.5rem 1.25rem; border: 0.5px solid rgba(216,208,196,1); border-radius: 99px; transition: color 0.15s, border-color 0.15s; }
+.cs-back-top a:hover { color: #595655; border-color: #6E6C6B; }
 
-footer { border-top: 0.5px solid rgba(242,237,230,0.08); padding: 1.5rem 1.5rem; text-align: center; font-size: 0.75rem; color: rgba(242,237,230,0.25); }
+footer { border-top: 0.5px solid rgba(232,226,217,1); padding: 1.5rem 1.5rem; text-align: center; font-size: 1.05rem; color: #6E6C6B; }
 
 @media (max-width: 700px) {
   .nav-right { display: none; }
@@ -95,23 +99,24 @@ footer { border-top: 0.5px solid rgba(242,237,230,0.08); padding: 1.5rem 1.5rem;
 </head>
 <body>
 
+<a href="#main-content" style="position:absolute;top:-99px;left:0;z-index:999;padding:0.5rem 1rem;background:#a15d11;color:#fff;font-size:0.8rem;border-radius:0 0 6px 0;transition:top 0.1s;" onfocus="this.style.top='0'" onblur="this.style.top='-99px'">Skip to main content</a>
 <header class="top-nav" id="top-nav">
   <div class="top-nav-inner">
-    <div class="nav-left"><a href="index.html">Nila Gao</a></div>
-    <nav class="nav-right">
-      <a href="index.html">Projects</a>
-      <a href="playground.html">Playground</a>
-      <a href="about.html">About</a>
+    <div class="nav-left"><a href="index-white.html">Nila Gao</a></div>
+    <nav class="nav-right" aria-label="Main navigation">
+      <a href="index-white.html">Projects</a>
+      <a href="playground-white.html">Playground</a>
+      <a href="about-white.html">About</a>
       <a href="https://docs.google.com/document/d/1xMYgFVV8WB2Wj24K4v6swgLmBFmVYXQ8/edit" target="_blank">Resume ↗</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="main-content">
   <div class="wrap">
 
     <div class="cs-hero">
-      <a href="index.html" class="cs-back">← Back to projects</a>
+      <a href="index-white.html" class="cs-back">← Back to projects</a>
       <p class="cs-eyebrow">Case study · Klaviyo</p>
       <h1 class="cs-h1">Audience Optimization</h1>
       <p class="cs-subtitle">An intelligent decision engine that determines who should receive which messages — removing people likely to unsubscribe, adding people likely to convert. I led the UX from beta to GA.</p>
@@ -331,7 +336,7 @@ footer { border-top: 0.5px solid rgba(242,237,230,0.08); padding: 1.5rem 1.5rem;
         <div class="cs-insight-text">The hardest design problem wasn't the setup — it was making the model's decisions trustworthy. When customers can see exactly who was removed, why, and what changed, they stop second-guessing the AI and start relying on it. Trust is the unlock for adoption at scale.</div>
       </div>
       <div class="cs-back-top">
-        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Back to top</a>
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" aria-label="Back to top of page">↑ Back to top</a>
       </div>
     </div>
 
